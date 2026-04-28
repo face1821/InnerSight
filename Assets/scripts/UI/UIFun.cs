@@ -9,6 +9,7 @@ public class UIFun : MonoBehaviour
     public void showMianPlayer()
     {
         sr.enabled = !sr.enabled;
+        
     }
 
 }
