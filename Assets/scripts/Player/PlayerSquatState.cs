@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerSquatState : PlayerGroundedState
+{
+    public PlayerSquatState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
+    {
+        
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+        player.EnterSquatCollider();
+    }
+
+    public override void Exit()
+    {
+        player.ExitSquatCollider();
+        base.Exit();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        player.SetVelocity(xInput * player.moveSpeed * 0.7f, rb.velocity.y);
+        if(yInput >= 0)
+        {
+            stateMachine.ChangeState(player.idleState);
+        }
+    }
+
+}

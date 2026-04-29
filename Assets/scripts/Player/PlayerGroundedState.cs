@@ -28,9 +28,15 @@ public class PlayerGroundedState : PlayerState
         }
         if (Input.GetKeyDown(KeyCode.W) && player.CanUseCoyoteJump())
         {
+            if(player.isMain == false && !player.mainPlayer.CanUseCoyoteJump())
+                return;
             // 地面跳（或极短离地时）都允许
             player.ConsumeCoyoteJump();
             stateMachine.ChangeState(player.jumpState);
+        }
+        if (yInput < 0)
+        {
+            stateMachine.ChangeState(player.squatState);
         }
     }
 

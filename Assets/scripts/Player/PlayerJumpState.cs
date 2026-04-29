@@ -25,6 +25,8 @@ public class PlayerJumpState : PlayerState
     {
         base.Update();
 
+        if(player.isMain == false && player.mainPlayer.IsHeadDetected())
+            player.SetVelocity(0, 0);
         if(rb.velocity.y < 0)
             stateMachine.ChangeState(player.downState);  //若y轴速度为负，则转换为下落状态
         if (xInput != 0)
