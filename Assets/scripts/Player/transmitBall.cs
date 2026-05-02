@@ -1,0 +1,104 @@
+using UnityEngine;
+
+public class transmitBall : MonoBehaviour
+{
+    [Tooltip("碰到该图层上的碰撞体时立即停止")]
+    [SerializeField] private LayerMask whatIsGround;
+
+    [Tooltip("用于 CircleCast 的半径；若有 CircleCollider2D 则优先用其半径")]
+    [SerializeField] private float ballCastRadius = 0.12f;
+
+    [Tooltip("命中后沿运动方向少移一点，避免嵌进碰撞体")]
+    [SerializeField] private float hitSkin = 0.02f;
+
+    [Header("抛出速度（标量，单位/秒）")]
+    [SerializeField] private float launchSpeedNormal = 8f;
+    [SerializeField] private float launchSpeedCharged = 14f;
+
+    [Header("匀减速（标量，单位/秒²）")]
+    [SerializeField] private float deceleration = 10f;
+
+    private bool isFlying;
+    private Vector2 flyDirection;
+    private float currentSpeed;
+
+    private CircleCollider2D circleCollider2D;
+
+    private void Awake()
+    {
+        circleCollider2D = GetComponent<CircleCollider2D>();
+    }
+
+    private float GetCastRadius()
+    {
+        if (circleCollider2D == null)
+            return ballCastRadius;
+        float s = Mathf.Max(Mathf.Abs(transform.lossyScale.x), Mathf.Abs(transform.lossyScale.y));
+        return circleCollider2D.radius * s;
+    }
+
+    public void Launch(TeleportAimDirection dir, bool isCharged)
+    {
+        Vector2 d = DirectionToVector2(dir);
+        if (d.sqrMagnitude < 0.0001f)
+            return;
+
+        flyDirection = d.normalized;
+        currentSpeed = isCharged ? launchSpeedCharged : launchSpeedNormal;
+        isFlying = true;
+    }
+
+    private void Update()
+    {
+        if (!isFlying)
+            return;
+
+        currentSpeed = Mathf.Max(0f, currentSpeed - deceleration * Time.deltaTime);
+        if (currentSpeed <= 0f)
+        {
+            StopFlying();
+            return;
+        }
+
+        Vector2 start = transform.position;
+        float step = currentSpeed * Time.deltaTime;
+        float radius = GetCastRadius();
+
+        RaycastHit2D hit = Physics2D.CircleCast(start, radius, flyDirection, step, whatIsGround);
+        if (hit.collider != null)
+        {
+            float travel = Mathf.Max(0f, hit.distance - hitSkin);
+            transform.position = start + flyDirection * travel;
+            StopFlying();
+            return;
+        }
+
+        transform.position = start + flyDirection * step;
+    }
+
+    private void StopFlying()
+    {
+        if (!isFlying)
+            return;
+        isFlying = false;
+        currentSpeed = 0f;
+        OnStopInAir();
+    }
+
+    private static Vector2 DirectionToVector2(TeleportAimDirection dir)
+    {
+        switch (dir)
+        {
+            case TeleportAimDirection.Up: return Vector2.up;
+            case TeleportAimDirection.Down: return Vector2.down;
+            case TeleportAimDirection.Right: return Vector2.right;
+            case TeleportAimDirection.Left: return Vector2.left;
+            default: return Vector2.zero;
+        }
+    }
+
+    private void OnStopInAir()
+    {
+        // 停住后：通知玩家可传送、播放特效等
+    }
+}

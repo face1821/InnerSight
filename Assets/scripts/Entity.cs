@@ -19,6 +19,8 @@ public class Entity : MonoBehaviour
 
     [SerializeField] protected LayerMask whatIsGround;  //地面和墙壁的图层
 
+    [SerializeField] protected GameObject notFlipGameObject;  //不会被翻转的游戏对象
+
     public int facingDir = 1;  //面朝方向，1为右，-1为左，用于计算
     protected bool isFacingRight = true;  //是否面朝右边
 
@@ -65,9 +67,17 @@ public class Entity : MonoBehaviour
     //翻转角色
     public virtual void Flip()
     {
+        Transform notFlipT = notFlipGameObject != null ? notFlipGameObject.transform : null;
+    
+        if (notFlipT != null)
+            notFlipT.SetParent(null, true); // 保持世界位置、旋转、缩放
+    
         facingDir = facingDir * -1;
         isFacingRight = !isFacingRight;
         transform.Rotate(0, 180, 0);
+    
+        if (notFlipT != null)
+            notFlipT.SetParent(transform, true); // 再挂回玩家根节点，仍保持世界变换
     }
 
     //检测地面

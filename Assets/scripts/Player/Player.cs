@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TeleportAimDirection
+{
+    None,
+    Up,    // arrows[0]
+    Right, // arrows[1]
+    Down,  // arrows[2]
+    Left   // arrows[3]
+}
+
 public class Player : Entity
 {
 
@@ -13,11 +22,21 @@ public class Player : Entity
     private float coyoteTimer;
 
     [SerializeField] private CapsuleCollider2D bodyCollider;
-    private Vector2 originSize;
-    private Vector2 originOffset;
+    private Vector2 originSize;  //碰撞体原始大小
+    private Vector2 originOffset;  //碰撞体缩小后的偏移量
 
     public bool isMain;
     public Player mainPlayer;  //注意：只有当isMain为false的时候才能调用此对象，否则会报空
+
+    [Header("传送球瞄准箭头")]
+    [SerializeField] private List<GameObject> arrows;
+    [SerializeField] [Range(0.05f, 1f)] private float aimArrowDimAlpha = 0.25f;
+    [SerializeField] private Camera aimCamera; // 不拖则用 Camera.main
+    [SerializeField] private GameObject transmitBallPrefab;
+    private SpriteRenderer[] aimArrowRenderers;
+    public TeleportAimDirection CurrentAimDirection { get; private set; } = TeleportAimDirection.None;
+    /// <summary>按住左键期间最后计算出的瞄准方向；松手发射时读取。</summary>
+    private TeleportAimDirection lastAimWhileHolding = TeleportAimDirection.None;
 
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -37,6 +56,15 @@ public class Player : Entity
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         downState = new PlayerDownState(this, stateMachine, "Down");
         squatState = new PlayerSquatState(this, stateMachine, "Squat");
+
+        if (arrows != null && arrows.Count >= 4)
+        {
+            aimArrowRenderers = new SpriteRenderer[4];
+            for (int i = 0; i < 4; i++)
+                aimArrowRenderers[i] = arrows[i] != null ? arrows[i].GetComponent<SpriteRenderer>() : null;
+        }
+        SetTeleportAimArrowsVisible(false);
+
     }
 
     protected override void Start()
@@ -53,6 +81,7 @@ public class Player : Entity
         base.Update();
         UpdateCoyoteTimer();
         stateMachine.currentState.Update(); 
+        UpdateTeleportAimArrows();
     }
 
     private void UpdateCoyoteTimer()
@@ -86,4 +115,100 @@ public class Player : Entity
         bodyCollider.size = originSize;
         bodyCollider.offset = originOffset;
     }
+
+    private void UpdateTeleportAimArrows()
+    {
+        if (aimArrowRenderers == null || aimArrowRenderers.Length < 4)
+            return;
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            TrySpawnTransmitBallOnMouseUp();
+            lastAimWhileHolding = TeleportAimDirection.None;
+        }
+
+        if (!Input.GetMouseButton(0))
+        {
+            SetTeleportAimArrowsVisible(false);
+            CurrentAimDirection = TeleportAimDirection.None;
+            return;
+        }
+
+        Camera cam = aimCamera != null ? aimCamera : Camera.main;
+        if (cam == null)
+            return;
+
+        Vector3 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
+        mouse.z = transform.position.z;
+        Vector2 delta = (Vector2)mouse - rb.position;
+
+        TeleportAimDirection dir;
+        float ax = Mathf.Abs(delta.x);
+        float ay = Mathf.Abs(delta.y);
+        if (ay >= ax)
+            dir = delta.y > 0f ? TeleportAimDirection.Up : TeleportAimDirection.Down;
+        else
+            dir = delta.x > 0f ? TeleportAimDirection.Right : TeleportAimDirection.Left;
+
+        CurrentAimDirection = dir;
+        lastAimWhileHolding = dir;
+        SetTeleportAimArrowsVisible(true);
+
+        for (int i = 0; i < 4; i++)
+        {
+            SpriteRenderer r = aimArrowRenderers[i];
+            if (r == null) continue;
+
+            int index = DirectionToArrowIndex(dir);
+            Color c = r.color;
+            c.a = (i == index) ? 1f : aimArrowDimAlpha;
+            r.color = c;
+        }
+    }
+
+    private static int DirectionToArrowIndex(TeleportAimDirection d)
+    {
+        switch (d)
+        {
+            case TeleportAimDirection.Up: return 0;
+            case TeleportAimDirection.Right: return 1;
+            case TeleportAimDirection.Down: return 2;
+            case TeleportAimDirection.Left: return 3;
+            default: return 0;
+        }
+    }
+
+    private void SetTeleportAimArrowsVisible(bool visible)
+    {
+        if (arrows == null) return;
+        for (int i = 0; i < arrows.Count && i < 4; i++)
+        {
+            if (arrows[i] != null)
+                arrows[i].SetActive(visible);
+        }
+    }
+
+    /// <summary>松手时：仅在当前为蹲下状态且朝向上方发射时为蓄力。</summary>
+    private bool ShouldLaunchChargedTransmitBall(TeleportAimDirection fireDir)
+    {
+        return stateMachine != null
+            && stateMachine.currentState == squatState
+            && fireDir == TeleportAimDirection.Up;
+    }
+
+    private void TrySpawnTransmitBallOnMouseUp()
+    {
+        if (lastAimWhileHolding == TeleportAimDirection.None || transmitBallPrefab == null)
+            return;
+
+        Vector3 spawnPos = rb.position;
+        GameObject ballObj = Instantiate(transmitBallPrefab, spawnPos, Quaternion.identity);
+        transmitBall ball = ballObj.GetComponent<transmitBall>();
+        if (ball != null)
+        {
+            bool charged = ShouldLaunchChargedTransmitBall(lastAimWhileHolding);
+            ball.Launch(lastAimWhileHolding, charged);
+        }
+    }
+
 }
