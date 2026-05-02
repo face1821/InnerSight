@@ -17,6 +17,7 @@ public class PlayerDownState : PlayerState
     public override void Exit()
     {
         base.Exit();
+        player.transmitBallLockedUntilGrounded = false;
     }
 
     public override void Update()

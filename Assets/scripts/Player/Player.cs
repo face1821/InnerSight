@@ -25,8 +25,9 @@ public class Player : Entity
     private Vector2 originSize;  //碰撞体原始大小
     private Vector2 originOffset;  //碰撞体缩小后的偏移量
 
-    public bool isMain;
-    public Player mainPlayer;  //注意：只有当isMain为false的时候才能调用此对象，否则会报空
+    public bool isMain;  //注意：千万不要在unity里随意修改不然逻辑会出大问题。所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
+    public Player mainPlayer;
+    public Player notmainPlayer;
 
     [Header("传送球瞄准箭头")]
     [SerializeField] private List<GameObject> arrows;
@@ -37,6 +38,10 @@ public class Player : Entity
     public TeleportAimDirection CurrentAimDirection { get; private set; } = TeleportAimDirection.None;
     /// <summary>按住左键期间最后计算出的瞄准方向；松手发射时读取。</summary>
     private TeleportAimDirection lastAimWhileHolding = TeleportAimDirection.None;
+    /// <summary>当前场上由本玩家发射的传送球；非空时不允许再发射。</summary>
+    private transmitBall activeTransmitBall;
+    /// <summary>空格传送到球之后为 true，直到 IsGroundDetected() 再次为 true 才允许发射下一颗。</summary>
+    public bool transmitBallLockedUntilGrounded = false;
 
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -82,6 +87,7 @@ public class Player : Entity
         UpdateCoyoteTimer();
         stateMachine.currentState.Update(); 
         UpdateTeleportAimArrows();
+        UpdateTransmitBallInput();
     }
 
     private void UpdateCoyoteTimer()
@@ -116,6 +122,7 @@ public class Player : Entity
         bodyCollider.offset = originOffset;
     }
 
+    //更新传送瞄准箭头
     private void UpdateTeleportAimArrows()
     {
         if (aimArrowRenderers == null || aimArrowRenderers.Length < 4)
@@ -140,7 +147,13 @@ public class Player : Entity
 
         Vector3 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
         mouse.z = transform.position.z;
-        Vector2 delta = (Vector2)mouse - rb.position;
+
+        //进行特殊处理
+        Vector2 aimReference = rb.position;
+        if (isMain && notmainPlayer != null && notmainPlayer.rb != null)
+            aimReference = notmainPlayer.rb.position;
+
+        Vector2 delta = (Vector2)mouse - aimReference;
 
         TeleportAimDirection dir;
         float ax = Mathf.Abs(delta.x);
@@ -178,6 +191,7 @@ public class Player : Entity
         }
     }
 
+    //设置传送瞄准箭头可见
     private void SetTeleportAimArrowsVisible(bool visible)
     {
         if (arrows == null) return;
@@ -196,19 +210,64 @@ public class Player : Entity
             && fireDir == TeleportAimDirection.Up;
     }
 
+    //尝试在鼠标释放时生成传球球
     private void TrySpawnTransmitBallOnMouseUp()
     {
         if (lastAimWhileHolding == TeleportAimDirection.None || transmitBallPrefab == null)
             return;
 
+        if (activeTransmitBall != null)
+            return;
+
+        if (transmitBallLockedUntilGrounded)
+            return;
+            
         Vector3 spawnPos = rb.position;
         GameObject ballObj = Instantiate(transmitBallPrefab, spawnPos, Quaternion.identity);
         transmitBall ball = ballObj.GetComponent<transmitBall>();
-        if (ball != null)
+        if (ball == null)
         {
-            bool charged = ShouldLaunchChargedTransmitBall(lastAimWhileHolding);
-            ball.Launch(lastAimWhileHolding, charged);
+            Destroy(ballObj);
+            return;
         }
+
+        ball.SetOwner(this);
+        activeTransmitBall = ball;
+
+        bool charged = ShouldLaunchChargedTransmitBall(lastAimWhileHolding);
+        ball.Launch(lastAimWhileHolding, charged);
+    }
+
+    //更新传送球输入
+    private void UpdateTransmitBallInput()
+    {
+        if (activeTransmitBall == null)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 target = activeTransmitBall.transform.position;
+            rb.position = target;
+            rb.velocity = Vector2.zero;
+            Destroy(activeTransmitBall.gameObject);
+            activeTransmitBall = null;
+            transmitBallLockedUntilGrounded = true;
+            stateMachine.ChangeState(downState);
+            return;
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(activeTransmitBall.gameObject);
+            activeTransmitBall = null;
+        }
+    }
+
+    /// <summary>由传送球 OnDestroy 调用，避免球被其它方式销毁后无法再次发射。</summary>
+    public void ClearActiveTransmitBallReference(transmitBall ball)
+    {
+        if (activeTransmitBall == ball)
+            activeTransmitBall = null;
     }
 
 }

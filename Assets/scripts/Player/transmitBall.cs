@@ -12,8 +12,8 @@ public class transmitBall : MonoBehaviour
     [SerializeField] private float hitSkin = 0.02f;
 
     [Header("抛出速度（标量，单位/秒）")]
-    [SerializeField] private float launchSpeedNormal = 8f;
-    [SerializeField] private float launchSpeedCharged = 14f;
+    [SerializeField] private float launchSpeedNormal;
+    [SerializeField] private float launchSpeedCharged;
 
     [Header("匀减速（标量，单位/秒²）")]
     [SerializeField] private float deceleration = 10f;
@@ -21,12 +21,23 @@ public class transmitBall : MonoBehaviour
     private bool isFlying;
     private Vector2 flyDirection;
     private float currentSpeed;
-
+    private Player owner;
     private CircleCollider2D circleCollider2D;
 
     private void Awake()
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
+    }
+    
+    public void SetOwner(Player player)
+    {
+        owner = player;
+    }
+
+    private void OnDestroy()
+    {
+        if (owner != null)
+            owner.ClearActiveTransmitBallReference(this);
     }
 
     private float GetCastRadius()

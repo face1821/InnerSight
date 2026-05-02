@@ -103,8 +103,8 @@ MonoBehaviour:
     m_Bits: 64
   ballCastRadius: 0.12
   hitSkin: 0.02
-  launchSpeedNormal: 8
-  launchSpeedCharged: 14
+  launchSpeedNormal: 6.5
+  launchSpeedCharged: 8.9
   deceleration: 10
 --- !u!58 &46543916087306129
 CircleCollider2D:
