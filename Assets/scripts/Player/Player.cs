@@ -25,7 +25,7 @@ public class Player : Entity
     private Vector2 originSize;  //碰撞体原始大小
     private Vector2 originOffset;  //碰撞体缩小后的偏移量
 
-    public bool isMain;  //注意：千万不要在unity里随意修改不然逻辑会出大问题。所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
+    public bool isMain; //注意：所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
     public Player mainPlayer;
     public Player notmainPlayer;
 
@@ -35,11 +35,15 @@ public class Player : Entity
     [SerializeField] private Camera aimCamera; // 不拖则用 Camera.main
     [SerializeField] private GameObject transmitBallPrefab;
     private SpriteRenderer[] aimArrowRenderers;
+    public SpriteRenderer spriterd;
+    public Sprite squatStateImg;
+    public Sprite originImg;  //没有蹲下的序列帧动画时，暂时用这个图片替代
     public TeleportAimDirection CurrentAimDirection { get; private set; } = TeleportAimDirection.None;
     /// <summary>按住左键期间最后计算出的瞄准方向；松手发射时读取。</summary>
     private TeleportAimDirection lastAimWhileHolding = TeleportAimDirection.None;
     /// <summary>当前场上由本玩家发射的传送球；非空时不允许再发射。</summary>
-    private transmitBall activeTransmitBall;
+    public transmitBall activeTransmitBall;
+
     /// <summary>空格传送到球之后为 true，直到 IsGroundDetected() 再次为 true 才允许发射下一颗。</summary>
     public bool transmitBallLockedUntilGrounded = false;
 
@@ -55,6 +59,7 @@ public class Player : Entity
     {
         base.Awake();
         stateMachine = new PlayerStateMachine();
+        spriterd = GetComponentInChildren<SpriteRenderer>();
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
@@ -79,6 +84,7 @@ public class Player : Entity
 
         originSize = bodyCollider.size;
         originOffset = bodyCollider.offset;
+        originImg = spriterd.sprite;
     }
 
     protected override void Update()
@@ -225,10 +231,24 @@ public class Player : Entity
         Vector3 spawnPos = rb.position;
         GameObject ballObj = Instantiate(transmitBallPrefab, spawnPos, Quaternion.identity);
         transmitBall ball = ballObj.GetComponent<transmitBall>();
+
         if (ball == null)
         {
             Destroy(ballObj);
             return;
+        }
+
+        if (isMain)
+        {
+            ball.isMain = true;
+            ball.notmianPlayer = notmainPlayer;
+            ball.mianPlayer = this;
+        }
+        else
+        {
+            ball.isMain = false;
+            ball.notmianPlayer = this;
+            ball.mianPlayer = mainPlayer;
         }
 
         ball.SetOwner(this);

@@ -13,11 +13,13 @@ public class PlayerSquatState : PlayerGroundedState
     {
         base.Enter();
         player.EnterSquatCollider();
+        player.spriterd.sprite = player.squatStateImg;
     }
 
     public override void Exit()
     {
         player.ExitSquatCollider();
+        player.spriterd.sprite = player.originImg;
         base.Exit();
     }
 
