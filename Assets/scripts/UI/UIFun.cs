@@ -15,10 +15,27 @@
 // }
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIFun : MonoBehaviour
 {
+    public static UIFun instance;  //这个类的实例
+
     [SerializeField] private SpriteRenderer[] spriteRenderers;
+    [SerializeField] private GridLayoutGroup items;
+
+    private void Awake()
+    {
+        //++++++++++++++++单例模式的基本写法++++++++++++++++++++
+        if (instance != null)
+        {
+            Destroy(gameObject);  // 销毁新创建的重复实例
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);  //防止切换场景时被销毁
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++
+    }
 
     public void showMianPlayer()
     {
@@ -40,6 +57,28 @@ public class UIFun : MonoBehaviour
         {
             if (r != null)
                 r.enabled = newEnabled;
+        }
+    }
+
+    public void GetOneItem()
+    {
+        if (items == null)
+            return;
+    
+        Transform root = items.transform;
+        for (int i = 0; i < root.childCount; i++)
+        {
+            Image img = root.GetChild(i).GetComponent<Image>();
+            if (img == null)
+                continue;
+    
+            Color c = img.color;
+            if (c.a < 1f)
+            {
+                c.a = 1f;
+                img.color = c;
+                return;
+            }
         }
     }
 }

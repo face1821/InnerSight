@@ -476,9 +476,12 @@ MonoBehaviour:
   wallDownCheckDistance: 0.05
   headCheck: {fileID: 5855399569405496886}
   headCheckDistance: 0.05
-  whatIsGround:
+  whatIsBGround:
     serializedVersion: 2
     m_Bits: 64
+  whatIsCGround:
+    serializedVersion: 2
+    m_Bits: 256
   notFlipGameObject: {fileID: 8120099299223909422}
   facingDir: 1
   moveSpeed: 3
@@ -496,6 +499,7 @@ MonoBehaviour:
   aimArrowDimAlpha: 0.25
   aimCamera: {fileID: 0}
   transmitBallPrefab: {fileID: 1371932577569606242, guid: 4a4d69f5880055848a289c1cbe86818f, type: 3}
+  spriterd: {fileID: 0}
   squatStateImg: {fileID: 21300000, guid: 76c82918cd93c914591efebd80490151, type: 3}
   originImg: {fileID: 21300000, guid: ff37c2773f58ea648b5493d1f0378077, type: 3}
   activeTransmitBall: {fileID: 0}
