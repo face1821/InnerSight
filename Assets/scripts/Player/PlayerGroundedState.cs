@@ -26,13 +26,14 @@ public class PlayerGroundedState : PlayerState
         {
             player.SetVelocity(0, rb.velocity.y);  //防止滑行
         }
-        if (Input.GetKeyDown(KeyCode.W) && player.CanUseCoyoteJump())
+        if (Input.GetKeyDown(KeyCode.Space) && player.CanUseCoyoteJump())
         {
             if(player.isMain == false && !player.mainPlayer.CanUseCoyoteJump())
                 return;
             // 地面跳（或极短离地时）都允许
             player.ConsumeCoyoteJump();
             stateMachine.ChangeState(player.jumpState);
+            return;
         }
         if (yInput < 0)
         {

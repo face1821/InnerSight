@@ -264,7 +264,7 @@ public class Player : Entity
         if (activeTransmitBall == null)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Vector2 target = activeTransmitBall.transform.position;
             rb.position = target;
