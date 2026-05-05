@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
         if (player != null)
         {
             UIFun.instance.GetOneItem();
+            UIFun.instance.OpenInvisibleWall();
             Debug.Log("玩家收集到了item");
             Destroy(gameObject);
         }

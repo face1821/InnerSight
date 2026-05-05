@@ -23,6 +23,7 @@ public class UIFun : MonoBehaviour
 
     [SerializeField] private SpriteRenderer[] spriteRenderers;
     [SerializeField] private GridLayoutGroup items;
+    [SerializeField] private GameObject InvisibleWalls;
 
     private void Awake()
     {
@@ -81,4 +82,26 @@ public class UIFun : MonoBehaviour
             }
         }
     }
+
+    public void OpenInvisibleWall()
+    {
+        if (InvisibleWalls == null)
+            return;
+    
+        Transform root = InvisibleWalls.transform;
+        for (int i = 0; i < root.childCount; i++)
+        {
+            Collider2D col = root.GetChild(i).GetComponent<Collider2D>();
+            if (col == null)
+                continue;
+    
+            if (!col.isTrigger)
+            {
+                col.isTrigger = true;
+                return;
+            }
+        }
+    }
+
+
 }

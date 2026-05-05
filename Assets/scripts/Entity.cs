@@ -17,7 +17,8 @@ public class Entity : MonoBehaviour
     [SerializeField] protected Transform headCheck;
     [SerializeField] protected float headCheckDistance;
 
-    [SerializeField] protected LayerMask whatIsBGround;  //地面和墙壁的图层
+    [SerializeField] protected LayerMask whatIsAGround;  //A型地面的图层
+    [SerializeField] protected LayerMask whatIsBGround;  //地面和墙壁的图层 (B型地面)
     [SerializeField] protected LayerMask whatIsCGround;  //C型地面的图层
 
     [SerializeField] protected GameObject notFlipGameObject;  //不会被翻转的游戏对象
@@ -84,33 +85,37 @@ public class Entity : MonoBehaviour
     //检测地面
     public virtual bool IsGroundDetected()
     {
+        bool isA = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsCGround);
-        return isB || isC ;
+        return isA || isB || isC ;
     } 
         
 
     //检测墙壁
     protected virtual bool IsWallUpDetected()
     {
+        bool isA = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsCGround);
-        return isB || isC ;
+        return isA || isB || isC ;
     }
     protected virtual bool IsWallDownDetected()
     {
+        bool isA = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsCGround);
-        return isB || isC ;
+        return isA || isB || isC ;
 
     }
     public virtual bool IsWallDetected() => IsWallUpDetected() || IsWallDownDetected();
     //检测天花板（正上方）
     public virtual bool IsHeadDetected()
     {
+        bool isA = Physics2D.Raycast(headCheck.position, Vector2.up, headCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(headCheck.position, Vector2.up, headCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(headCheck.position, Vector2.up, headCheckDistance, whatIsCGround);
-        return isB || isC ;
+        return isA || isB || isC ;
     } 
 
     //画出检测射线，方便调试

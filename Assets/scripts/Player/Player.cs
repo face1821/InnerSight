@@ -154,12 +154,13 @@ public class Player : Entity
         Vector3 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
         mouse.z = transform.position.z;
 
-        //进行特殊处理
-        Vector2 aimReference = rb.position;
-        if (isMain && notmainPlayer != null && notmainPlayer.rb != null)
-            aimReference = notmainPlayer.rb.position;
+        // //进行特殊处理
+        // Vector2 aimReference = rb.position;
+        // if (isMain && notmainPlayer != null && notmainPlayer.rb != null)
+        //     aimReference = notmainPlayer.rb.position;
+        // Vector2 delta = (Vector2)mouse - aimReference;
 
-        Vector2 delta = (Vector2)mouse - aimReference;
+        Vector2 delta = (Vector2)mouse - Vector2.zero;
 
         TeleportAimDirection dir;
         float ax = Mathf.Abs(delta.x);
@@ -268,7 +269,8 @@ public class Player : Entity
         {
             Vector2 target = activeTransmitBall.transform.position;
             rb.position = target;
-            rb.velocity = Vector2.zero;
+            // rb.velocity = Vector2.zero;
+            SetVelocity(0, 3);
             Destroy(activeTransmitBall.gameObject);
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;

@@ -476,6 +476,9 @@ MonoBehaviour:
   wallDownCheckDistance: 0.05
   headCheck: {fileID: 5855399569405496886}
   headCheckDistance: 0.05
+  whatIsAGround:
+    serializedVersion: 2
+    m_Bits: 512
   whatIsBGround:
     serializedVersion: 2
     m_Bits: 64
