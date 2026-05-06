@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\unity\\projects\\inner sight\\InnerSight\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|d:\\unity\\projects\\inner sight\\innersight\\assets\\scripts\\tekuunew\\sceneswitchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\sceneswitchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|d:\\unity\\projects\\inner sight\\innersight\\assets\\scripts\\tekuunew\\ui\\leadercreatorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\ui\\leadercreatorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\ui\\mainmenuuifun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\mainmenuuifun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\invisiblewall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\invisiblewall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\aground.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\aground.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SceneSwitchController.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
+              "RelativeToolTip": "Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T16:26:20.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LeaderCreatorsController.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\UI\\LeaderCreatorsController.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\UI\\LeaderCreatorsController.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\UI\\LeaderCreatorsController.cs",
+              "RelativeToolTip": "Assets\\scripts\\TekuuNew\\UI\\LeaderCreatorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T15:59:13.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainMenuUIFun.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\UI\\MainMenuUIFun.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\MainMenuUIFun.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\UI\\MainMenuUIFun.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\MainMenuUIFun.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T15:15:17.762Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\GameManager.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\scripts\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T14:34:32.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InvisibleWall.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\InvisibleWall.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\InvisibleWall.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\InvisibleWall.cs",
+              "RelativeToolTip": "Assets\\scripts\\InvisibleWall.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T14:34:25.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Item.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\Item.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\Item.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\Item.cs",
+              "RelativeToolTip": "Assets\\scripts\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T14:34:11.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AGround.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\AGround.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\AGround.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\AGround.cs",
+              "RelativeToolTip": "Assets\\scripts\\AGround.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T14:33:37.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Player.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\Player\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\Player\\Player.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\Player\\Player.cs",
+              "RelativeToolTip": "Assets\\scripts\\Player\\Player.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T14:31:51.605Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
