@@ -29,7 +29,7 @@ public class PlayerState
         //进入任何一个状态时
 
         // TODO: 暂时关掉，等美术老师那边做完动画后设置好了再打开，下面设置动画结束也是一样
-        // player.anim.SetBool(animBoolName,true);  //设置动画播放 
+        player.anim.SetBool(animBoolName,true);  //设置动画播放 
         rb = player.rb;  //获取角色刚体
         triggerCalled = false;  //每次进入任何状态时设置这个值为假，有些状态会在动画关键帧中设置此值为真，然后判断若此值为真则退出状态
     }
@@ -45,7 +45,7 @@ public class PlayerState
 
     public virtual void Exit()
     {
-        // player.anim.SetBool(animBoolName, false);  //设置动画结束
+        player.anim.SetBool(animBoolName, false);  //设置动画结束
     }
 
     public virtual void AnimationFinsihTrigger()

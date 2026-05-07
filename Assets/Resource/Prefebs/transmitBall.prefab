@@ -103,8 +103,8 @@ MonoBehaviour:
     m_Bits: 64
   ballCastRadius: 0.12
   hitSkin: 0.02
-  launchSpeedNormal: 6.5
-  launchSpeedCharged: 8.9
+  launchSpeedNormal: 4.8
+  launchSpeedCharged: 7
   deceleration: 10
   isMain: 0
   mianPlayer: {fileID: 0}
