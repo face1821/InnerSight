@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource Transfer_1;
     public AudioSource ThrowDaoju;
 
+
     private void Awake()
     {
         //++++++++++++++++单例模式的基本写法++++++++++++++++++++
