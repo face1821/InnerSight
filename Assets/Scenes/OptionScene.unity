@@ -556,10 +556,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 217337258493701650, guid: a1b4540731b7e834e9162bdde48f3a2c, type: 3}
-        m_TargetAssemblyTypeName: SceneSwitchController, Assembly-CSharp
-        m_MethodName: SwitchToScene
-        m_Mode: 5
+      - m_Target: {fileID: 5872794237328036423, guid: 0d99ff3b5537bb543a153c2d44fc2425, type: 3}
+        m_TargetAssemblyTypeName: SceneTransitionManager, Assembly-CSharp
+        m_MethodName: GoBack
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
