@@ -16,6 +16,11 @@ public class ChooseLevelUIFun : MonoBehaviour
     public static void EnterTheLevel(int LevelNum)  //参数是几就进入第几关
     {
         GameManager gm = GameManager.instance;
+        if(LevelNum > gm.maxLevel)
+        {
+            Debug.Log("暂未解锁当前关卡");
+            return;
+        }
         if(gm != null)
         {
             gm.currentLevel = LevelNum;

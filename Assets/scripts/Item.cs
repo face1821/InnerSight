@@ -22,6 +22,7 @@ public class Item : MonoBehaviour
             UIFun.instance.GetOneItem();
             UIFun.instance.OpenInvisibleWall();
             Debug.Log("玩家收集到了item");
+            GameManager.instance.currentScore++;
             Destroy(gameObject);
         }
     }
