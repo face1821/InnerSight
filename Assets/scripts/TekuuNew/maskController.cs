@@ -15,7 +15,7 @@ public class maskController : MonoBehaviour
     // 隐藏蒙版
     public void HideMask()
     {
-        settingPanel.SetActive(false);
+        settingPanel.SetActive(false); 
     }
 
 }

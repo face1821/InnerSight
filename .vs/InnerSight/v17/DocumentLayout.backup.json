@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\unity\\projects\\inner sight\\InnerSight\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|d:\\unity\\projects\\inner sight\\innersight\\assets\\scripts\\tekuunew\\ui\\leadercreatorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\ui\\leadercreatorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|d:\\unity\\projects\\inner sight\\innersight\\assets\\scripts\\tekuunew\\maskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\maskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\tekuunew\\ui\\settingmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\ui\\settingmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\tekuunew\\sceneswitchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\tekuunew\\sceneswitchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|d:\\unity\\projects\\inner sight\\innersight\\assets\\scripts\\tekuunew\\ui\\leadercreatorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\ui\\leadercreatorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\tekuunew\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\tekuunew\\sceneswitchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\scripts\\tekuunew\\sceneswitchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,6 +63,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "maskController.cs",
+              "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\maskController.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\maskController.cs",
+              "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\maskController.cs",
+              "RelativeToolTip": "Assets\\scripts\\TekuuNew\\maskController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-07T06:01:57.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "LeaderCreatorsController.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\UI\\LeaderCreatorsController.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\UI\\LeaderCreatorsController.cs",
@@ -77,13 +94,14 @@
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\UI\\settingMenu.cs",
               "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\UI\\settingMenu.cs",
               "RelativeToolTip": "Assets\\scripts\\TekuuNew\\UI\\settingMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-07T05:52:43.943Z"
+              "WhenOpened": "2026-05-07T05:52:43.943Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PauseMenu.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\UI\\PauseMenu.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\UI\\PauseMenu.cs",
@@ -99,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "SceneTransitionManager.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\SceneTransitionManager.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\SceneTransitionManager.cs",
@@ -111,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "SceneSwitchController.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
@@ -119,11 +137,12 @@
               "RelativeToolTip": "Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-06T16:26:20.593Z"
+              "WhenOpened": "2026-05-06T16:26:20.593Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "MainMenuUIFun.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\UI\\MainMenuUIFun.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\UI\\MainMenuUIFun.cs",
@@ -135,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\GameManager.cs",
@@ -147,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "InvisibleWall.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\InvisibleWall.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\InvisibleWall.cs",
@@ -159,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Item.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\Item.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\Item.cs",
@@ -171,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "AGround.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\AGround.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\AGround.cs",
@@ -183,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Player.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\Player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\Player\\Player.cs",
