@@ -35,9 +35,16 @@ public class PauseMenu : MonoBehaviour
 
     private void PauseGame()
     {
+        if (PausePanel == null)  // 或者 anyComponent == null
+        {
+            Debug.LogWarning("目标对象已被销毁，跳过暂停逻辑");
+            return;
+        }
+
         PausePanel.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        
     }
 
 
@@ -49,18 +56,6 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-    }
-
-    public void LoadSettingsScene()
-    {
-        // 恢复时间，避免设置场景动画卡住
-        Time.timeScale = 1f;
-        // 标记暂停状态为 false（可选）
-        isPaused = false;
-        // 关闭暂停面板（可选，因为即将跳转场景）
-        PausePanel.SetActive(false);
-        // 跳转到设置场景
-        SceneManager.LoadScene("OptionScene");
     }
 
 

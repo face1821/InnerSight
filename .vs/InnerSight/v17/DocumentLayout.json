@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\unity\\projects\\inner sight\\InnerSight\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\tekuunew\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|d:\\unity\\projects\\inner sight\\innersight\\assets\\scripts\\tekuunew\\maskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\maskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\SceneSwitchController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\TekuuNew\\SceneSwitchController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\tekuunew\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tekuunew\\ui\\pausemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DE4356F4-D350-9388-67C6-8DCEB36F329C}|Assembly-CSharp.csproj|D:\\unity\\projects\\inner sight\\InnerSight\\assets\\scripts\\tekuunew\\scenetransitionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "maskController.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\maskController.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\maskController.cs",
@@ -103,15 +103,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PauseMenu.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\UI\\PauseMenu.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\UI\\PauseMenu.cs",
               "ToolTip": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\UI\\PauseMenu.cs",
               "RelativeToolTip": "Assets\\scripts\\TekuuNew\\UI\\PauseMenu.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAwCgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-07T00:33:07.544Z"
+              "WhenOpened": "2026-05-07T00:33:07.544Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -127,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SceneSwitchController.cs",
               "DocumentMoniker": "D:\\unity\\projects\\inner sight\\InnerSight\\Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\TekuuNew\\SceneSwitchController.cs",
