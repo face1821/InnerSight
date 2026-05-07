@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class transmitBall : MonoBehaviour
 {
+    [SerializeField] private Animator am;
+
     [Tooltip("碰到该图层上的碰撞体时立即停止")]
     [SerializeField] private LayerMask whatIsGround;
 
@@ -32,6 +34,8 @@ public class transmitBall : MonoBehaviour
     private void Awake()
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
+        SoundManager.instance.ThrowDaoju.Play();
+        // am.SetBool("",true);
     }
     
     public void SetOwner(Player player)
