@@ -15,6 +15,6 @@ public class LeaderCreatorsController : MonoBehaviour
     // 隐藏蒙版
     public void HideMask()
     {
-        LeaderCreatorsPanel.SetActive(false);
+        LeaderCreatorsPanel.SetActive(false); 
     }
 }
