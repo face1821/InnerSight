@@ -488,7 +488,7 @@ MonoBehaviour:
   notFlipGameObject: {fileID: 8120099299223909422}
   facingDir: 1
   moveSpeed: 3
-  jumpForce: 6.3
+  jumpForce: 7
   coyoteTime: 0.1
   bodyCollider: {fileID: 3073677207682554106}
   isMain: 0

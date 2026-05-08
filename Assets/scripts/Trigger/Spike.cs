@@ -26,6 +26,8 @@ public class Spike : MonoBehaviour
 
     private static void RefreshScene()
     {
+        GameManager ins = GameManager.instance;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

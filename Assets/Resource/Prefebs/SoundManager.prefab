@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGM_1: {fileID: 8300000, guid: df06728850906df49bdfcb5a541ae2a1, type: 3}
   Transfer_1: {fileID: 8300000, guid: 0acc7ffa62352bc42a0907ffaf7f29ce, type: 3}
+  Transfer_2: {fileID: 8300000, guid: 891013693a8291c49ada596d7e382cb0, type: 3}
   ThrowDaoju: {fileID: 8300000, guid: 4189336ca156809479a930a068c6a640, type: 3}

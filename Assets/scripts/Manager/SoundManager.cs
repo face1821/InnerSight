@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip BGM_1;         // 音轨0
     public AudioClip Transfer_1;        // 音轨1
+    public AudioClip Transfer_2;        // 音轨1
     public AudioClip ThrowDaoju;        // 音轨1
 
     private int AudioSourceNum = 4;
