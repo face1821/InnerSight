@@ -1,19 +1,4 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-
-// public class UIFun : MonoBehaviour
-// {
-//     [SerializeField] private SpriteRenderer sr;
-
-//     public void showMianPlayer()
-//     {
-//         sr.enabled = !sr.enabled;
-        
-//     }
-
-// }
-
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +8,7 @@ public class UIFun : MonoBehaviour
 
     [SerializeField] private SpriteRenderer[] spriteRenderers;
     [SerializeField] private GridLayoutGroup items;
-    [SerializeField] private GameObject InvisibleWalls;
+    [SerializeField] private GameObject[] InvisibleWalls;
 
     private void Awake()
     {
@@ -85,22 +70,12 @@ public class UIFun : MonoBehaviour
 
     public void OpenInvisibleWall()
     {
-        if (InvisibleWalls == null)
+        GameManager ins = GameManager.instance;
+        if (InvisibleWalls[ins.currentScore - 1] == null)
             return;
     
-        Transform root = InvisibleWalls.transform;
-        for (int i = 0; i < root.childCount; i++)
-        {
-            Collider2D col = root.GetChild(i).GetComponent<Collider2D>();
-            if (col == null)
-                continue;
-    
-            if (!col.isTrigger)
-            {
-                col.isTrigger = true;
-                return;
-            }
-        }
+        Transform root = InvisibleWalls[ins.currentScore - 1].transform;
+        root.GetComponent<Collider2D>().isTrigger = true;
     }
 
 

@@ -103,6 +103,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  whatIsFakeCGround:
+    serializedVersion: 2
+    m_Bits: 1024
   ballCastRadius: 0.12
   hitSkin: 0.02
   launchSpeedNormal: 4.8

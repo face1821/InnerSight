@@ -6,6 +6,7 @@ public class transmitBall : MonoBehaviour
 
     [Tooltip("碰到该图层上的碰撞体时立即停止")]
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private LayerMask whatIsFakeCGround;
 
     [Tooltip("用于 CircleCast 的半径；若有 CircleCollider2D 则优先用其半径")]
     [SerializeField] private float ballCastRadius = 0.12f;
@@ -34,7 +35,8 @@ public class transmitBall : MonoBehaviour
     private void Awake()
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
-        SoundManager.instance.ThrowDaoju.Play();
+        SoundManager.instance.Play(1, "ThrowDaoju", false);
+
         // am.SetBool("",true);
     }
     
@@ -95,15 +97,38 @@ public class transmitBall : MonoBehaviour
         float step = currentSpeed * Time.deltaTime;
         float radius = GetCastRadius();
 
-        RaycastHit2D hit = Physics2D.CircleCast(start, radius, flyDirection, step, whatIsGround);
+        // RaycastHit2D hit = Physics2D.CircleCast(start, radius, flyDirection, step, whatIsGround);
+        // if (hit.collider != null)
+        // {
+        //     float travel = Mathf.Max(0f, hit.distance - hitSkin);
+        //     transform.position = start + flyDirection * travel;
+        //     StopFlying();
+        //     return;
+        // }
+
+        // transform.position = start + flyDirection * step;
+
+        LayerMask castMask = whatIsGround | whatIsFakeCGround;
+        RaycastHit2D hit = Physics2D.CircleCast(start, radius, flyDirection, step, castMask);
         if (hit.collider != null)
         {
-            float travel = Mathf.Max(0f, hit.distance - hitSkin);
-            transform.position = start + flyDirection * travel;
-            StopFlying();
-            return;
+            int layer = hit.collider.gameObject.layer;
+            // 先命中假地板：只销毁，球不刹停，本帧继续走完 step（穿过刚拆掉的一块）
+            if (((1 << layer) & whatIsFakeCGround) != 0)
+            {
+                Destroy(hit.collider.gameObject); // 若碰撞体在子物体上、要删整坨假地板，可改成 Destroy(hit.collider.transform.root.gameObject)
+                transform.position = start + flyDirection * step;
+                return;
+            }
+            // 普通地面：保持你原来的刹停逻辑
+            if (((1 << layer) & whatIsGround) != 0)
+            {
+                float travel = Mathf.Max(0f, hit.distance - hitSkin);
+                transform.position = start + flyDirection * travel;
+                StopFlying();
+                return;
+            }
         }
-
         transform.position = start + flyDirection * step;
     }
 
@@ -132,4 +157,5 @@ public class transmitBall : MonoBehaviour
     {
         // 停住后：通知玩家可传送、播放特效等
     }
+
 }

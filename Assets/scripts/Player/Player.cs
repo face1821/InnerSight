@@ -275,7 +275,7 @@ public class Player : Entity
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;
             stateMachine.ChangeState(downState);
-            SoundManager.instance.Transfer_1.Play();
+            SoundManager.instance.Play(1, "Transfer_1", false);
             return;
         }
 
