@@ -47,5 +47,9 @@ MonoBehaviour:
   currentLevel: 0
   currentScore: 0
   maxtScore: 0
-  scoreArr: 030000000300000003000000030000000300000003000000
+  scoreArr: 040000000300000003000000030000000300000003000000
   maxLevel: 1
+  nowThrowState: 0
+  AllCenter:
+  - {x: 6, y: -3}
+  - {x: 10, y: 0.5}

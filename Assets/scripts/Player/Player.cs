@@ -160,7 +160,9 @@ public class Player : Entity
         //     aimReference = notmainPlayer.rb.position;
         // Vector2 delta = (Vector2)mouse - aimReference;
 
-        Vector2 delta = (Vector2)mouse - Vector2.zero;
+        // Vector2 delta = (Vector2)mouse - Vector2.zero;
+        GameManager ins = GameManager.instance;
+        Vector2 delta = (Vector2)mouse - ins.AllCenter[ins.currentSamllLevel - 1];
 
         TeleportAimDirection dir;
         float ax = Mathf.Abs(delta.x);
@@ -256,6 +258,11 @@ public class Player : Entity
         activeTransmitBall = ball;
 
         bool charged = ShouldLaunchChargedTransmitBall(lastAimWhileHolding);
+        GameManager ins = GameManager.instance;
+        if(charged)  //用来控制音效
+            ins.nowThrowState = 2;
+        else
+            ins.nowThrowState = 1;
         ball.Launch(lastAimWhileHolding, charged);
     }
 
@@ -275,13 +282,19 @@ public class Player : Entity
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;
             stateMachine.ChangeState(downState);
-            SoundManager.instance.Play(1, "Transfer_1", false);
+            GameManager ins = GameManager.instance;
+            if(ins.nowThrowState == 1)
+                SoundManager.instance.Play(1, "Transfer_1", false);
+            else if(ins.nowThrowState == 2)
+                SoundManager.instance.Play(1, "Transfer_2", false);
+            ins.nowThrowState = 0;
             return;
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             Destroy(activeTransmitBall.gameObject);
+            GameManager.instance.nowThrowState = 0;
             activeTransmitBall = null;
         }
     }

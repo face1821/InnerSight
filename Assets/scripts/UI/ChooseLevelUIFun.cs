@@ -24,6 +24,7 @@ public class ChooseLevelUIFun : MonoBehaviour
         if(gm != null)
         {
             gm.currentLevel = LevelNum;
+            gm.currentSamllLevel = 1;
             gm.currentScore = 0;
             if(LevelNum >= 1 && LevelNum <= gm.scoreArr.Length)
             {

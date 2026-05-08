@@ -11,6 +11,7 @@ public class InvisibleWall : MonoBehaviour
     {
         gameObject.GetComponent<Collider2D>().isTrigger = false;
         GetComponent<SpriteRenderer>().sprite = sprite;
+        GameManager.instance.currentSamllLevel++;
         myCamera.MoveToDestination();
     }
 }

@@ -60,6 +60,8 @@ public class SoundManager : MonoBehaviour
                 return BGM_1;
             case "Transfer_1":
                 return Transfer_1;
+            case "Transfer_2":
+                return Transfer_2;
             case "ThrowDaoju":
                 return ThrowDaoju;
         }
