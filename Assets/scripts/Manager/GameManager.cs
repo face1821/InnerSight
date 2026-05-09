@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,16 @@ public class GameManager : MonoBehaviour
     public int maxLevel = 1;  //当前已通过的最大关卡
 
     public int nowThrowState = 0;  // 0为没有投掷  1为普通投掷  2为蓄力投掷  用来控制传送音效
-    public Vector2[] AllCenter;
+    public bool cantThrow = false;
+
+
+
+    public Vector2[] WorldCenter1;
+    public Vector2[] WorldCenter2;
+    public Vector2[] WorldCenter3;
+    public Vector2[] WorldCenter4;
+    public Vector2[] WorldCenter5;
+    public Vector2[][] allWorldCenter;
 
 
     private void Awake()
@@ -36,6 +46,8 @@ public class GameManager : MonoBehaviour
 
         //在游戏开始时从磁盘里读取出之前存入的值，这一行也是存档的逻辑，第二个参数1为默认值
         maxLevel = PlayerPrefs.GetInt("maxLevel", 1);
+
+        allWorldCenter = new Vector2[][] { WorldCenter1, WorldCenter2, WorldCenter3, WorldCenter4, WorldCenter5 };
 
         //PlayerPrefs.SetInt("maxLevel", 1);  //这两行用于调试
         //PlayerPrefs.Save();

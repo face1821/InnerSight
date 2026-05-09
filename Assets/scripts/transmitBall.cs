@@ -4,8 +4,11 @@ public class transmitBall : MonoBehaviour
 {
     [SerializeField] private Animator am;
 
+    [SerializeField] private LayerMask whatIsAGround;
+    [SerializeField] private LayerMask whatIsCGround;
+
     [Tooltip("碰到该图层上的碰撞体时立即停止")]
-    [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private LayerMask whatIsBGround;
     [SerializeField] private LayerMask whatIsFakeCGround;
 
     [Tooltip("用于 CircleCast 的半径；若有 CircleCollider2D 则优先用其半径")]
@@ -20,6 +23,8 @@ public class transmitBall : MonoBehaviour
 
     [Header("匀减速（标量，单位/秒²）")]
     [SerializeField] private float deceleration = 10f;
+
+    public bool isInGround = false;
 
     public bool isMain;  //注意：所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
     public Player mianPlayer;
@@ -75,6 +80,11 @@ public class transmitBall : MonoBehaviour
         if (!isFlying)
             return;
 
+        if(IsInGroundFun())
+            isInGround = true;
+        else
+            isInGround = false;
+
         // 副球：主球已结束飞行（撞墙/减速停等）时，本球也立刻停下
         if (!isMain && mianPlayer != null)
         {
@@ -108,7 +118,7 @@ public class transmitBall : MonoBehaviour
 
         // transform.position = start + flyDirection * step;
 
-        LayerMask castMask = whatIsGround | whatIsFakeCGround;
+        LayerMask castMask = whatIsBGround | whatIsFakeCGround;
         RaycastHit2D hit = Physics2D.CircleCast(start, radius, flyDirection, step, castMask);
         if (hit.collider != null)
         {
@@ -121,7 +131,7 @@ public class transmitBall : MonoBehaviour
                 return;
             }
             // 普通地面：保持你原来的刹停逻辑
-            if (((1 << layer) & whatIsGround) != 0)
+            if (((1 << layer) & whatIsBGround) != 0)
             {
                 float travel = Mathf.Max(0f, hit.distance - hitSkin);
                 transform.position = start + flyDirection * travel;
@@ -158,4 +168,15 @@ public class transmitBall : MonoBehaviour
         // 停住后：通知玩家可传送、播放特效等
     }
 
+    /// <summary>
+    /// 检测物体中心（transform.position）是否与 A/B/C 型地面图层上的碰撞体重叠。
+    /// 未碰到上述图层返回 false，碰到任一返回 true。
+    /// </summary>
+    public bool IsInGroundFun()
+    {
+        Vector2 center = transform.position;
+        LayerMask mask = whatIsAGround | whatIsBGround | whatIsCGround;
+        Collider2D hit = Physics2D.OverlapPoint(center, mask);
+        return hit != null;
+    }
 }

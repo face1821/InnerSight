@@ -45,11 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
+  currentSamllLevel: 0
   currentScore: 0
   maxtScore: 0
   scoreArr: 040000000300000003000000030000000300000003000000
   maxLevel: 1
   nowThrowState: 0
-  AllCenter:
+  cantThrow: 0
+  WorldCenter1:
   - {x: 6, y: -3}
   - {x: 10, y: 0.5}
+  - {x: 14, y: 2.3}
+  WorldCenter2: []
+  WorldCenter3: []
+  WorldCenter4: []
+  WorldCenter5: []

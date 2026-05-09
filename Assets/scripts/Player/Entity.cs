@@ -16,6 +16,9 @@ public class Entity : MonoBehaviour
     [SerializeField] protected float wallDownCheckDistance;
     [SerializeField] protected Transform headCheck;
     [SerializeField] protected float headCheckDistance;
+    [SerializeField] protected Transform SquatHeadCheck;
+    [SerializeField] protected float SquatHeadCheckDistance;
+
 
     [SerializeField] protected LayerMask whatIsAGround;  //A型地面的图层
     [SerializeField] protected LayerMask whatIsBGround;  //地面和墙壁的图层 (B型地面)
@@ -118,13 +121,24 @@ public class Entity : MonoBehaviour
         return isA || isB || isC ;
     } 
 
+    //检测蹲下时的天花板（正上方）
+    public virtual bool IsSquatHeadDetected()
+    {
+        bool isA = Physics2D.Raycast(SquatHeadCheck.position, Vector2.up, SquatHeadCheckDistance, whatIsAGround);
+        bool isB = Physics2D.Raycast(SquatHeadCheck.position, Vector2.up, SquatHeadCheckDistance, whatIsBGround);
+        bool isC = Physics2D.Raycast(SquatHeadCheck.position, Vector2.up, SquatHeadCheckDistance, whatIsCGround);
+        return isA || isB || isC ;
+    } 
+
     //画出检测射线，方便调试
     protected virtual void OnDrawGizmos()
     {
+        Gizmos.color = Color.red;
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallUpCheck.position, new Vector3(wallUpCheck.position.x + wallUpCheckDistance * facingDir, wallUpCheck.position.y));
         Gizmos.DrawLine(wallDownCheck.position, new Vector3(wallDownCheck.position.x + wallDownCheckDistance * facingDir, wallDownCheck.position.y));
         Gizmos.DrawLine(headCheck.position, new Vector3(headCheck.position.x, headCheck.position.y + headCheckDistance));
+        Gizmos.DrawLine(SquatHeadCheck.position, new Vector3(SquatHeadCheck.position.x, SquatHeadCheck.position.y + SquatHeadCheckDistance));
     }
 
 }

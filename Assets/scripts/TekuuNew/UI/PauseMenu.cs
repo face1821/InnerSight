@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject PausePanel;
     private bool isPaused = false;
 
+    [SerializeField] private Player thisMainPlayer;
+    [SerializeField] private Player thisNotMainPlayer;
 
     public void Update()
     {
@@ -31,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(false);
 ;       Time.timeScale = 1f;
         isPaused = false;
+        GameManager.instance.cantThrow = false;
     }
 
     private void PauseGame()
@@ -44,6 +47,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        GameManager.instance.cantThrow = true;
         
     }
 
@@ -54,7 +58,21 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.cantThrow = false;
+
+        GameObject mainPlayerPositions = GameObject.Find("MainPlayerPositions");
+        GameObject playerPosB = mainPlayerPositions.transform.Find("PlayerPositions" + GameManager.instance.currentSamllLevel)?.gameObject;
+        thisMainPlayer.transform.position = playerPosB.transform.position;
+
+        GameObject notMainPlayerPositions = GameObject.Find("NotMainPlayerPositions");
+        GameObject playerPosA = notMainPlayerPositions.transform.Find("PlayerPositions" + GameManager.instance.currentSamllLevel)?.gameObject;
+        thisNotMainPlayer.transform.position = playerPosA.transform.position;
+
+        // GameManager ins = GameManager.instance;
+        // thisMainPlayer.transform.position = ins.MainPlayerPosition[ins.currentSamllLevel - 1].transform.position;
+        // thisNotMainPlayer.transform.position = ins.notMainPlayerPosition[ins.currentSamllLevel - 1].transform.position;
+
 
     }
 

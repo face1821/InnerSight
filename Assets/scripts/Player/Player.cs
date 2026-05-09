@@ -131,6 +131,8 @@ public class Player : Entity
     //更新传送瞄准箭头
     private void UpdateTeleportAimArrows()
     {
+        if(GameManager.instance.cantThrow)
+            return;
         if (aimArrowRenderers == null || aimArrowRenderers.Length < 4)
             return;
 
@@ -162,7 +164,10 @@ public class Player : Entity
 
         // Vector2 delta = (Vector2)mouse - Vector2.zero;
         GameManager ins = GameManager.instance;
-        Vector2 delta = (Vector2)mouse - ins.AllCenter[ins.currentSamllLevel - 1];
+        Vector2 xxx = ins.allWorldCenter[ins.currentLevel - 1][ins.currentSamllLevel - 1];
+        Vector2 delta = (Vector2)mouse - xxx;
+        Debug.Log("xxxbbb" + xxx);
+        // Vector2 delta = (Vector2)mouse - ins.WorldCenter1[ins.currentSamllLevel - 1];
 
         TeleportAimDirection dir;
         float ax = Mathf.Abs(delta.x);
@@ -274,10 +279,19 @@ public class Player : Entity
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
+            if(activeTransmitBall.isInGround)
+                return;
+            if(!isMain && mainPlayer.activeTransmitBall.isInGround)
+                return;
+            transform.SetParent(null, true);
             Vector2 target = activeTransmitBall.transform.position;
-            rb.position = target;
-            // rb.velocity = Vector2.zero;
+
+            //TODO： 这里代码还是有bug
+            rb.velocity = Vector2.zero;           // 先清速度，避免和平台残留运动叠加
+            rb.position = target;                 // 再设世界坐标
+            Physics2D.SyncTransforms();           // 立刻同步物理世界里的形状位置
             SetVelocity(0, 3);
+
             Destroy(activeTransmitBall.gameObject);
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;

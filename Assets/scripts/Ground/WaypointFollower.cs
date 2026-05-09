@@ -8,10 +8,6 @@ public class WaypointFollower : MonoBehaviour
     [SerializeField] private float speed = 2f;
     private int currentWaypointIndex = 0;
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -24,5 +20,16 @@ public class WaypointFollower : MonoBehaviour
             }
         }
         transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.GetComponent<Player>() != null){
+            currentWaypointIndex++;
+            if(currentWaypointIndex >= waypoints.Length)
+            {
+                currentWaypointIndex = 0;
+            }
+        }
     }
 }

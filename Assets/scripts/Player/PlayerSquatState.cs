@@ -29,8 +29,12 @@ public class PlayerSquatState : PlayerGroundedState
         if (stateMachine.currentState != this)
             return;
         player.SetVelocity(xInput * player.moveSpeed * 0.7f, rb.velocity.y);
-        if(yInput >= 0)
+        if(yInput >= 0 && !player.IsSquatHeadDetected())
         {
+            if(!player.isMain && player.mainPlayer.IsSquatHeadDetected())
+            {
+                return;
+            }
             stateMachine.ChangeState(player.idleState);
         }
     }

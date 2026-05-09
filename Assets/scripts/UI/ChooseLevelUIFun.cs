@@ -26,6 +26,7 @@ public class ChooseLevelUIFun : MonoBehaviour
             gm.currentLevel = LevelNum;
             gm.currentSamllLevel = 1;
             gm.currentScore = 0;
+            gm.cantThrow = false;
             if(LevelNum >= 1 && LevelNum <= gm.scoreArr.Length)
             {
                 gm.maxtScore = gm.scoreArr[LevelNum - 1];

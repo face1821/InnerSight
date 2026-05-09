@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InvisibleWall : MonoBehaviour
 {
-    [SerializeField] private CameraMove myCamera;
+    public CameraMove myCamera;
     public Sprite sprite;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        gameObject.GetComponent<Collider2D>().isTrigger = false;
-        GetComponent<SpriteRenderer>().sprite = sprite;
-        GameManager.instance.currentSamllLevel++;
-        myCamera.MoveToDestination();
+        // gameObject.GetComponent<Collider2D>().isTrigger = false;
+        // GetComponent<SpriteRenderer>().sprite = sprite;
+        // GameManager.instance.currentSamllLevel++;
+        // myCamera.MoveToDestination();
     }
 }
