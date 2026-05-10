@@ -48,3 +48,15 @@ MonoBehaviour:
   Transfer_1: {fileID: 8300000, guid: 0acc7ffa62352bc42a0907ffaf7f29ce, type: 3}
   Transfer_2: {fileID: 8300000, guid: 891013693a8291c49ada596d7e382cb0, type: 3}
   ThrowDaoju: {fileID: 8300000, guid: 4189336ca156809479a930a068c6a640, type: 3}
+  BuildUp: {fileID: 8300000, guid: a2c4877c3ab6ce648baaf96b30c77838, type: 3}
+  SilentWalk_Fast: {fileID: 8300000, guid: 505424259396dc047b37ffd97240e629, type: 3}
+  Soul: {fileID: 0}
+  Vocal_1: {fileID: 8300000, guid: fe6ee19e0bac5cd42a4f69fe71cd4784, type: 3}
+  Vocal_2: {fileID: 8300000, guid: e033070e75b4ede42b5a9566e14b5c7e, type: 3}
+  Vocal_3: {fileID: 8300000, guid: 7f6334ce30a3e8047a10060f71a05e14, type: 3}
+  Vocal_4: {fileID: 8300000, guid: c764f7295ec21474abec0521ec6150d6, type: 3}
+  Vocal_5: {fileID: 8300000, guid: 1311a783e24a8124bb435f201c6a1314, type: 3}
+  DaojuImpact: {fileID: 8300000, guid: f8d00c7c88352b649bec58668566e534, type: 3}
+  Collected: {fileID: 8300000, guid: 1c9ddf40267799a4398edecdcb0ad3f7, type: 3}
+  MailBox: {fileID: 8300000, guid: 1f0245107b026fc469e67df5c51cb2bc, type: 3}
+  Restart: {fileID: 8300000, guid: babccb3b82df3ab46ae19439b10a19f7, type: 3}

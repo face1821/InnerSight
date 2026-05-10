@@ -5,15 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Spike : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    [SerializeField] private PauseMenu pm;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,10 +16,11 @@ public class Spike : MonoBehaviour
         }
     }
 
-    private static void RefreshScene()
+    private void RefreshScene()
     {
         GameManager ins = GameManager.instance;
+        pm.RestartCurrentLevel();
         
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

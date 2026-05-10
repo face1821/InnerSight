@@ -69,6 +69,7 @@ public class PauseMenu : MonoBehaviour
         GameObject playerPosA = notMainPlayerPositions.transform.Find("PlayerPositions" + GameManager.instance.currentSamllLevel)?.gameObject;
         thisNotMainPlayer.transform.position = playerPosA.transform.position;
 
+        SoundManager.instance.Play(8, "Restart", false);
         // GameManager ins = GameManager.instance;
         // thisMainPlayer.transform.position = ins.MainPlayerPosition[ins.currentSamllLevel - 1].transform.position;
         // thisNotMainPlayer.transform.position = ins.notMainPlayerPosition[ins.currentSamllLevel - 1].transform.position;

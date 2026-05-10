@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class score : MonoBehaviour
+public class email : MonoBehaviour
 {
     void Start()
     {
@@ -14,7 +14,7 @@ public class score : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)  //这个参数是你碰到的物体
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (null != other.GetComponent<Player>()) 
         {
@@ -28,6 +28,7 @@ public class score : MonoBehaviour
                     PlayerPrefs.SetInt("maxLevel", instance.maxLevel);
                     PlayerPrefs.Save(); // 立即保存
                 }
+                SoundManager.instance.Play(7, "MailBox", false);
                 ChooseLevelUIFun.EnterTheLevel(instance.currentLevel + 1);  //切换场景
             }
         }

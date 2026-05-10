@@ -96,14 +96,14 @@ public class Entity : MonoBehaviour
         
 
     //检测墙壁
-    protected virtual bool IsWallUpDetected()
+    public virtual bool IsWallUpDetected()
     {
         bool isA = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsCGround);
         return isA || isB || isC ;
     }
-    protected virtual bool IsWallDownDetected()
+    public virtual bool IsWallDownDetected()
     {
         bool isA = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsBGround);

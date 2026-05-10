@@ -47,6 +47,13 @@ public class Player : Entity
     /// <summary>空格传送到球之后为 true，直到 IsGroundDetected() 再次为 true 才允许发射下一颗。</summary>
     public bool transmitBallLockedUntilGrounded = false;
 
+    public bool isPlaySilentWalk = false;
+
+    private const float RandomVocalInterval = 2f;
+    private float randomVocalTimer;
+    private static readonly string[] RandomVocalClipNames = { "Vocal_1", "Vocal_2", "Vocal_3", "Vocal_4", "Vocal_5" };
+
+
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
     public PlayerMoveState moveState { get; private set; }
@@ -94,6 +101,23 @@ public class Player : Entity
         stateMachine.currentState.Update(); 
         UpdateTeleportAimArrows();
         UpdateTransmitBallInput();
+        PlaySound();
+    }
+
+    private void PlaySound()
+    {
+        if(!isMain)  //注意：只有玩家B能播放音效
+            return;
+        if (SoundManager.instance == null)
+            return;
+
+        randomVocalTimer += Time.deltaTime;
+        if (randomVocalTimer < RandomVocalInterval)
+            return;
+
+        randomVocalTimer = 0f;
+        string clipName = RandomVocalClipNames[Random.Range(0, RandomVocalClipNames.Length)];
+        SoundManager.instance.Play(4, clipName, false);
     }
 
     private void UpdateCoyoteTimer()
@@ -147,6 +171,12 @@ public class Player : Entity
             SetTeleportAimArrowsVisible(false);
             CurrentAimDirection = TeleportAimDirection.None;
             return;
+        }
+
+        // 上面 !GetMouseButton(0) 已 return 掉「没按住」的情况
+        if (Input.GetMouseButtonDown(0) && stateMachine.currentState == squatState && activeTransmitBall == null)
+        {
+            SoundManager.instance.Play(1, "BuildUp", false);
         }
 
         Camera cam = aimCamera != null ? aimCamera : Camera.main;

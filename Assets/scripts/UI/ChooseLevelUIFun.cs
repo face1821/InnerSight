@@ -12,7 +12,6 @@ public class ChooseLevelUIFun : MonoBehaviour
     }
 
     //进入关卡函数
-    //TODO：(这函数是从别的项目里粘过来的，可能要改逻辑)
     public static void EnterTheLevel(int LevelNum)  //参数是几就进入第几关
     {
         GameManager gm = GameManager.instance;

@@ -19,7 +19,7 @@ public class UIFun : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);  //防止切换场景时被销毁
+        // DontDestroyOnLoad(gameObject);  //防止切换场景时被销毁
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++
     }
 

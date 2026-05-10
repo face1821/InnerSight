@@ -41,7 +41,7 @@ public class transmitBall : MonoBehaviour
     {
         circleCollider2D = GetComponent<CircleCollider2D>();
         SoundManager.instance.Play(1, "ThrowDaoju", false);
-
+        SoundManager.instance.Play(3, "Soul", true);
         // am.SetBool("",true);
     }
     
@@ -54,6 +54,7 @@ public class transmitBall : MonoBehaviour
     {
         if (owner != null)
             owner.ClearActiveTransmitBallReference(this);
+        SoundManager.instance.Stop(3, "Soul");
     }
 
     private float GetCastRadius()
@@ -136,6 +137,7 @@ public class transmitBall : MonoBehaviour
                 float travel = Mathf.Max(0f, hit.distance - hitSkin);
                 transform.position = start + flyDirection * travel;
                 StopFlying();
+                SoundManager.instance.Play(5, "DaojuImpact", false);
                 return;
             }
         }

@@ -19,10 +19,14 @@ public class Item : MonoBehaviour
         Player player = other.GetComponentInParent<Player>();
         if (player != null)
         {
+            GameManager ins = GameManager.instance;
+
             UIFun.instance.GetOneItem();
             Debug.Log("玩家收集到了item");
-            GameManager.instance.currentScore++;
-            UIFun.instance.OpenInvisibleWall();
+            SoundManager.instance.Play(6, "Collected", false);
+            ins.currentScore++;
+            if(ins.currentScore < ins.scoreArr[ins.currentLevel - 1])
+                UIFun.instance.OpenInvisibleWall();
             Destroy(gameObject);
         }
     }
