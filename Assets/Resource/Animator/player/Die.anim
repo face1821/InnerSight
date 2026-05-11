@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Squat
+  m_Name: Die
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: c85c7c2a01e40c44f97f674aa1bfe775, type: 3}
+      value: {fileID: 21300000, guid: c1869b4a98acb824c8f684d6f95252a4, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: a98b3b75e574f484193d3d2af936bb87, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: 326037a631094a246982789c06041e8e, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: 0e31c596c1cdbb148a07e6b494d13dcb, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 5
+  m_SampleRate: 6
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,13 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: c85c7c2a01e40c44f97f674aa1bfe775, type: 3}
+    - {fileID: 21300000, guid: c1869b4a98acb824c8f684d6f95252a4, type: 3}
+    - {fileID: 21300000, guid: a98b3b75e574f484193d3d2af936bb87, type: 3}
+    - {fileID: 21300000, guid: 326037a631094a246982789c06041e8e, type: 3}
+    - {fileID: 21300000, guid: 0e31c596c1cdbb148a07e6b494d13dcb, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.2
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

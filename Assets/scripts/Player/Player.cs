@@ -53,6 +53,8 @@ public class Player : Entity
     private float randomVocalTimer;
     private static readonly string[] RandomVocalClipNames = { "Vocal_1", "Vocal_2", "Vocal_3", "Vocal_4", "Vocal_5" };
 
+    public bool isDead = false;
+
 
     public PlayerStateMachine stateMachine { get; private set; }
     public PlayerIdleState idleState { get; private set; }
@@ -60,6 +62,7 @@ public class Player : Entity
     public PlayerJumpState jumpState { get; private set; }
     public PlayerDownState downState { get; private set; }
     public PlayerSquatState squatState { get; private set; }
+    public PlayerDeadState deadState { get; private set; }
 
 
     protected override void Awake()
@@ -73,6 +76,7 @@ public class Player : Entity
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
         downState = new PlayerDownState(this, stateMachine, "Down");
         squatState = new PlayerSquatState(this, stateMachine, "Squat");
+        deadState = new PlayerDeadState(this, stateMachine, "Dead");
 
         if (arrows != null && arrows.Count >= 4)
         {
@@ -96,6 +100,8 @@ public class Player : Entity
 
     protected override void Update()
     {
+        if(isDead)
+            return;
         base.Update();
         UpdateCoyoteTimer();
         stateMachine.currentState.Update(); 
