@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 23f152fd61a63e94aa0c561148a2bf06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 23f152fd61a63e94aa0c561148a2bf06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -240,7 +240,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 23f152fd61a63e94aa0c561148a2bf06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -490,13 +490,16 @@ MonoBehaviour:
     m_Bits: 256
   notFlipGameObject: {fileID: 8120099299223909422}
   facingDir: 1
+  CurrentStateString: 
   moveSpeed: 3
   jumpForce: 7
   coyoteTime: 0.1
+  coyoteTimer: 0
   bodyCollider: {fileID: 3073677207682554106}
   isMain: 0
   mainPlayer: {fileID: 0}
   notmainPlayer: {fileID: 0}
+  isBallInGround: 0
   arrows:
   - {fileID: 8351526721806622533}
   - {fileID: 928964427621838778}
@@ -510,6 +513,9 @@ MonoBehaviour:
   originImg: {fileID: 21300000, guid: ff37c2773f58ea648b5493d1f0378077, type: 3}
   activeTransmitBall: {fileID: 0}
   transmitBallLockedUntilGrounded: 0
+  isPlaySilentWalk: 0
+  isDead: 0
+  IsAlreadyJumped: 0
 --- !u!70 &3073677207682554106
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -808,7 +814,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 23f152fd61a63e94aa0c561148a2bf06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

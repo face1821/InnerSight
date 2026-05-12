@@ -20,11 +20,10 @@ public class InvisibleWallSon : MonoBehaviour
         notMainPlayer.transform.position = playerPosA.transform.position;
 
         //进入下一小关后销毁所有传送球，防止传送回去
-        // if(notMainPlayer.activeTransmitBall != null)
-        //     notMainPlayer.ClearActiveTransmitBallReference(notMainPlayer.activeTransmitBall);
-        // Player mianPlayer = notMainPlayer.mainPlayer;
-        // if(mianPlayer.activeTransmitBall != null)
-        //     mianPlayer.ClearActiveTransmitBallReference(mianPlayer.activeTransmitBall);
+        Destroy(notMainPlayer.activeTransmitBall?.gameObject);
+        notMainPlayer.activeTransmitBall = null;
+        Destroy(notMainPlayer.mainPlayer.activeTransmitBall?.gameObject);
+        notMainPlayer.mainPlayer.activeTransmitBall = null;
 
         Destroy(gameObject);
     }

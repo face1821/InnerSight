@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public int nowThrowState = 0;  // 0为没有投掷  1为普通投掷  2为蓄力投掷  用来控制传送音效
     public bool cantThrow = false;
+    public bool isPlayedVideo = false;
 
 
 

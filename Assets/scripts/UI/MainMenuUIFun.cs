@@ -9,6 +9,7 @@ public class MainMenuUIFun : MonoBehaviour
     public static void StartGame()
     {
         SceneManager.LoadScene("ChooseLevel");  //跳转至ChooseLevel场景
+        SoundManager.instance.Stop(0, "BGM_1");
     }
 
     //结束游戏函数

@@ -327,21 +327,16 @@ public class Player : Entity
                 return;
             if(!isMain && mainPlayer.isBallInGround)
                 return;
+            GameManager ins = GameManager.instance;
 
-            transform.SetParent(null, true);
             Vector2 target = activeTransmitBall.transform.position;
-
-            //TODO： 这里代码还是有bug
-            rb.velocity = Vector2.zero;           // 先清速度，避免和平台残留运动叠加
-            rb.position = target;                 // 再设世界坐标
-            Physics2D.SyncTransforms();           // 立刻同步物理世界里的形状位置
+            rb.position = target;
             SetVelocity(0, 3);
 
             Destroy(activeTransmitBall.gameObject);
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;
             stateMachine.ChangeState(downState);
-            GameManager ins = GameManager.instance;
             if(ins.nowThrowState == 1)
                 SoundManager.instance.Play(1, "Transfer_1", false);
             else if(ins.nowThrowState == 2)
