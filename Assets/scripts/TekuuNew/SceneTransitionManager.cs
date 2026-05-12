@@ -14,6 +14,10 @@ public class SceneTransitionManager : MonoBehaviour
         //记录当前场景
         previousScene = SceneManager.GetActiveScene().name;
         Time.timeScale = 1f;
+        if (sceneName == "MainMenu")
+        {
+            SoundManager.instance.Play(0, "BGM_1", true);
+        }
         SceneManager.LoadScene(sceneName);
     }
 
