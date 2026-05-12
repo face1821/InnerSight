@@ -10588,6 +10588,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1810855534279389637, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: DebugInfo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810855534279389637, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 519420031}
@@ -10646,6 +10650,10 @@ PrefabInstance:
     - target: {fileID: 7444194872490643807, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: m_Name
       value: WallCheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171918999683205613, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12019,6 +12027,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1810855534279389637, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: DebugInfo
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810855534279389637, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: aimCamera
       value: 
       objectReference: {fileID: 519420031}
@@ -12073,6 +12085,10 @@ PrefabInstance:
     - target: {fileID: 5360237698391404865, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: m_Name
       value: PlayerA
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171918999683205613, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

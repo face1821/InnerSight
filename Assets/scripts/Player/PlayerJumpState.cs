@@ -14,6 +14,8 @@ public class PlayerJumpState : PlayerState
         base.Enter();
         //设置y轴速度，实现跳跃效果
         rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);
+
+        player.IsAlreadyJumped = true;
     }
 
     public override void Exit()
@@ -33,6 +35,8 @@ public class PlayerJumpState : PlayerState
             player.SetVelocity(player.moveSpeed * 0.8f * xInput, rb.velocity.y);  //若玩家在空中有x轴输入则也可以慢速移动
         if(player.isMain == false && player.mainPlayer.IsWallDetected())
             player.SetVelocity(0, rb.velocity.y);
+        
+
     }
 }
 

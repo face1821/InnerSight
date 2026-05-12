@@ -23,11 +23,21 @@ public class PlayerDownState : PlayerState
     public override void Update()
     {
         base.Update();
+
         //此脚本的状态为下落状态
         if(player.IsGroundDetected())
         {
             //若接触到地面了则转换到idel状态
             stateMachine.ChangeState(player.idleState);
+            return;
+        }
+
+        //如果主玩家可以使用土狼跳，则跳跃
+        if (Input.GetKeyDown(KeyCode.Space) && !player.IsAlreadyJumped && player.mainPlayer.CanUseCoyoteJump())
+        {
+            player.mainPlayer.ConsumeCoyoteJump();
+            stateMachine.ChangeState(player.jumpState);
+            return;
         }
 
         if(xInput != 0)

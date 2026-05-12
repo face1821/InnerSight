@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerState
@@ -28,6 +29,8 @@ public class PlayerState
     public virtual void Enter()
     {
         //进入任何一个状态时
+
+        player.CurrentStateString = GetType().Name;
 
         player.anim.SetBool(animBoolName,true);  //设置动画播放 
         rb = player.rb;  //获取角色刚体

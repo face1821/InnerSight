@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Collections;
 using UnityEngine;
 
 public enum TeleportAimDirection
@@ -13,13 +15,14 @@ public enum TeleportAimDirection
 
 public class Player : Entity
 {
+    public string CurrentStateString;
 
     public bool isBusy { get; private set; }  //玩家此时是否忙碌，如果忙碌则不让切换状态
     [Header("移动")]
     public float moveSpeed = 8f;  //移动速冻
     public float jumpForce = 12f;  //跳跃力度
     [SerializeField] private float coyoteTime = 0.1f;   // 土狼跳窗口
-    private float coyoteTimer;
+    public float coyoteTimer;
 
     [SerializeField] private CapsuleCollider2D bodyCollider;
     private Vector2 originSize;  //碰撞体原始大小
@@ -28,6 +31,8 @@ public class Player : Entity
     public bool isMain; //注意：所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
     public Player mainPlayer;
     public Player notmainPlayer;
+
+    public bool isBallInGround;
 
     [Header("传送球瞄准箭头")]
     [SerializeField] private List<GameObject> arrows;
@@ -54,6 +59,8 @@ public class Player : Entity
     private static readonly string[] RandomVocalClipNames = { "Vocal_1", "Vocal_2", "Vocal_3", "Vocal_4", "Vocal_5" };
 
     public bool isDead = false;
+
+    public bool IsAlreadyJumped;
 
 
     public PlayerStateMachine stateMachine { get; private set; }
@@ -85,7 +92,6 @@ public class Player : Entity
                 aimArrowRenderers[i] = arrows[i] != null ? arrows[i].GetComponent<SpriteRenderer>() : null;
         }
         SetTeleportAimArrowsVisible(false);
-
     }
 
     protected override void Start()
@@ -138,6 +144,8 @@ public class Player : Entity
     {
         return coyoteTimer > 0f;
     }
+
+    public float GetCoyoteTimerData() => coyoteTimer;
 
     public void ConsumeCoyoteJump()
     {
@@ -271,7 +279,7 @@ public class Player : Entity
 
         if (transmitBallLockedUntilGrounded)
             return;
-            
+        
         Vector3 spawnPos = rb.position;
         GameObject ballObj = Instantiate(transmitBallPrefab, spawnPos, Quaternion.identity);
         transmitBall ball = ballObj.GetComponent<transmitBall>();
@@ -315,10 +323,11 @@ public class Player : Entity
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if(activeTransmitBall.isInGround)
+            if(isBallInGround)
                 return;
-            if(!isMain && mainPlayer.activeTransmitBall.isInGround)
+            if(!isMain && mainPlayer.isBallInGround)
                 return;
+
             transform.SetParent(null, true);
             Vector2 target = activeTransmitBall.transform.position;
 

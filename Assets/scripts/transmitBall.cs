@@ -24,8 +24,6 @@ public class transmitBall : MonoBehaviour
     [Header("匀减速（标量，单位/秒²）")]
     [SerializeField] private float deceleration = 10f;
 
-    public bool isInGround = false;
-
     public bool isMain;  //注意：所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
     public Player mianPlayer;
     public Player notmianPlayer;
@@ -82,9 +80,9 @@ public class transmitBall : MonoBehaviour
             return;
 
         if(IsInGroundFun())
-            isInGround = true;
+            owner.isBallInGround = true;
         else
-            isInGround = false;
+            owner.isBallInGround = false;
 
         // 副球：主球已结束飞行（撞墙/减速停等）时，本球也立刻停下
         if (!isMain && mianPlayer != null)
