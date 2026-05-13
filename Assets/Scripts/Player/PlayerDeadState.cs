@@ -4,29 +4,25 @@ using UnityEngine;
 
 public class PlayerDeadState : PlayerState
 {
-    public PlayerDeadState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
-    {
-
-    }
+    public PlayerDeadState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName) { }
 
     public override void Enter()
     {
         base.Enter();
         player.isDead = true;
-        player.SetVelocity(0,0);
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
     public override void Exit()
     {
         base.Exit();
         player.isDead = false;
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 
     public override void Update()
     {
         base.Update();
-        player.SetVelocity(0,rb.velocity.y);
-
+        player.SetVelocity(0, rb.velocity.y);
     }
 }
-
