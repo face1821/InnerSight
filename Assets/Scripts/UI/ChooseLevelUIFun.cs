@@ -80,8 +80,12 @@ public class ChooseLevelUIFun : MonoBehaviour
 
     private IEnumerator DetectWhenVideoEnd()
     {
-        yield return new WaitUntil(() => vp == null);
+        yield return new WaitForSeconds(1f);
         
+        yield return new WaitUntil(() => !vp.isPlaying);
+        
+        ColseVideo();
+
         StartCoroutine(nameof(FadeOutBlackOverlay));
     }
 

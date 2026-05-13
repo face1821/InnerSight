@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance; //这个类的实例
+
+    public AudioMixer GlobalAudioMixer;
 
     public AudioClip BGM_1; // 音轨0
     public AudioClip Transfer_1; // 音轨1
@@ -43,13 +48,47 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < AudioSourceNum; i++)
         {
             var audio = this.gameObject.AddComponent<AudioSource>();
+
+            if (i == 0)
+                audio.outputAudioMixerGroup = GlobalAudioMixer.FindMatchingGroups("Music")[0];
+            else
+                audio.outputAudioMixerGroup = GlobalAudioMixer.FindMatchingGroups("SFX")[0];
+
             audios.Add(audio);
         }
 
         Play(0, "BGM_1", true);
     }
 
-    void Start() { }
+    private void Start()
+    {
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 5f));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 5f));
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        volume = Mathf.Clamp(volume, 0.0001f, 10f);
+        GlobalAudioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+    }
+
+    public void SetMusicVolume(Slider slider)
+    {
+        slider.value = Mathf.Clamp(slider.value, 0.0001f, 10f);
+        GlobalAudioMixer.SetFloat("MusicVolume", Mathf.Log10(slider.value) * 20);
+    }
+
+    public void SetSFXVolume(float volume)
+    {
+        volume = Mathf.Clamp(volume, 0.0001f, 10f);
+        GlobalAudioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
+    }
+
+    public void SetSFXVolume(Slider slider)
+    {
+        slider.value = Mathf.Clamp(slider.value, 0.0001f, 10f);
+        GlobalAudioMixer.SetFloat("SFXVolume", Mathf.Log10(slider.value) * 20);
+    }
 
     public void Play(int index, string name, bool isLoop, bool isForce = false)
     {
