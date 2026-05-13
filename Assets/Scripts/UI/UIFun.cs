@@ -60,7 +60,7 @@ public class UIFun : MonoBehaviour
     public void OpenInvisibleWall()
     {
         GameManager ins = GameManager.Instance;
-        if(ins.CurrentScore < ins.ScoreArr[ins.CurrentLevel - 1])
+        if(ins.CurrentScore >= ins.ScoreArr[ins.CurrentLevel - 1])
             return;
 
         if (InvisibleWalls[ins.CurrentScore - 1] == null)
