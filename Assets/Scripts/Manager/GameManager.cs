@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 
@@ -53,5 +54,11 @@ public class GameManager : MonoBehaviour
 
         //PlayerPrefs.SetInt("maxLevel", 1);  //这两行用于调试
         //PlayerPrefs.Save();
+    }
+
+    [Button]
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }
