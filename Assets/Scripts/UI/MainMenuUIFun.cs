@@ -8,8 +8,10 @@ public class MainMenuUIFun : MonoBehaviour
     //开始游戏函数
     public static void StartGame()
     {
-        SceneManager.LoadScene("ChooseLevel");  //跳转至ChooseLevel场景
-        SoundManager.instance.Stop(0, "BGM_1");
+        SceneManager.LoadScene("ChooseLevel"); //跳转至ChooseLevel场景
+
+        if (!GameManager.Instance.IsPlayedVideo)
+            SoundManager.instance.Stop(0, "BGM_1");
     }
 
     //结束游戏函数
@@ -19,5 +21,4 @@ public class MainMenuUIFun : MonoBehaviour
         Application.Quit(); //打包后使用
         //EditorApplication.ExitPlaymode();  //开发状态下使用
     }
-
 }
