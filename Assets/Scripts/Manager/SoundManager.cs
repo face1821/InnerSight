@@ -51,7 +51,7 @@ public class SoundManager : MonoBehaviour
 
     void Start() { }
 
-    public void Play(int index, string name, bool isLoop)
+    public void Play(int index, string name, bool isLoop, bool isForce = false)
     {
         var clip = GetAudioClip(name);
         if (clip != null)
@@ -59,6 +59,12 @@ public class SoundManager : MonoBehaviour
             var audio = audios[index];
             audio.clip = clip;
             audio.loop = isLoop;
+
+            if (isForce)
+            {
+                audio.Play();
+                return;
+            }
 
             if (audio.time > 0)
                 audio.UnPause();
