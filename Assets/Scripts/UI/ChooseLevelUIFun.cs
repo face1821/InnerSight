@@ -74,16 +74,17 @@ public class ChooseLevelUIFun : MonoBehaviour
 
     public void ColseVideo()
     {
-        Destroy(vp.gameObject);
+        if (vp != null)
+            Destroy(vp.gameObject);
         SoundManager.instance.Play(0, "BGM_1", true);
     }
 
     private IEnumerator DetectWhenVideoEnd()
     {
         yield return new WaitForSeconds(1f);
-        
-        yield return new WaitUntil(() => !vp.isPlaying);
-        
+
+        yield return new WaitUntil(() => vp == null || !vp.isPlaying);
+
         ColseVideo();
 
         StartCoroutine(nameof(FadeOutBlackOverlay));
