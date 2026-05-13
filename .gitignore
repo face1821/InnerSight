@@ -10,3 +10,5 @@ UserSettings/
 *.userprefs
 *.unityproj
 *.DS Store
+Packages/packages-lock.json
+ProjectSettings/ProjectVersion.txt

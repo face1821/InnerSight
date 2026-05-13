@@ -70,11 +70,11 @@ public class UIFun : MonoBehaviour
 
     public void OpenInvisibleWall()
     {
-        GameManager ins = GameManager.instance;
-        if (InvisibleWalls[ins.currentScore - 1] == null)
+        GameManager ins = GameManager.Instance;
+        if (InvisibleWalls[ins.CurrentScore - 1] == null)
             return;
     
-        Transform root = InvisibleWalls[ins.currentScore - 1].transform;
+        Transform root = InvisibleWalls[ins.CurrentScore - 1].transform;
         root.GetComponent<Collider2D>().isTrigger = true;
     }
 

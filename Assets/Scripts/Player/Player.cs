@@ -169,7 +169,7 @@ public class Player : Entity
     //更新传送瞄准箭头
     private void UpdateTeleportAimArrows()
     {
-        if(GameManager.instance.cantThrow)
+        if(GameManager.Instance.CantThrow)
             return;
         if (aimArrowRenderers == null || aimArrowRenderers.Length < 4)
             return;
@@ -207,8 +207,8 @@ public class Player : Entity
         // Vector2 delta = (Vector2)mouse - aimReference;
 
         // Vector2 delta = (Vector2)mouse - Vector2.zero;
-        GameManager ins = GameManager.instance;
-        Vector2 xxx = ins.allWorldCenter[ins.currentLevel - 1][ins.currentSamllLevel - 1];
+        GameManager ins = GameManager.Instance;
+        Vector2 xxx = ins.AllWorldCenter[ins.CurrentLevel - 1][ins.CurrentSamllLevel - 1];
         Vector2 delta = (Vector2)mouse - xxx;
         Debug.Log("xxxbbb" + xxx);
         // Vector2 delta = (Vector2)mouse - ins.WorldCenter1[ins.currentSamllLevel - 1];
@@ -307,11 +307,11 @@ public class Player : Entity
         activeTransmitBall = ball;
 
         bool charged = ShouldLaunchChargedTransmitBall(lastAimWhileHolding);
-        GameManager ins = GameManager.instance;
+        GameManager ins = GameManager.Instance;
         if(charged)  //用来控制音效
-            ins.nowThrowState = 2;
+            ins.NowThrowState = 2;
         else
-            ins.nowThrowState = 1;
+            ins.NowThrowState = 1;
         ball.Launch(lastAimWhileHolding, charged);
     }
 
@@ -327,7 +327,7 @@ public class Player : Entity
                 return;
             if(!isMain && mainPlayer.isBallInGround)
                 return;
-            GameManager ins = GameManager.instance;
+            GameManager ins = GameManager.Instance;
 
             Vector2 target = activeTransmitBall.transform.position;
             rb.position = target;
@@ -337,18 +337,18 @@ public class Player : Entity
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;
             stateMachine.ChangeState(downState);
-            if(ins.nowThrowState == 1)
+            if(ins.NowThrowState == 1)
                 SoundManager.instance.Play(1, "Transfer_1", false);
-            else if(ins.nowThrowState == 2)
+            else if(ins.NowThrowState == 2)
                 SoundManager.instance.Play(1, "Transfer_2", false);
-            ins.nowThrowState = 0;
+            ins.NowThrowState = 0;
             return;
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             Destroy(activeTransmitBall.gameObject);
-            GameManager.instance.nowThrowState = 0;
+            GameManager.Instance.NowThrowState = 0;
             activeTransmitBall = null;
         }
     }

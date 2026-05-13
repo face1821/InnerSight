@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(false);
 ;       Time.timeScale = 1f;
         isPaused = false;
-        GameManager.instance.cantThrow = false;
+        GameManager.Instance.CantThrow = false;
     }
 
     private void PauseGame()
@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour
         PausePanel.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-        GameManager.instance.cantThrow = true;
+        GameManager.Instance.CantThrow = true;
         
     }
 
@@ -59,15 +59,15 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        GameManager.instance.cantThrow = false;
+        GameManager.Instance.CantThrow = false;
 
         //重置两个角色的位置
         GameObject mainPlayerPositions = GameObject.Find("MainPlayerPositions");
-        GameObject playerPosB = mainPlayerPositions.transform.Find("PlayerPositions" + GameManager.instance.currentSamllLevel)?.gameObject;
+        GameObject playerPosB = mainPlayerPositions.transform.Find("PlayerPositions" + GameManager.Instance.CurrentSamllLevel)?.gameObject;
         thisMainPlayer.transform.position = playerPosB.transform.position;
 
         GameObject notMainPlayerPositions = GameObject.Find("NotMainPlayerPositions");
-        GameObject playerPosA = notMainPlayerPositions.transform.Find("PlayerPositions" + GameManager.instance.currentSamllLevel)?.gameObject;
+        GameObject playerPosA = notMainPlayerPositions.transform.Find("PlayerPositions" + GameManager.Instance.CurrentSamllLevel)?.gameObject;
         thisNotMainPlayer.transform.position = playerPosA.transform.position;
 
         //销毁传送球
