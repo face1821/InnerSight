@@ -134,6 +134,7 @@ public class transmitBall : MonoBehaviour
             {
                 float travel = Mathf.Max(0f, hit.distance - hitSkin);
                 transform.position = start + flyDirection * travel;
+                Debug.LogWarning($"{owner.gameObject.name} 撞到了 {hit.collider.gameObject.name}");
                 StopFlying();
                 SoundManager.instance.Play(5, "DaojuImpact", false);
                 return;
@@ -144,6 +145,7 @@ public class transmitBall : MonoBehaviour
 
     private void StopFlying()
     {
+        Debug.Log($"{owner.gameObject.name} 停下飞行");
         if (!isFlying)
             return;
         isFlying = false;
