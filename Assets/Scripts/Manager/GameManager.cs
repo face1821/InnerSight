@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int CurrentSamllLevel; //当前所在小关卡
     public int CurrentScore; //当前关卡所获得的分数
     public int MaxtScore; //当前关卡总共需要获得的分数
-    public int[] ScoreArr = { 3, 3, 3, 3, 3, 3 }; //每一关通关需要的分数！！！！！
+    public int[] ScoreArr = { 4, 3, 3, 3, 3, 3 }; //每一关通关需要的分数！！！！！
     public int MaxLevel = 1; //当前已通过的最大关卡
 
     public int NowThrowState = 0; // 0为没有投掷  1为普通投掷  2为蓄力投掷  用来控制传送音效

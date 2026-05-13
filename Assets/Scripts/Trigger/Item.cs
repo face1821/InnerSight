@@ -25,8 +25,7 @@ public class Item : MonoBehaviour
             Debug.Log("玩家收集到了item");
             SoundManager.instance.Play(6, "Collected", false);
             ins.CurrentScore++;
-            if(ins.CurrentScore < ins.ScoreArr[ins.CurrentLevel - 1])
-                UIFun.instance.OpenInvisibleWall();
+            UIFun.instance.OpenInvisibleWall();
             Destroy(gameObject);
         }
     }

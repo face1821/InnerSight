@@ -44,14 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1108bdacdbb9ce49842f343d737307a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
-  currentSamllLevel: 0
-  currentScore: 0
-  maxtScore: 0
-  scoreArr: 040000000300000003000000030000000300000003000000
-  maxLevel: 1
-  nowThrowState: 0
-  cantThrow: 0
+  CurrentLevel: 0
+  CurrentSamllLevel: 0
+  CurrentScore: 0
+  MaxtScore: 0
+  ScoreArr: 040000000300000003000000030000000300000003000000
+  MaxLevel: 1
+  NowThrowState: 0
+  CantThrow: 0
+  IsPlayedVideo: 0
   WorldCenter1:
   - {x: 6, y: -3}
   - {x: 10, y: 0.5}
