@@ -4,11 +4,5 @@ Library/
 Temp/
 Logs/
 UserSettings/
-*.sln
-*.csproj
-*.sln
-*.userprefs
-*.unityproj
-*.DS Store
 Packages/packages-lock.json
 ProjectSettings/ProjectVersion.txt
