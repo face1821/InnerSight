@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum TeleportAimDirection
 {
@@ -184,6 +185,12 @@ public class Player : Entity
         {
             SetTeleportAimArrowsVisible(false);
             CurrentAimDirection = TeleportAimDirection.None;
+            return;
+        }
+        
+        //点击UGUI时，返回
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
             return;
         }
 

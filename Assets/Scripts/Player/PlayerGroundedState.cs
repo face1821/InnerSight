@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerGroundedState : PlayerState
 {
-    public PlayerGroundedState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
-    {
-
-    }
+    public PlayerGroundedState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName) { }
 
     public override void Enter()
     {
@@ -16,10 +13,7 @@ public class PlayerGroundedState : PlayerState
         player.IsAlreadyJumped = false;
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+    public override void Exit() { base.Exit(); }
 
     public override void Update()
     {
@@ -27,14 +21,16 @@ public class PlayerGroundedState : PlayerState
 
         if (xInput == 0 && player.IsGroundDetected())
         {
-            player.SetVelocity(0, rb.velocity.y);  //防止滑行
+            player.SetVelocity(0, rb.velocity.y); //防止滑行
         }
-        if(!player.IsGroundDetected())
+
+        if (!player.IsGroundDetected())
         {
             stateMachine.ChangeState(player.downState);
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space) )
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             //DebugInfo.text += $"{player.gameObject.name}: ";
 
@@ -45,7 +41,7 @@ public class PlayerGroundedState : PlayerState
 
             // if(player.isMain == false)
             //     return;
-            
+
             //DebugInfo.text += "Jump\n";
 
             // 地面跳（或极短离地时）都允许
@@ -54,11 +50,9 @@ public class PlayerGroundedState : PlayerState
             return;
         }
 
-        if (yInput < 0)
+        if (yInput < 0 && stateMachine.currentState != player.squatState)
         {
             stateMachine.ChangeState(player.squatState);
         }
     }
-
-
 }

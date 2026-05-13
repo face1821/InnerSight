@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;  //这个类的实例
+    public static SoundManager instance; //这个类的实例
 
-    public AudioClip BGM_1;         // 音轨0
-    public AudioClip Transfer_1;        // 音轨1
-    public AudioClip Transfer_2;        // 音轨1
-    public AudioClip ThrowDaoju;        // 音轨1
-    public AudioClip BuildUp;        // 音轨1
-    public AudioClip SilentWalk_Fast;        // 音轨2
-    public AudioClip Soul;        // 音轨3
-    public AudioClip Vocal_1;        // 音轨4
-    public AudioClip Vocal_2;        // 音轨4
-    public AudioClip Vocal_3;        // 音轨4
-    public AudioClip Vocal_4;        // 音轨4
-    public AudioClip Vocal_5;        // 音轨4
-    public AudioClip DaojuImpact;        // 音轨5
-    public AudioClip Collected;        // 音轨6
-    public AudioClip MailBox;        // 音轨7
-    public AudioClip Restart;        // 音轨8
-
+    public AudioClip BGM_1; // 音轨0
+    public AudioClip Transfer_1; // 音轨1
+    public AudioClip Transfer_2; // 音轨1
+    public AudioClip ThrowDaoju; // 音轨1
+    public AudioClip BuildUp; // 音轨1
+    public AudioClip SilentWalk_Fast; // 音轨2
+    public AudioClip Soul; // 音轨3
+    public AudioClip Vocal_1; // 音轨4
+    public AudioClip Vocal_2; // 音轨4
+    public AudioClip Vocal_3; // 音轨4
+    public AudioClip Vocal_4; // 音轨4
+    public AudioClip Vocal_5; // 音轨4
+    public AudioClip DaojuImpact; // 音轨5
+    public AudioClip Collected; // 音轨6
+    public AudioClip MailBox; // 音轨7
+    public AudioClip Restart; // 音轨8
 
 
     private int AudioSourceNum = 10;
@@ -33,14 +32,15 @@ public class SoundManager : MonoBehaviour
         //++++++++++++++++单例模式的基本写法++++++++++++++++++++
         if (instance != null)
         {
-            Destroy(gameObject);  // 销毁新创建的重复实例
+            Destroy(gameObject); // 销毁新创建的重复实例
             return;
         }
+
         instance = this;
-        DontDestroyOnLoad(gameObject);  //防止切换场景时被销毁
+        DontDestroyOnLoad(gameObject); //防止切换场景时被销毁
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        for(int i = 0; i < AudioSourceNum; i++)
+        for (int i = 0; i < AudioSourceNum; i++)
         {
             var audio = this.gameObject.AddComponent<AudioSource>();
             audios.Add(audio);
@@ -49,20 +49,21 @@ public class SoundManager : MonoBehaviour
         Play(0, "BGM_1", true);
     }
 
-    void Start()
-    {
-
-    }
+    void Start() { }
 
     public void Play(int index, string name, bool isLoop)
     {
         var clip = GetAudioClip(name);
-        if(clip != null)
+        if (clip != null)
         {
             var audio = audios[index];
             audio.clip = clip;
             audio.loop = isLoop;
-            audio.Play();
+
+            if (audio.time > 0)
+                audio.UnPause();
+            else
+                audio.Play();
         }
     }
 
@@ -70,14 +71,42 @@ public class SoundManager : MonoBehaviour
     {
         if (index < 0 || index >= audios.Count)
             return;
-    
+
         var clip = GetAudioClip(name);
         if (clip == null)
             return;
-    
+
         var audio = audios[index];
         if (audio.clip == clip)
             audio.Stop();
+    }
+
+    public void Pause(int index, string name)
+    {
+        if (index < 0 || index >= audios.Count)
+            return;
+
+        var clip = GetAudioClip(name);
+        if (clip == null)
+            return;
+
+        var audio = audios[index];
+        if (audio.clip == clip)
+            audio.Pause();
+    }
+
+    public void UnPause(int index, string name)
+    {
+        if (index < 0 || index >= audios.Count)
+            return;
+
+        var clip = GetAudioClip(name);
+        if (clip == null)
+            return;
+
+        var audio = audios[index];
+        if (audio.clip == clip)
+            audio.UnPause();
     }
 
     AudioClip GetAudioClip(string name)
@@ -117,7 +146,7 @@ public class SoundManager : MonoBehaviour
             case "Restart":
                 return Restart;
         }
+
         return null;
     }
-
 }

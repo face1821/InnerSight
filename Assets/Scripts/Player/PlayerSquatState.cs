@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerSquatState : PlayerGroundedState
 {
-    public PlayerSquatState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
-    {
-        
-    }
+    public PlayerSquatState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName) { }
 
     public override void Enter()
     {
@@ -21,6 +18,9 @@ public class PlayerSquatState : PlayerGroundedState
     {
         player.ExitSquatCollider();
         player.spriterd.sprite = player.originImg;
+
+        SoundManager.instance.Pause(2, "SilentWalk_Fast");
+
         base.Exit();
     }
 
@@ -31,12 +31,13 @@ public class PlayerSquatState : PlayerGroundedState
         if (stateMachine.currentState != this)
             return;
 
-        if(xInput != 0)
+        if (xInput != 0)
         {
-            if(!player.isMain && player.mainPlayer.IsWallDownDetected())
+            if (!player.isMain && player.mainPlayer.IsWallDownDetected())
             {
                 //如果玩家是A玩家并且B玩家的WallDown检测到了墙壁，则什么都不做
                 //TODO  这样写还是有bug
+                player.SetVelocity(0, rb.velocity.y);
             }
             else
             {
@@ -47,25 +48,24 @@ public class PlayerSquatState : PlayerGroundedState
                     player.isPlaySilentWalk = true;
                 }
             }
-
         }
         else
         {
             if (player.isPlaySilentWalk)
             {
                 player.isPlaySilentWalk = false;
-                SoundManager.instance.Stop(2, "SilentWalk_Fast");
+                SoundManager.instance.Pause(2, "SilentWalk_Fast");
             }
         }
 
-        if(yInput >= 0 && !player.IsSquatHeadDetected())
+        if (yInput >= 0 && !player.IsSquatHeadDetected())
         {
-            if(!player.isMain && player.mainPlayer.IsSquatHeadDetected())
+            if (!player.isMain && player.mainPlayer.IsSquatHeadDetected())
             {
                 return;
             }
+
             stateMachine.ChangeState(player.idleState);
         }
     }
-
 }
