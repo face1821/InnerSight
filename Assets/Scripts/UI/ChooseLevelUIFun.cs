@@ -35,6 +35,8 @@ public class ChooseLevelUIFun : MonoBehaviour
         }
     }
 
+    private void Update() { GameManager.PlayIfEmptyMouseClick(); }
+
     //返回主菜单函数
     public static void ReturenToMainMenu()
     {

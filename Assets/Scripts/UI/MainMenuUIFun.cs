@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuUIFun : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class MainMenuUIFun : MonoBehaviour
         if (!GameManager.Instance.IsPlayedVideo)
             SoundManager.instance.Stop(0, "BGM_1");
     }
+
+    private void Update() { GameManager.PlayIfEmptyMouseClick(); }
 
     //结束游戏函数
     public static void ExittGame()

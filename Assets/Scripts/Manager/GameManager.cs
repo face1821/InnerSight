@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -55,6 +57,42 @@ public class GameManager : MonoBehaviour
 
         //注册回调
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public static void PlayIfEmptyMouseClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            //如果鼠标点到了按钮，返回
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                var obj = GameManager.GetClickUIObject();
+                if (obj != null && obj.GetComponent<Button>() != null)
+                    return;
+            }
+
+            //否则播放空点击音效
+            SoundManager.instance.Play(9, "MouseClick");
+        }
+    }
+
+    public static GameObject GetClickUIObject()
+    {
+        if (EventSystem.current == null) return null;
+
+        PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        pointerData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        // 返回最顶层点击到的UI物体
+        if (results.Count > 0)
+        {
+            return results[0].gameObject;
+        }
+
+        return null;
     }
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)

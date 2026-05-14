@@ -27,9 +27,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip Collected; // 音轨6
     public AudioClip MailBox; // 音轨7
     public AudioClip Restart; // 音轨8
+    public AudioClip MouseClick; // 音轨9
+    public AudioClip ButtonClick; // 音轨10
+    public AudioClip ButtonStartClick; // 音轨11
+    public AudioClip ButtonReturnClick; // 音轨12
 
 
-    private int AudioSourceNum = 10;
+    private int AudioSourceNum = 13;
     List<AudioSource> audios = new List<AudioSource>();
 
     private void Awake()
@@ -90,7 +94,7 @@ public class SoundManager : MonoBehaviour
         GlobalAudioMixer.SetFloat("SFXVolume", Mathf.Log10(slider.value) * 20);
     }
 
-    public void Play(int index, string name, bool isLoop, bool isForce = false)
+    public void Play(int index, string name, bool isLoop = false, bool isForce = false)
     {
         var clip = GetAudioClip(name);
         if (clip != null)
@@ -190,8 +194,9 @@ public class SoundManager : MonoBehaviour
                 return MailBox;
             case "Restart":
                 return Restart;
-        }
 
-        return null;
+            default:
+                return (AudioClip)GetType().GetField(name).GetValue(this);
+        }
     }
 }
