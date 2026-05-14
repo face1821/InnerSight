@@ -28,6 +28,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spike : MonoBehaviour
 {
@@ -53,7 +54,11 @@ public class Spike : MonoBehaviour
         yield return new WaitForSeconds(2f);
         
         GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
-        player.KeepShow(6);
+
+        if (SceneManager.GetActiveScene().name != "Level1")
+        {
+            player.KeepShow(3);
+        }
         
         // 刷新当前关卡（重新加载或重置）
         RefreshScene();

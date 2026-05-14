@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Item : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
-    void Update()
-    {
-        
-    }
+    void Update() { }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,11 +22,13 @@ public class Item : MonoBehaviour
             ins.CurrentScore++;
             UIFun.instance.OpenInvisibleWall();
             Destroy(gameObject);
-            
-            //显影1下（1s）
-            var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
-            mainPlayer.KeepShow(1);
+
+            if (SceneManager.GetActiveScene().name != "Level1" || (SceneManager.GetActiveScene().name == "Level1" && ins.CurrentScore > 2))
+            {
+                //显影1下（1s）
+                var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
+                mainPlayer.KeepShow(1);
+            }
         }
     }
-
 }

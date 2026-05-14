@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public enum TeleportAimDirection
 {
@@ -106,8 +107,6 @@ public class Player : Entity
             for (int i = 0; i < 4; i++)
                 aimArrowRenderers[i] = arrows[i] != null ? arrows[i].GetComponent<SpriteRenderer>() : null;
         }
-
-        SetTeleportAimArrowsVisible(false);
     }
 
     protected override void Start()
@@ -119,7 +118,12 @@ public class Player : Entity
         originOffset = bodyCollider.offset;
         originImg = spriterd.sprite;
 
-        if (isMain)
+        //第一关初始状态为一直显影
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            ShowAlpha = 1;
+        }
+        else if (isMain)
         {
             KeepShow(3);
         }
@@ -140,7 +144,7 @@ public class Player : Entity
     public void KeepShow(int loopCount)
     {
         DOTween.Kill(mainPlayer);
-        
+
         mainPlayer.ShowAlpha = 0;
         DOTween.To(() => mainPlayer.ShowAlpha,
                 x => mainPlayer.ShowAlpha = x,
@@ -148,7 +152,11 @@ public class Player : Entity
                 0.5f
             ).SetLoops(loopCount * 2, LoopType.Yoyo)
             .SetEase(Ease.InQuad)
-            .OnComplete(() => mainPlayer.ShowAlpha = 0)
+            .OnComplete(() =>
+            {
+                mainPlayer.ShowAlpha = 0;
+                SetTeleportAimArrowsVisible(false);
+            })
             .SetTarget(mainPlayer);
     }
 
@@ -288,6 +296,7 @@ public class Player : Entity
     //设置传送瞄准箭头可见
     private void SetTeleportAimArrowsVisible(bool visible)
     {
+        if (mainPlayer.ShowAlpha == 0 && isMain && visible) return;
         if (arrows == null) return;
         for (int i = 0; i < arrows.Count && i < 4; i++)
         {

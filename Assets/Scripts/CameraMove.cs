@@ -1,6 +1,8 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class CameraMove : MonoBehaviour
 {
     [SerializeField] private Vector2[] Destinations;
@@ -48,8 +50,11 @@ public class CameraMove : MonoBehaviour
         smoothVelocity = Vector3.zero;
         isMoving = true;
 
-        //显影3下（3s）
-        var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
-        mainPlayer.KeepShow(3);
+        if (SceneManager.GetActiveScene().name != "Level1" || (SceneManager.GetActiveScene().name == "Level1" && GameManager.Instance.CurrentScore >= 2))
+        {
+            //显影3下（3s）
+            var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
+            mainPlayer.KeepShow(3);
+        }
     }
 }
