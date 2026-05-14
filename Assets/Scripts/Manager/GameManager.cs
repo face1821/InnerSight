@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             }
 
             //否则播放空点击音效
-            SoundManager.instance.Play(9, "MouseClick");
+            SoundManager.Instance.Play(9, "MouseClick");
         }
     }
 

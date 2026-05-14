@@ -13,6 +13,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Update()
     {
+        if (PausePanel.activeSelf)
+        {
+            GameManager.PlayIfEmptyMouseClick();
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -23,22 +28,21 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
-
         }
-        
     }
 
     public void ResumeGame()
     {
         PausePanel.SetActive(false);
-;       Time.timeScale = 1f;
+        ;
+        Time.timeScale = 1f;
         isPaused = false;
         GameManager.Instance.CantThrow = false;
     }
 
     private void PauseGame()
     {
-        if (PausePanel == null)  // 或者 anyComponent == null
+        if (PausePanel == null) // 或者 anyComponent == null
         {
             Debug.LogWarning("目标对象已被销毁，跳过暂停逻辑");
             return;
@@ -48,7 +52,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         isPaused = true;
         GameManager.Instance.CantThrow = true;
-        
     }
 
 
@@ -76,13 +79,9 @@ public class PauseMenu : MonoBehaviour
         Destroy(thisNotMainPlayer.activeTransmitBall?.gameObject);
         thisNotMainPlayer.activeTransmitBall = null;
 
-        SoundManager.instance.Play(8, "Restart", false);
+        SoundManager.Instance.Play(8, "Restart", false, true);
         // GameManager ins = GameManager.instance;
         // thisMainPlayer.transform.position = ins.MainPlayerPosition[ins.currentSamllLevel - 1].transform.position;
         // thisNotMainPlayer.transform.position = ins.notMainPlayerPosition[ins.currentSamllLevel - 1].transform.position;
-
-
     }
-
-
 }

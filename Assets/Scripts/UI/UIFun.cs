@@ -60,7 +60,7 @@ public class UIFun : MonoBehaviour
     public void OpenInvisibleWall()
     {
         GameManager ins = GameManager.Instance;
-        if(ins.CurrentScore >= ins.ScoreArr[ins.CurrentLevel - 1])
+        if (ins.CurrentScore >= ins.ScoreArr[ins.CurrentLevel - 1])
             return;
 
         if (InvisibleWalls[ins.CurrentScore - 1] == null)
@@ -69,4 +69,6 @@ public class UIFun : MonoBehaviour
         Transform root = InvisibleWalls[ins.CurrentScore - 1].transform;
         root.GetComponent<Collider2D>().isTrigger = true;
     }
+
+    public void ExittGame() { Application.Quit(); }
 }

@@ -13,7 +13,7 @@ public class MainMenuUIFun : MonoBehaviour
         SceneManager.LoadScene("ChooseLevel"); //跳转至ChooseLevel场景
 
         if (!GameManager.Instance.IsPlayedVideo)
-            SoundManager.instance.Stop(0, "BGM_1");
+            SoundManager.Instance.Stop(0, "BGM_1");
     }
 
     private void Update() { GameManager.PlayIfEmptyMouseClick(); }

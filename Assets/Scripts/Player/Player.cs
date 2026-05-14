@@ -121,7 +121,7 @@ public class Player : Entity
     {
         if(!isMain)  //注意：只有玩家B能播放音效
             return;
-        if (SoundManager.instance == null)
+        if (SoundManager.Instance == null)
             return;
 
         randomVocalTimer += Time.deltaTime;
@@ -130,7 +130,7 @@ public class Player : Entity
 
         randomVocalTimer = 0f;
         string clipName = RandomVocalClipNames[Random.Range(0, RandomVocalClipNames.Length)];
-        SoundManager.instance.Play(4, clipName, false);
+        SoundManager.Instance.Play(4, clipName, false);
     }
 
     private void UpdateCoyoteTimer()
@@ -197,7 +197,7 @@ public class Player : Entity
         // 上面 !GetMouseButton(0) 已 return 掉「没按住」的情况
         if (Input.GetMouseButtonDown(0) && stateMachine.currentState == squatState && activeTransmitBall == null)
         {
-            SoundManager.instance.Play(1, "BuildUp", false);
+            SoundManager.Instance.Play(1, "BuildUp", false);
         }
 
         Camera cam = aimCamera != null ? aimCamera : Camera.main;
@@ -345,9 +345,9 @@ public class Player : Entity
             transmitBallLockedUntilGrounded = true;
             stateMachine.ChangeState(downState);
             if(ins.NowThrowState == 1)
-                SoundManager.instance.Play(1, "Transfer_1", false);
+                SoundManager.Instance.Play(1, "Transfer_1", false);
             else if(ins.NowThrowState == 2)
-                SoundManager.instance.Play(1, "Transfer_2", false);
+                SoundManager.Instance.Play(1, "Transfer_2", false);
             ins.NowThrowState = 0;
             return;
         }

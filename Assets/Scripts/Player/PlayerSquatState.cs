@@ -19,7 +19,7 @@ public class PlayerSquatState : PlayerGroundedState
         player.ExitSquatCollider();
         player.spriterd.sprite = player.originImg;
 
-        SoundManager.instance.Pause(2, "SilentWalk_Fast");
+        SoundManager.Instance.Pause(2, "SilentWalk_Fast");
 
         base.Exit();
     }
@@ -44,7 +44,7 @@ public class PlayerSquatState : PlayerGroundedState
                 player.SetVelocity(xInput * player.moveSpeed * 0.7f, rb.velocity.y);
                 if (!player.isPlaySilentWalk)
                 {
-                    SoundManager.instance.Play(2, "SilentWalk_Fast", true);
+                    SoundManager.Instance.Play(2, "SilentWalk_Fast", true);
                     player.isPlaySilentWalk = true;
                 }
             }
@@ -54,7 +54,7 @@ public class PlayerSquatState : PlayerGroundedState
             if (player.isPlaySilentWalk)
             {
                 player.isPlaySilentWalk = false;
-                SoundManager.instance.Pause(2, "SilentWalk_Fast");
+                SoundManager.Instance.Pause(2, "SilentWalk_Fast");
             }
         }
 

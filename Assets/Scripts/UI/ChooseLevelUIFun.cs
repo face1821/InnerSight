@@ -87,7 +87,7 @@ public class ChooseLevelUIFun : MonoBehaviour
     {
         if (vp != null)
             Destroy(vp.gameObject);
-        SoundManager.instance.Play(0, "BGM_1", true);
+        SoundManager.Instance.Play(0, "BGM_1", true);
     }
 
     private IEnumerator DetectWhenVideoEnd()

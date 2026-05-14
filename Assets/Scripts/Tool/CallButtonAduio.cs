@@ -12,9 +12,9 @@ public class ButtonAduio : MonoBehaviour, IPointerClickHandler
 
     [SerializeField] private Option ButtonType;
 
-    public void PlayButtonClick() { SoundManager.instance.Play(10, "ButtonClick"); }
-    public void PlayButtonStartClick() { SoundManager.instance.Play(11, "ButtonStartClick"); }
-    public void PlayButtonReturnClick() { SoundManager.instance.Play(12, "ButtonReturnClick"); }
+    public void PlayButtonClick() { SoundManager.Instance.Play(10, "ButtonClick"); }
+    public void PlayButtonStartClick() { SoundManager.Instance.Play(11, "ButtonStartClick"); }
+    public void PlayButtonReturnClick() { SoundManager.Instance.Play(12, "ButtonReturnClick"); }
 
     public void OnPointerClick(PointerEventData eventData)
     {

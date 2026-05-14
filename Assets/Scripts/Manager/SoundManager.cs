@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance; //这个类的实例
+    public static SoundManager Instance; //这个类的实例
 
     public AudioMixer GlobalAudioMixer;
 
@@ -39,13 +39,13 @@ public class SoundManager : MonoBehaviour
     private void Awake()
     {
         //++++++++++++++++单例模式的基本写法++++++++++++++++++++
-        if (instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject); // 销毁新创建的重复实例
             return;
         }
 
-        instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject); //防止切换场景时被销毁
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++
 

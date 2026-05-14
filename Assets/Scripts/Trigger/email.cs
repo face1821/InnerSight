@@ -17,7 +17,7 @@ public class email : MonoBehaviour
                     PlayerPrefs.Save(); // 立即保存
                 }
 
-                SoundManager.instance.Play(7, "MailBox", false);
+                SoundManager.Instance.Play(7, "MailBox", false);
                 ChooseLevelUIFun.EnterTheLevel(instance.CurrentLevel + 1); //切换场景
             }
         }
