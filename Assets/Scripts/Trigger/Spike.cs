@@ -64,7 +64,6 @@ public class Spike : MonoBehaviour
 
     private void RefreshScene()
     {
-        GameManager ins = GameManager.Instance;
         pm.RestartCurrentLevel();
     }
 }
