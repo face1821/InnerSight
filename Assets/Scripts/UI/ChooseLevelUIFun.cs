@@ -7,6 +7,8 @@ using UnityEngine.Video;
 
 public class ChooseLevelUIFun : MonoBehaviour
 {
+    public static OverlayFadeEffect SceneOverlay;
+
     [SerializeField] private Image blackOverlay;
     [SerializeField] private VideoPlayer vp;
     [SerializeField] private Button[] buttons;
@@ -40,10 +42,10 @@ public class ChooseLevelUIFun : MonoBehaviour
     }
 
     //进入关卡函数
-    public static void EnterTheLevel(int LevelNum) //参数是几就进入第几关
+    public static void EnterTheLevel(int levelNum) //参数是几就进入第几关
     {
         GameManager gm = GameManager.Instance;
-        if (LevelNum > gm.MaxLevel)
+        if (levelNum > gm.MaxLevel)
         {
             Debug.Log("暂未解锁当前关卡");
             return;
@@ -51,13 +53,13 @@ public class ChooseLevelUIFun : MonoBehaviour
 
         if (gm != null)
         {
-            gm.CurrentLevel = LevelNum;
+            gm.CurrentLevel = levelNum;
             gm.CurrentSamllLevel = 1;
             gm.CurrentScore = 0;
             gm.CantThrow = false;
-            if (LevelNum >= 1 && LevelNum <= gm.ScoreArr.Length)
+            if (levelNum >= 1 && levelNum <= gm.ScoreArr.Length)
             {
-                gm.MaxtScore = gm.ScoreArr[LevelNum - 1];
+                gm.MaxtScore = gm.ScoreArr[levelNum - 1];
             }
             else
             {
@@ -65,11 +67,18 @@ public class ChooseLevelUIFun : MonoBehaviour
             }
         }
 
-        SceneManager.LoadScene("Level" + LevelNum); //跳转场景
-        //GameManager instance = GameManager.instance;  //获取实例
-        //instance.currentLevel = i;  //将当前关卡数复制为i
-        // instance.maxtScore = instance.scoreArr[i - 1];  //将当前关卡所需的分数从数组里拿出来
-        // instance.currentScore = 0;  //设置当前分数为0
+        SceneOverlay = GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>();
+        SceneOverlay.PlayFadeOut();
+
+        GameManager.Instance.StartCoroutine(WaitForSceneOverlay(levelNum));
+    }
+
+    private static IEnumerator WaitForSceneOverlay(int levelNum)
+    {
+        yield return new WaitUntil(() => SceneOverlay.IsFinished);
+
+        //跳转场景
+        SceneManager.LoadScene("Level" + levelNum);
     }
 
     public void ColseVideo()

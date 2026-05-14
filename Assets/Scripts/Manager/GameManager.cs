@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -52,13 +53,21 @@ public class GameManager : MonoBehaviour
 
         AllWorldCenter = new Vector2[][] { WorldCenter1, WorldCenter2, WorldCenter3, WorldCenter4, WorldCenter5 };
 
-        //PlayerPrefs.SetInt("maxLevel", 1);  //这两行用于调试
-        //PlayerPrefs.Save();
+        //注册回调
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        //如果加载到关卡内
+        if (arg0.name.StartsWith("Level"))
+        {
+            GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
+        }
     }
 
     [Button]
-    public void ResetPlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
-    }
+    public void ResetPlayerPrefs() { PlayerPrefs.DeleteAll(); }
+
+    private void OnDestroy() { SceneManager.sceneLoaded -= OnSceneLoaded; }
 }
