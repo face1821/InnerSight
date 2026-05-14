@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
@@ -8,26 +9,26 @@ using UnityEngine.EventSystems;
 public enum TeleportAimDirection
 {
     None,
-    Up,    // arrows[0]
+    Up, // arrows[0]
     Right, // arrows[1]
-    Down,  // arrows[2]
-    Left   // arrows[3]
+    Down, // arrows[2]
+    Left // arrows[3]
 }
 
 public class Player : Entity
 {
     public string CurrentStateString;
 
-    public bool isBusy { get; private set; }  //玩家此时是否忙碌，如果忙碌则不让切换状态
+    public bool isBusy { get; private set; } //玩家此时是否忙碌，如果忙碌则不让切换状态
     [Header("移动")]
-    public float moveSpeed = 8f;  //移动速冻
-    public float jumpForce = 12f;  //跳跃力度
-    [SerializeField] private float coyoteTime = 0.1f;   // 土狼跳窗口
+    public float moveSpeed = 8f; //移动速冻
+    public float jumpForce = 12f; //跳跃力度
+    [SerializeField] private float coyoteTime = 0.1f; // 土狼跳窗口
     public float coyoteTimer;
 
     [SerializeField] private CapsuleCollider2D bodyCollider;
-    private Vector2 originSize;  //碰撞体原始大小
-    private Vector2 originOffset;  //碰撞体缩小后的偏移量
+    private Vector2 originSize; //碰撞体原始大小
+    private Vector2 originOffset; //碰撞体缩小后的偏移量
 
     public bool isMain; //注意：所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
     public Player mainPlayer;
@@ -43,7 +44,7 @@ public class Player : Entity
     private SpriteRenderer[] aimArrowRenderers;
     public SpriteRenderer spriterd;
     public Sprite squatStateImg;
-    public Sprite originImg;  //没有蹲下的序列帧动画时，暂时用这个图片替代
+    public Sprite originImg; //没有蹲下的序列帧动画时，暂时用这个图片替代
     public TeleportAimDirection CurrentAimDirection { get; private set; } = TeleportAimDirection.None;
     /// <summary>按住左键期间最后计算出的瞄准方向；松手发射时读取。</summary>
     private TeleportAimDirection lastAimWhileHolding = TeleportAimDirection.None;
@@ -62,6 +63,19 @@ public class Player : Entity
     public bool isDead = false;
 
     public bool IsAlreadyJumped;
+
+    public float ShowAlpha
+    {
+        get { return spriterd.color.a; }
+        set
+        {
+            spriterd.color = new Color(spriterd.color.r, spriterd.color.g, spriterd.color.b, value);
+            foreach (var item in aimArrowRenderers)
+            {
+                item.color = new Color(item.color.r, item.color.g, item.color.b, value);
+            }
+        }
+    }
 
 
     public PlayerStateMachine stateMachine { get; private set; }
@@ -92,34 +106,50 @@ public class Player : Entity
             for (int i = 0; i < 4; i++)
                 aimArrowRenderers[i] = arrows[i] != null ? arrows[i].GetComponent<SpriteRenderer>() : null;
         }
+
         SetTeleportAimArrowsVisible(false);
     }
 
     protected override void Start()
     {
         base.Start();
-        stateMachine.Initialize(idleState);  //初始化状态机
+        stateMachine.Initialize(idleState); //初始化状态机
 
         originSize = bodyCollider.size;
         originOffset = bodyCollider.offset;
         originImg = spriterd.sprite;
+
+        if (isMain)
+        {
+            KeepShow(3);
+        }
     }
 
     protected override void Update()
     {
-        if(isDead)
+        if (isDead)
             return;
         base.Update();
         UpdateCoyoteTimer();
-        stateMachine.currentState.Update(); 
+        stateMachine.currentState.Update();
         UpdateTeleportAimArrows();
         UpdateTransmitBallInput();
         PlaySound();
     }
 
+    public void KeepShow(int loopCount)
+    {
+        mainPlayer.ShowAlpha = 0;
+        DOTween.To(() => mainPlayer.ShowAlpha,
+            x => mainPlayer.ShowAlpha = x,
+            1f,
+            0.5f
+        ).SetLoops(loopCount * 2, LoopType.Yoyo).SetEase(Ease.InQuad);
+    }
+
     private void PlaySound()
     {
-        if(!isMain)  //注意：只有玩家B能播放音效
+        if (!isMain) //注意：只有玩家B能播放音效
             return;
         if (SoundManager.Instance == null)
             return;
@@ -136,22 +166,16 @@ public class Player : Entity
     private void UpdateCoyoteTimer()
     {
         if (IsGroundDetected())
-            coyoteTimer = coyoteTime;     // 在地面时重置窗口
+            coyoteTimer = coyoteTime; // 在地面时重置窗口
         else
             coyoteTimer -= Time.deltaTime; // 离地后倒计时
     }
 
-    public bool CanUseCoyoteJump()
-    {
-        return coyoteTimer > 0f;
-    }
+    public bool CanUseCoyoteJump() { return coyoteTimer > 0f; }
 
     public float GetCoyoteTimerData() => coyoteTimer;
 
-    public void ConsumeCoyoteJump()
-    {
-        coyoteTimer = 0f;
-    }
+    public void ConsumeCoyoteJump() { coyoteTimer = 0f; }
 
     public void EnterSquatCollider()
     {
@@ -160,7 +184,7 @@ public class Player : Entity
         float delta = (originSize.y - bodyCollider.size.y) * 0.5f;
         bodyCollider.offset = new Vector2(originOffset.x, originOffset.y - delta);
     }
-    
+
     public void ExitSquatCollider()
     {
         bodyCollider.size = originSize;
@@ -170,7 +194,7 @@ public class Player : Entity
     //更新传送瞄准箭头
     private void UpdateTeleportAimArrows()
     {
-        if(GameManager.Instance.CantThrow)
+        if (GameManager.Instance.CantThrow)
             return;
         if (aimArrowRenderers == null || aimArrowRenderers.Length < 4)
             return;
@@ -187,7 +211,7 @@ public class Player : Entity
             CurrentAimDirection = TeleportAimDirection.None;
             return;
         }
-        
+
         //点击UGUI时，返回
         if (EventSystem.current.IsPointerOverGameObject())
         {
@@ -271,8 +295,8 @@ public class Player : Entity
     private bool ShouldLaunchChargedTransmitBall(TeleportAimDirection fireDir)
     {
         return stateMachine != null
-            && stateMachine.currentState == squatState
-            && fireDir == TeleportAimDirection.Up;
+               && stateMachine.currentState == squatState
+               && fireDir == TeleportAimDirection.Up;
     }
 
     //尝试在鼠标释放时生成传球球
@@ -286,7 +310,7 @@ public class Player : Entity
 
         if (transmitBallLockedUntilGrounded)
             return;
-        
+
         Vector3 spawnPos = rb.position;
         GameObject ballObj = Instantiate(transmitBallPrefab, spawnPos, Quaternion.identity);
         transmitBall ball = ballObj.GetComponent<transmitBall>();
@@ -315,7 +339,7 @@ public class Player : Entity
 
         bool charged = ShouldLaunchChargedTransmitBall(lastAimWhileHolding);
         GameManager ins = GameManager.Instance;
-        if(charged)  //用来控制音效
+        if (charged) //用来控制音效
             ins.NowThrowState = 2;
         else
             ins.NowThrowState = 1;
@@ -330,9 +354,9 @@ public class Player : Entity
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            if(isBallInGround)
+            if (isBallInGround)
                 return;
-            if(!isMain && mainPlayer.isBallInGround)
+            if (!isMain && mainPlayer.isBallInGround)
                 return;
             GameManager ins = GameManager.Instance;
 
@@ -344,9 +368,9 @@ public class Player : Entity
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;
             stateMachine.ChangeState(downState);
-            if(ins.NowThrowState == 1)
+            if (ins.NowThrowState == 1)
                 SoundManager.Instance.Play(1, "Transfer_1", false);
-            else if(ins.NowThrowState == 2)
+            else if (ins.NowThrowState == 2)
                 SoundManager.Instance.Play(1, "Transfer_2", false);
             ins.NowThrowState = 0;
             return;
@@ -366,5 +390,4 @@ public class Player : Entity
         if (activeTransmitBall == ball)
             activeTransmitBall = null;
     }
-
 }

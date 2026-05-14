@@ -9583,6 +9583,14 @@ PrefabInstance:
       propertyPath: notmainPlayer
       value: 
       objectReference: {fileID: 150665233}
+    - target: {fileID: 2428745126727118505, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720565044944826810, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5115094982736568466, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.58
@@ -9627,9 +9635,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerB
       objectReference: {fileID: 0}
+    - target: {fileID: 5360237698391404865, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_TagString
+      value: MainPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142388359046918857, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7444194872490643807, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: m_Name
       value: WallCheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 9066882134895160523, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9132226056991973692, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9171918999683205613, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: m_GravityScale

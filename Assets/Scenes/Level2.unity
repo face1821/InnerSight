@@ -11004,6 +11004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerB
       objectReference: {fileID: 0}
+    - target: {fileID: 5360237698391404865, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
+      propertyPath: m_TagString
+      value: MainPlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 7444194872490643807, guid: 9b5c42e7ed425144daed8e2293397fdb, type: 3}
       propertyPath: m_Name
       value: WallCheck

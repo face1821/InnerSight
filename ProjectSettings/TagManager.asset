@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DebugInfo
   - SceneOverlay
+  - MainPlayer
   layers:
   - Default
   - TransparentFX

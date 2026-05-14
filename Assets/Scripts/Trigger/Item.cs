@@ -23,10 +23,14 @@ public class Item : MonoBehaviour
 
             UIFun.instance.GetOneItem();
             Debug.Log("玩家收集到了item");
-            SoundManager.Instance.Play(6, "Collected", false);
+            SoundManager.Instance.Play(6, "Collected");
             ins.CurrentScore++;
             UIFun.instance.OpenInvisibleWall();
             Destroy(gameObject);
+            
+            //显影1下（1s）
+            var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
+            mainPlayer.KeepShow(1);
         }
     }
 

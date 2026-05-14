@@ -1,3 +1,5 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
@@ -45,5 +47,9 @@ public class CameraMove : MonoBehaviour
         targetWorld = new Vector3(d.x, d.y, transform.position.z);
         smoothVelocity = Vector3.zero;
         isMoving = true;
+
+        //显影3下（3s）
+        var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
+        mainPlayer.KeepShow(3);
     }
 }

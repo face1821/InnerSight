@@ -32,6 +32,7 @@ public class UIFun : MonoBehaviour
         foreach (var r in spriteRenderers)
         {
             r.enabled = !r.enabled;
+            r.color = new Color(r.color.r, r.color.g, r.color.b, 1f);
         }
     }
 
