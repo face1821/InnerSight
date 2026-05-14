@@ -35,8 +35,7 @@ public class PlayerSquatState : PlayerGroundedState
         {
             if (!player.isMain && player.mainPlayer.IsWallDownDetected())
             {
-                //如果玩家是A玩家并且B玩家的WallDown检测到了墙壁，则什么都不做
-                //TODO  这样写还是有bug
+                //如果玩家是A玩家并且B玩家的WallDown检测到了墙壁
                 player.SetVelocity(0, rb.velocity.y);
             }
             else

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerIdleState : PlayerGroundedState
 {
-    public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
-    {
-        
-    }
+    public PlayerIdleState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName) { }
 
     public override void Enter()
     {
@@ -16,10 +13,7 @@ public class PlayerIdleState : PlayerGroundedState
         player.SetVelocity(0, rb.velocity.y);
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+    public override void Exit() { base.Exit(); }
 
     public override void Update()
     {
@@ -28,6 +22,10 @@ public class PlayerIdleState : PlayerGroundedState
         {
             //若玩家有x轴输入则转换为移动状态
             stateMachine.ChangeState(player.moveState);
+        }
+        else if (player.mainPlayer.IsSquatHeadDetected())
+        {
+            stateMachine.ChangeState(player.squatState);
         }
     }
 }

@@ -6,3 +6,7 @@ Logs/
 UserSettings/
 Packages/packages-lock.json
 ProjectSettings/ProjectVersion.txt
+/obj
+Assets/Resource/Animator/video.mp4
+Assets/Resource/Animator/video.mp4
+Assets/Resource/Animator/video.mp4
