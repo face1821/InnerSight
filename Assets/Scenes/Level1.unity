@@ -874,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Destinations:
   - {x: 8.04, y: -2.54}
-  - {x: 12.05, y: 0.46}
+  - {x: 12.05, y: 0.45}
   - {x: 16, y: 1.95}
   - {x: 15.9, y: 6.3}
   smoothTime: 0.35
@@ -10742,18 +10742,6 @@ PrefabInstance:
       value: backGroundB
       objectReference: {fileID: 0}
     - target: {fileID: 8726890689486179529, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726890689486179529, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726890689486179529, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726890689486179529, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.04
       objectReference: {fileID: 0}
@@ -10792,10 +10780,6 @@ PrefabInstance:
     - target: {fileID: 8726890689486179529, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8726890689486179529, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
