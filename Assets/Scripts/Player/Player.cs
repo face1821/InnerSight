@@ -139,12 +139,17 @@ public class Player : Entity
 
     public void KeepShow(int loopCount)
     {
+        DOTween.Kill(mainPlayer);
+        
         mainPlayer.ShowAlpha = 0;
         DOTween.To(() => mainPlayer.ShowAlpha,
-            x => mainPlayer.ShowAlpha = x,
-            1f,
-            0.5f
-        ).SetLoops(loopCount * 2, LoopType.Yoyo).SetEase(Ease.InQuad);
+                x => mainPlayer.ShowAlpha = x,
+                1f,
+                0.5f
+            ).SetLoops(loopCount * 2, LoopType.Yoyo)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() => mainPlayer.ShowAlpha = 0)
+            .SetTarget(mainPlayer);
     }
 
     private void PlaySound()

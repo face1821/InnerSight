@@ -49,8 +49,12 @@ public class Spike : MonoBehaviour
 
     private IEnumerator DeathCoroutine(Player player)
     {
-        // 等待 1.5 秒
-        yield return new WaitForSeconds(1.5f);
+        GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeOut();
+        yield return new WaitForSeconds(2f);
+        
+        GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
+        player.KeepShow(6);
+        
         // 刷新当前关卡（重新加载或重置）
         RefreshScene();
         // 刷新后，将玩家状态改为待机状态
