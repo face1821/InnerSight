@@ -52,6 +52,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerDownState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDeadState.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerJumpState.cs" />
+    <Compile Include="Assets\Scripts\Tool\DestroyWhenRelease.cs" />
     <Compile Include="Assets\Scripts\Trigger\email.cs" />
     <Compile Include="Assets\Scripts\Ground\Sticky.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
