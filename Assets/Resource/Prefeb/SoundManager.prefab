@@ -51,7 +51,7 @@ MonoBehaviour:
   ThrowDaoju: {fileID: 8300000, guid: 4189336ca156809479a930a068c6a640, type: 3}
   BuildUp: {fileID: 8300000, guid: a2c4877c3ab6ce648baaf96b30c77838, type: 3}
   SilentWalk_Fast: {fileID: 8300000, guid: 505424259396dc047b37ffd97240e629, type: 3}
-  Soul: {fileID: 0}
+  Soul: {fileID: 8300000, guid: 992d65b9399f6e447aca4a1abaeeae86, type: 3}
   Vocal_1: {fileID: 8300000, guid: fe6ee19e0bac5cd42a4f69fe71cd4784, type: 3}
   Vocal_2: {fileID: 8300000, guid: e033070e75b4ede42b5a9566e14b5c7e, type: 3}
   Vocal_3: {fileID: 8300000, guid: 7f6334ce30a3e8047a10060f71a05e14, type: 3}
@@ -65,3 +65,5 @@ MonoBehaviour:
   ButtonClick: {fileID: 8300000, guid: b6531aa92f62c764db6aa2bbeef5023f, type: 3}
   ButtonStartClick: {fileID: 8300000, guid: 6059b98867a70904f8aa4e1d3cef3a7c, type: 3}
   ButtonReturnClick: {fileID: 8300000, guid: 5e293458f8b63334a976decfa53975b4, type: 3}
+  SiLe1: {fileID: 8300000, guid: bb685d861b6dea54eb35afe9015b5a7c, type: 3}
+  SiLe2: {fileID: 8300000, guid: 61f2d7d107dee584c92ba098fee00bd5, type: 3}

@@ -31,9 +31,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip ButtonClick; // 音轨10
     public AudioClip ButtonStartClick; // 音轨11
     public AudioClip ButtonReturnClick; // 音轨12
+    public AudioClip SiLe1; // 音轨13
+    public AudioClip SiLe2; // 音轨13
 
 
-    private int AudioSourceNum = 13;
+    private int AudioSourceNum = 18;
     List<AudioSource> audios = new List<AudioSource>();
 
     private void Awake()
@@ -194,7 +196,10 @@ public class SoundManager : MonoBehaviour
                 return MailBox;
             case "Restart":
                 return Restart;
-
+            case "SiLe1":
+                return SiLe1;
+            case "SiLe2":
+                return SiLe2;
             default:
                 return (AudioClip)GetType().GetField(name).GetValue(this);
         }

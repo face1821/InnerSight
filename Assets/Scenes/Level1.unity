@@ -6514,8 +6514,8 @@ Tilemap:
   - first: {x: 21, y: -2, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileIndex: 16
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -8521,7 +8521,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: a8f706ec1b41f8e4ca23c24a5305621c, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 41
+  - m_RefCount: 40
     m_Data: {fileID: 11400000, guid: f2d59f4e07748b64785d2ebf097e4f5a, type: 2}
   - m_RefCount: 47
     m_Data: {fileID: 11400000, guid: e1c0e86370a84644b854387e6339920e, type: 2}
@@ -8545,7 +8545,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: c75104012253bf64fb438c07e7561160, type: 2}
   - m_RefCount: 50
     m_Data: {fileID: 11400000, guid: 7185f110dc08fa24bb2487b51ad1d02a, type: 2}
-  - m_RefCount: 17
+  - m_RefCount: 18
     m_Data: {fileID: 11400000, guid: bad3d510d296e3a4681d89858ec21cc4, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 349d8ff5ff7363b48a154c1296f56981, type: 2}
@@ -8560,7 +8560,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 68
+  - m_RefCount: 67
     m_Data: {fileID: 21300000, guid: 19da17efa2d210149b86843b30d4e4fd, type: 3}
   - m_RefCount: 47
     m_Data: {fileID: 21300000, guid: 91b7bd13f9cbe9d4a9d64cb0d454df0b, type: 3}
@@ -8582,7 +8582,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 68d86456bea099644a03a666ccdbfb53, type: 3}
   - m_RefCount: 50
     m_Data: {fileID: 21300000, guid: d564930be23028940a4ce89f61790ed2, type: 3}
-  - m_RefCount: 17
+  - m_RefCount: 18
     m_Data: {fileID: 21300000, guid: 8e4100078b9128e499229a6aecaf1925, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 54a6b2072d7e3b8468b437509d0aea5d, type: 3}
@@ -11945,8 +11945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14, y: 0}
-  m_SizeDelta: {x: 382, y: 2160}
+  m_AnchoredPosition: {x: 32, y: 0}
+  m_SizeDelta: {x: 255.4851, y: 2160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899071323
 MonoBehaviour:
@@ -11968,7 +11968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f030d0c4025256046bcdeceb26726fe3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7be8238dc05d8044487d7e29030845b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
