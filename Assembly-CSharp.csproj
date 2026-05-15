@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\PlayerSquatState.cs" />
     <Compile Include="Assets\Scripts\Tool\SetMusicVolume.cs" />
+    <Compile Include="Assets\Scripts\UI\DrawLine.cs" />
     <Compile Include="Assets\Scripts\Ground\WaypointFollower.cs" />
     <Compile Include="Assets\Scripts\Tool\CallButtonAduio.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerDownState.cs" />
