@@ -358,6 +358,9 @@ public class Player : Entity
         else
             ins.NowThrowState = 1;
         ball.Launch(lastAimWhileHolding, charged);
+        
+        //传送时重置土狼跳机制
+        ConsumeCoyoteJump();
     }
 
     //更新传送球输入

@@ -1,7 +1,16 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class email : MonoBehaviour
 {
+    [SerializeField] private Sprite OpenSprite;
+    [SerializeField] private Sprite CloseSprite;
+
+    private SpriteRenderer SpriteRenderer;
+
+    private void Awake() { SpriteRenderer = GetComponent<SpriteRenderer>(); }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (null != other.GetComponent<Player>())
@@ -17,9 +26,20 @@ public class email : MonoBehaviour
                     PlayerPrefs.Save(); // 立即保存
                 }
 
-                SoundManager.Instance.Play(7, "MailBox", false);
-                ChooseLevelUIFun.EnterTheLevel(instance.CurrentLevel + 1); //切换场景
+                SoundManager.Instance.Play(7, "MailBox");
+                SpriteRenderer.sprite = OpenSprite;
+
+                StartCoroutine(nameof(OnClose));
             }
         }
+    }
+
+    private IEnumerator OnClose()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SpriteRenderer.sprite = CloseSprite;
+
+        ChooseLevelUIFun.EnterTheLevel(GameManager.Instance.CurrentLevel + 1); //切换场景
     }
 }
