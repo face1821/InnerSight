@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -100,8 +101,19 @@ public class GameManager : MonoBehaviour
         //如果加载到关卡内
         if (arg0.name.StartsWith("Level"))
         {
-            GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
+            StartCoroutine(nameof(OnEnterLevel));
         }
+    }
+
+    private IEnumerator OnEnterLevel()
+    {
+        yield return new WaitForSeconds(3f);
+
+        GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
+
+        yield return new WaitForSeconds(1f);
+
+        GameObject.FindWithTag("SceneOverlay").transform.GetChild(0).gameObject.SetActive(false);
     }
 
     [Button]
