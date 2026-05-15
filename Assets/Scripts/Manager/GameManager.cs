@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -103,6 +105,21 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(nameof(OnEnterLevel));
         }
+    }
+
+    public IEnumerator OnChangeTipContent(TextMeshProUGUI text, string content)
+    {
+        DOTween.To(() => text.alpha,
+            value => text.alpha = value,
+            0f, 1f);
+
+        yield return new WaitForSeconds(1f);
+
+        text.text = content;
+
+        DOTween.To(() => text.alpha,
+            value => text.alpha = value,
+            1f, 1f);
     }
 
     private IEnumerator OnEnterLevel()

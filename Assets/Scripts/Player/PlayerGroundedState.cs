@@ -30,7 +30,7 @@ public class PlayerGroundedState : PlayerState
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && player.isMain)
         {
             //DebugInfo.text += $"{player.gameObject.name}: ";
 
@@ -47,6 +47,7 @@ public class PlayerGroundedState : PlayerState
             // 地面跳（或极短离地时）都允许
             // player.ConsumeCoyoteJump();
             stateMachine.ChangeState(player.jumpState);
+            player.notmainPlayer.stateMachine.ChangeState(player.notmainPlayer.jumpState);
             return;
         }
 

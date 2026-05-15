@@ -33,10 +33,11 @@ public class PlayerDownState : PlayerState
         }
 
         //如果主玩家可以使用土狼跳，则跳跃
-        if (Input.GetKeyDown(KeyCode.Space) && !player.IsAlreadyJumped && player.mainPlayer.CanUseCoyoteJump())
+        if (Input.GetKeyDown(KeyCode.Space) && !player.IsAlreadyJumped && player.isMain && player.CanUseCoyoteJump())
         {
-            player.mainPlayer.ConsumeCoyoteJump();
+            player.ConsumeCoyoteJump();
             stateMachine.ChangeState(player.jumpState);
+            player.notmainPlayer.stateMachine.ChangeState(player.notmainPlayer.jumpState);
             return;
         }
 

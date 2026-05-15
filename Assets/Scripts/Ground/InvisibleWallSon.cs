@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class InvisibleWallSon : MonoBehaviour
 {
     [SerializeField] private Player notMainPlayer;
+
+    [SerializeField] private TextMeshProUGUI _tipTextToChange;
+    [SerializeField, TextArea] private string _changeContent;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,6 +31,7 @@ public class InvisibleWallSon : MonoBehaviour
         notMainPlayer.mainPlayer.activeTransmitBall = null;
 
         Destroy(gameObject);
-    }
 
+        GameManager.Instance.StartCoroutine(GameManager.Instance.OnChangeTipContent(_tipTextToChange, _changeContent));
+    }
 }
