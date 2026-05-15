@@ -69,5 +69,5 @@ MonoBehaviour:
   WorldCenter4:
   - {x: 6.2, y: -2.7}
   - {x: 10, y: -2.7}
-  - {x: 0, y: 0}
+  - {x: 10.4, y: 1.8}
   WorldCenter5: []
