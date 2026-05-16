@@ -79,7 +79,7 @@ public class PauseMenu : MonoBehaviour
         Destroy(thisNotMainPlayer.activeTransmitBall?.gameObject);
         thisNotMainPlayer.activeTransmitBall = null;
 
-        SoundManager.Instance.Play(8, "Restart", false, true);
+        // SoundManager.Instance.Play(8, "Restart", false, true);
         // GameManager ins = GameManager.instance;
         // thisMainPlayer.transform.position = ins.MainPlayerPosition[ins.currentSamllLevel - 1].transform.position;
         // thisNotMainPlayer.transform.position = ins.notMainPlayerPosition[ins.currentSamllLevel - 1].transform.position;

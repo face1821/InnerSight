@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 458646805}
   - component: {fileID: 458646807}
   - component: {fileID: 458646806}
+  - component: {fileID: 458646808}
   m_Layer: 10
   m_Name: FakeCGround (1)
   m_TagString: Untagged
@@ -909,6 +910,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &458646808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458646804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c1d090e80bedb47ae063e8b4b44313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &460443526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10592,6 +10605,7 @@ GameObject:
   - component: {fileID: 2111505565}
   - component: {fileID: 2111505567}
   - component: {fileID: 2111505566}
+  - component: {fileID: 2111505568}
   m_Layer: 10
   m_Name: FakeCGround
   m_TagString: Untagged
@@ -10711,6 +10725,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2111505568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111505564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c1d090e80bedb47ae063e8b4b44313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2122092783
 PrefabInstance:
   m_ObjectHideFlags: 0

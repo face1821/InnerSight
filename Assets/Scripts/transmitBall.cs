@@ -123,12 +123,12 @@ public class transmitBall : MonoBehaviour
         {
             int layer = hit.collider.gameObject.layer;
             // 先命中假地板：只销毁，球不刹停，本帧继续走完 step（穿过刚拆掉的一块）
-            if (((1 << layer) & whatIsFakeCGround) != 0)
-            {
-                Destroy(hit.collider.gameObject); // 若碰撞体在子物体上、要删整坨假地板，可改成 Destroy(hit.collider.transform.root.gameObject)
-                transform.position = start + flyDirection * step;
-                return;
-            }
+            // if (((1 << layer) & whatIsFakeCGround) != 0)
+            // {
+            //     Destroy(hit.collider.gameObject); // 若碰撞体在子物体上、要删整坨假地板，可改成 Destroy(hit.collider.transform.root.gameObject)
+            //     transform.position = start + flyDirection * step;
+            //     return;
+            // }
             // 普通地面：保持你原来的刹停逻辑
             if (((1 << layer) & whatIsBGround) != 0)
             {
