@@ -87,6 +87,7 @@ public class ChooseLevelUIFun : MonoBehaviour
 
         //跳转场景
         SceneManager.LoadScene("Level" + levelNum);
+        _isLocked = false;
     }
 
     public void ColseVideo()
@@ -100,6 +101,7 @@ public class ChooseLevelUIFun : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
+        yield return new WaitUntil(() => vp.isPrepared);
         yield return new WaitUntil(() => vp == null || !vp.isPlaying);
 
         ColseVideo();

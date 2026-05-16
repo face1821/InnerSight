@@ -20,19 +20,16 @@ public class Entity : MonoBehaviour
     [SerializeField] protected float SquatHeadCheckDistance;
 
 
-    [SerializeField] protected LayerMask whatIsAGround;  //A型地面的图层
-    [SerializeField] protected LayerMask whatIsBGround;  //地面和墙壁的图层 (B型地面)
-    [SerializeField] protected LayerMask whatIsCGround;  //C型地面的图层
+    [SerializeField] protected LayerMask whatIsAGround; //A型地面的图层
+    [SerializeField] protected LayerMask whatIsBGround; //地面和墙壁的图层 (B型地面)
+    [SerializeField] protected LayerMask whatIsCGround; //C型地面的图层
 
-    [SerializeField] protected GameObject notFlipGameObject;  //不会被翻转的游戏对象
+    [SerializeField] protected GameObject notFlipGameObject; //不会被翻转的游戏对象
 
-    public int facingDir = 1;  //面朝方向，1为右，-1为左，用于计算
-    protected bool isFacingRight = true;  //是否面朝右边
+    public int facingDir = 1; //面朝方向，1为右，-1为左，用于计算
+    protected bool isFacingRight = true; //是否面朝右边
 
-    protected virtual void Awake()
-    {
-
-    }
+    protected virtual void Awake() { }
 
     protected virtual void Start()
     {
@@ -41,10 +38,7 @@ public class Entity : MonoBehaviour
         sr = GetComponentInChildren<SpriteRenderer>();
     }
 
-    protected virtual void Update()
-    {
-        
-    }
+    protected virtual void Update() { }
 
     //设置角色速度
     public void SetVelocity(float _xVelocity, float _yVelocity)
@@ -54,8 +48,8 @@ public class Entity : MonoBehaviour
     }
 
     //设置角色x，y方向速度均为0
-    public void SetZeroVelocity() => SetVelocity(0,0);
-    
+    public void SetZeroVelocity() => SetVelocity(0, 0);
+
     //控制何时翻转角色
     public virtual void FlipController(float _x)
     {
@@ -73,14 +67,14 @@ public class Entity : MonoBehaviour
     public virtual void Flip()
     {
         Transform notFlipT = notFlipGameObject != null ? notFlipGameObject.transform : null;
-    
+
         if (notFlipT != null)
             notFlipT.SetParent(null, true); // 保持世界位置、旋转、缩放
-    
+
         facingDir = facingDir * -1;
         isFacingRight = !isFacingRight;
         transform.Rotate(0, 180, 0);
-    
+
         if (notFlipT != null)
             notFlipT.SetParent(transform, true); // 再挂回玩家根节点，仍保持世界变换
     }
@@ -88,18 +82,19 @@ public class Entity : MonoBehaviour
     //检测地面
     public virtual bool IsGroundDetected()
     {
-        bool isA = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsAGround);
-        bool isB = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsBGround);
-        bool isC = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsCGround);
-        return isA || isB || isC ;
-    } 
+        bool isA = Physics2D.Raycast(groundCheck.position, Vector2.down * 1.5f, groundCheckDistance, whatIsAGround);
+        bool isB = Physics2D.Raycast(groundCheck.position, Vector2.down * 1.5f, groundCheckDistance, whatIsBGround);
+        bool isC = Physics2D.Raycast(groundCheck.position, Vector2.down * 1.5f, groundCheckDistance, whatIsCGround);
+
+        return isA || isB || isC;
+    }
 
     //检测B型地面
     public virtual bool IsBGroundDetected()
     {
         bool isB = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsBGround);
         return isB;
-    } 
+    }
 
     //检测墙壁
     public virtual bool IsWallUpDetected()
@@ -107,25 +102,27 @@ public class Entity : MonoBehaviour
         bool isA = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(wallUpCheck.position, Vector2.right * facingDir, wallUpCheckDistance, whatIsCGround);
-        return isA || isB || isC ;
+        return isA || isB || isC;
     }
+
     public virtual bool IsWallDownDetected()
     {
         bool isA = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(wallDownCheck.position, Vector2.right * facingDir, wallDownCheckDistance, whatIsCGround);
-        return isA || isB || isC ;
-
+        return isA || isB || isC;
     }
+
     public virtual bool IsWallDetected() => IsWallUpDetected() || IsWallDownDetected();
+
     //检测天花板（正上方）
     public virtual bool IsHeadDetected()
     {
         bool isA = Physics2D.Raycast(headCheck.position, Vector2.up, headCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(headCheck.position, Vector2.up, headCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(headCheck.position, Vector2.up, headCheckDistance, whatIsCGround);
-        return isA || isB || isC ;
-    } 
+        return isA || isB || isC;
+    }
 
     //检测蹲下时的天花板（正上方）
     public virtual bool IsSquatHeadDetected()
@@ -133,8 +130,8 @@ public class Entity : MonoBehaviour
         bool isA = Physics2D.Raycast(SquatHeadCheck.position, Vector2.up, SquatHeadCheckDistance, whatIsAGround);
         bool isB = Physics2D.Raycast(SquatHeadCheck.position, Vector2.up, SquatHeadCheckDistance, whatIsBGround);
         bool isC = Physics2D.Raycast(SquatHeadCheck.position, Vector2.up, SquatHeadCheckDistance, whatIsCGround);
-        return isA || isB || isC ;
-    } 
+        return isA || isB || isC;
+    }
 
     //画出检测射线，方便调试
     protected virtual void OnDrawGizmos()
@@ -146,5 +143,4 @@ public class Entity : MonoBehaviour
         Gizmos.DrawLine(headCheck.position, new Vector3(headCheck.position.x, headCheck.position.y + headCheckDistance));
         Gizmos.DrawLine(SquatHeadCheck.position, new Vector3(SquatHeadCheck.position.x, SquatHeadCheck.position.y + SquatHeadCheckDistance));
     }
-
 }
