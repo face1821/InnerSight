@@ -35,6 +35,8 @@ public class email : MonoBehaviour
                 if (instance.CurrentLevel + 1 > instance.MaxLevel) //若当前关卡数+1大于了玩家的最大关卡数
                 {
                     instance.MaxLevel = instance.CurrentLevel + 1; //那就给最大关卡数重新赋值，进行刷新
+                    if(instance.MaxLevel >= 5)
+                        instance.MaxLevel = 5;
                     PlayerPrefs.SetInt("maxLevel", instance.MaxLevel);
                     PlayerPrefs.Save(); // 立即保存
                 }
