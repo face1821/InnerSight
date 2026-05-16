@@ -40,6 +40,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip Falling1_1; // 音轨14
     public AudioClip Falling1_2; // 音轨14
     public AudioClip Falling2; // 音轨14
+    public AudioClip Moving1_1; // 音轨15
+    public AudioClip Moving1_2; // 音轨15
+    public AudioClip Moving1_3; // 音轨15
+    public AudioClip Moving1_4; // 音轨15
 
 
     private int AudioSourceNum = 18;
