@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerState
 {
-    public PlayerJumpState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
-    {
-
-    }
+    public PlayerJumpState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName) { }
 
     public override void Enter()
     {
@@ -23,25 +20,21 @@ public class PlayerJumpState : PlayerState
             SoundManager.Instance.Play(14, "Jumping2_2", false, true);
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
+    public override void Exit() { base.Exit(); }
 
     public override void Update()
     {
         base.Update();
 
-        if(player.isMain == false && player.mainPlayer.IsHeadDetected())
+        if (player.isMain == false && player.mainPlayer.IsHeadDetected())
             player.SetVelocity(0, 0);
-        if(rb.velocity.y < 0)
-            stateMachine.ChangeState(player.downState);  //若y轴速度为负，则转换为下落状态
+        if (rb.velocity.y == 0f)
+            stateMachine.ChangeState(player.idleState);
+        if (rb.velocity.y < 0)
+            stateMachine.ChangeState(player.downState); //若y轴速度为负，则转换为下落状态
         if (xInput != 0)
-            player.SetVelocity(player.moveSpeed * 0.8f * xInput, rb.velocity.y);  //若玩家在空中有x轴输入则也可以慢速移动
-        if(player.isMain == false && player.mainPlayer.IsWallDetected())
+            player.SetVelocity(player.moveSpeed * 0.8f * xInput, rb.velocity.y); //若玩家在空中有x轴输入则也可以慢速移动
+        if (player.isMain == false && player.mainPlayer.IsWallDetected())
             player.SetVelocity(0, rb.velocity.y);
-        
-
     }
 }
-
