@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static bool IsLocked;
+    
     public GameObject PausePanel;
     private bool isPaused = false;
 
@@ -20,6 +22,8 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (IsLocked) return;
+            
             if (isPaused)
             {
                 ResumeGame();

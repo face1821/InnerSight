@@ -152,9 +152,9 @@ public class GameManager : MonoBehaviour
             DOTween.ToAlpha(() => _imageToShowAWhile.color,
                 value => _imageToShowAWhile.color = value,
                 0.5f, 2f);
-        
+
         yield return new WaitForSeconds(2f);
-        
+
         if (_imageToShowAWhile != null)
             DOTween.ToAlpha(() => _imageToShowAWhile.color,
                 value => _imageToShowAWhile.color = value,
@@ -163,6 +163,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator OnEnterLevel()
     {
+        PauseMenu.IsLocked = true;
+
         var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
         mainPlayer.isDead = true;
         mainPlayer.notmainPlayer.isDead = true;
@@ -176,6 +178,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         GameObject.FindWithTag("SceneOverlay").transform.GetChild(0).gameObject.SetActive(false);
+
+        PauseMenu.IsLocked = false;
     }
 
     [Button]
