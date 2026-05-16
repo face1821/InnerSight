@@ -24,7 +24,7 @@ public class transmitBall : MonoBehaviour
     [Header("匀减速（标量，单位/秒²）")]
     [SerializeField] private float deceleration = 10f;
 
-    public bool isMain;  //注意：所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
+    public bool isMain; //注意：所有用到这个值的地方都是进行的特殊处理，思考逻辑时需要仔细阅读代码
     public Player mianPlayer;
     public Player notmianPlayer;
 
@@ -42,11 +42,8 @@ public class transmitBall : MonoBehaviour
         SoundManager.Instance.Play(3, "Soul", true);
         // am.SetBool("",true);
     }
-    
-    public void SetOwner(Player player)
-    {
-        owner = player;
-    }
+
+    public void SetOwner(Player player) { owner = player; }
 
     private void OnDestroy()
     {
@@ -79,7 +76,7 @@ public class transmitBall : MonoBehaviour
         if (!isFlying)
             return;
 
-        if(IsInGroundFun())
+        if (IsInGroundFun())
             owner.isBallInGround = true;
         else
             owner.isBallInGround = false;
@@ -139,6 +136,7 @@ public class transmitBall : MonoBehaviour
                 return;
             }
         }
+
         transform.position = start + flyDirection * step;
     }
 
@@ -177,7 +175,7 @@ public class transmitBall : MonoBehaviour
     {
         Vector2 center = transform.position;
         LayerMask mask = whatIsAGround | whatIsBGround | whatIsCGround;
-        Collider2D hit = Physics2D.OverlapPoint(center, mask);
+        Collider2D hit = Physics2D.OverlapCircle(center, GetCastRadius() * 0.8f, mask);
         return hit != null;
     }
 }
