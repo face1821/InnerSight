@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator OnEnterGameOver()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         
         GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
     }
