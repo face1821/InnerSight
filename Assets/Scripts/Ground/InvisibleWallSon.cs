@@ -32,6 +32,7 @@ public class InvisibleWallSon : MonoBehaviour
 
         Destroy(gameObject);
 
-        GameManager.Instance.StartCoroutine(GameManager.Instance.OnChangeTipContent(_tipTextToChange, _changeContent));
+        if (_tipTextToChange != null)
+            GameManager.Instance.StartCoroutine(GameManager.Instance.OnChangeTipContent(_tipTextToChange, _changeContent));
     }
 }

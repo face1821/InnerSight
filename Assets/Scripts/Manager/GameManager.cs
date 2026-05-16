@@ -101,25 +101,25 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         var levelName = arg0.name;
-        
+
         SoundManager.Instance.StopAllCoroutines();
-        
+
         //如果加载到关卡内
         if (levelName.StartsWith("Level"))
         {
             //播放BGM
             if (levelName.EndsWith("1") || levelName.EndsWith("2"))
             {
-                SoundManager.Instance.Play(0,"BGM_2");
+                SoundManager.Instance.Play(0, "BGM_2", false, true);
                 SoundManager.Instance.SetLoop(0, 15f);
             }
             else
             {
-                SoundManager.Instance.Play(0,"BGM_3");
+                SoundManager.Instance.Play(0, "BGM_3", false, true);
                 SoundManager.Instance.SetLoop(0, 15f);
             }
 
-            
+
             StartCoroutine(nameof(OnEnterLevel));
         }
     }
