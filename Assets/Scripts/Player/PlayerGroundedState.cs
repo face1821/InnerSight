@@ -26,8 +26,6 @@ public class PlayerGroundedState : PlayerState
 
         if (!player.IsGroundDetected())
         {
-            Debug.LogWarning($"{player.gameObject.name} 下坠");
-            Debug.Break();
             stateMachine.ChangeState(player.downState);
             return;
         }
