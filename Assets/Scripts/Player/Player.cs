@@ -125,8 +125,15 @@ public class Player : Entity
         }
         else if (isMain)
         {
-            KeepShow(3);
+            StartCoroutine(nameof(DelayKeepShow));
         }
+    }
+
+    private IEnumerator DelayKeepShow()
+    {
+        yield return new WaitForSeconds(3f);
+
+        KeepShow(3);
     }
 
     protected override void Update()
@@ -358,7 +365,7 @@ public class Player : Entity
         else
             ins.NowThrowState = 1;
         ball.Launch(lastAimWhileHolding, charged);
-        
+
         //传送时重置土狼跳机制
         ConsumeCoyoteJump();
     }

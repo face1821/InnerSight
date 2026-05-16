@@ -124,9 +124,15 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator OnEnterLevel()
     {
+        var mainPlayer = GameObject.FindWithTag("MainPlayer").GetComponent<Player>();
+        mainPlayer.isDead = true;
+        mainPlayer.notmainPlayer.isDead = true;
+        
         yield return new WaitForSeconds(3f);
 
         GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
+        mainPlayer.isDead = false;
+        mainPlayer.notmainPlayer.isDead = false;
 
         yield return new WaitForSeconds(1f);
 
