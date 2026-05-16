@@ -81,6 +81,7 @@ Assets/Scripts/
   Spike.cs
  UI/
   ChooseLevelUIFun.cs
+  GameOverMenuUIFun.cs
   MainMenuUIFun.cs
   UIFun.cs
 obj/Debug/.NETFramework,Version=v4.7.1.AssemblyAttributes.cs
