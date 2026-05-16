@@ -175,7 +175,7 @@ public class transmitBall : MonoBehaviour
     {
         Vector2 center = transform.position;
         LayerMask mask = whatIsAGround | whatIsBGround | whatIsCGround;
-        Collider2D hit = Physics2D.OverlapCircle(center, GetCastRadius() * 0.8f, mask);
+        Collider2D hit = Physics2D.OverlapCircle(center, GetCastRadius() * 0.3f, mask);
         return hit != null;
     }
 }
