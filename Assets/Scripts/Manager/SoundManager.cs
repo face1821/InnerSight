@@ -86,42 +86,43 @@ public class SoundManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         volume = Mathf.Clamp(volume, 0.0001f, 10f);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
         GlobalAudioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
     }
 
     public void SetMusicVolume(Slider slider)
     {
         slider.value = Mathf.Clamp(slider.value, 0.0001f, 10f);
+        PlayerPrefs.SetFloat("MusicVolume", slider.value);
         GlobalAudioMixer.SetFloat("MusicVolume", Mathf.Log10(slider.value) * 20);
     }
 
     public void SetSFXVolume(float volume)
     {
         volume = Mathf.Clamp(volume, 0.0001f, 10f);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
         GlobalAudioMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20);
     }
 
     public void SetSFXVolume(Slider slider)
     {
         slider.value = Mathf.Clamp(slider.value, 0.0001f, 10f);
+        PlayerPrefs.SetFloat("SFXVolume", slider.value);
         GlobalAudioMixer.SetFloat("SFXVolume", Mathf.Log10(slider.value) * 20);
     }
 
-    public void SetLoop(int index, float intervalTime)
-    {
-        StartCoroutine(DetectWhenEndToLoop(index, intervalTime));
-    }
+    public void SetLoop(int index, float intervalTime) { StartCoroutine(DetectWhenEndToLoop(index, intervalTime)); }
 
     private IEnumerator DetectWhenEndToLoop(int index, float intervalTime)
     {
         yield return new WaitUntil(() => !audios[index].isPlaying);
-        
+
         Debug.LogWarning("播放结束，准备循环");
-        
+
         yield return new WaitForSeconds(intervalTime);
-        
+
         audios[index].Play();
-        
+
         StartCoroutine(DetectWhenEndToLoop(index, intervalTime));
     }
 
