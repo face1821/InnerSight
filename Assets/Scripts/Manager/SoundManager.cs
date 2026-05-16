@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     public AudioMixer GlobalAudioMixer;
 
     public AudioClip BGM_1; // 音轨0
+    public AudioClip BGM_2; // 音轨0
+    public AudioClip BGM_3; // 音轨0
     public AudioClip Transfer_1; // 音轨1
     public AudioClip Transfer_2; // 音轨1
     public AudioClip ThrowDaoju; // 音轨1
@@ -68,8 +70,8 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 5f));
-        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 5f));
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1f));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 1f));
     }
 
     public void SetMusicVolume(float volume)
@@ -94,6 +96,24 @@ public class SoundManager : MonoBehaviour
     {
         slider.value = Mathf.Clamp(slider.value, 0.0001f, 10f);
         GlobalAudioMixer.SetFloat("SFXVolume", Mathf.Log10(slider.value) * 20);
+    }
+
+    public void SetLoop(int index, float intervalTime)
+    {
+        StartCoroutine(DetectWhenEndToLoop(index, intervalTime));
+    }
+
+    private IEnumerator DetectWhenEndToLoop(int index, float intervalTime)
+    {
+        yield return new WaitUntil(() => !audios[index].isPlaying);
+        
+        Debug.LogWarning("播放结束，准备循环");
+        
+        yield return new WaitForSeconds(intervalTime);
+        
+        audios[index].Play();
+        
+        StartCoroutine(DetectWhenEndToLoop(index, intervalTime));
     }
 
     public void Play(int index, string name, bool isLoop = false, bool isForce = false)

@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlobalAudioMixer: {fileID: 24100000, guid: cd323125b68de5c4cb4b28b036769e91, type: 2}
-  BGM_1: {fileID: 8300000, guid: df06728850906df49bdfcb5a541ae2a1, type: 3}
+  BGM_1: {fileID: 8300000, guid: b063697a81853274eb004a63b7a77c38, type: 3}
+  BGM_2: {fileID: 8300000, guid: 485b5b6f1e0f55d4aa179ea847e22dfc, type: 3}
+  BGM_3: {fileID: 8300000, guid: bf7af2bebdb923d4e91ff148455ce932, type: 3}
   Transfer_1: {fileID: 8300000, guid: 0acc7ffa62352bc42a0907ffaf7f29ce, type: 3}
   Transfer_2: {fileID: 8300000, guid: 891013693a8291c49ada596d7e382cb0, type: 3}
   ThrowDaoju: {fileID: 8300000, guid: 4189336ca156809479a930a068c6a640, type: 3}

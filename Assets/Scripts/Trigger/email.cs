@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class email : MonoBehaviour
 {
@@ -16,6 +17,17 @@ public class email : MonoBehaviour
         if (null != other.GetComponent<Player>())
         {
             GameManager instance = GameManager.Instance; //拿到游戏管理器的实例
+            
+            //游戏结束的判断
+            if (instance.CurrentLevel >= instance.MaxLevel)
+            {
+                StartCoroutine(nameof(OnClose));
+
+                SceneManager.LoadScene("GameOver");
+                
+                return;
+            }
+            
             if (instance.CurrentScore >= instance.MaxtScore) //如果当前分数大于等于此关要收集的分数，说明通关了
             {
                 //在进入下一关之前要判断一下要不要刷新玩家的最大通关数，也就是记录玩家玩到哪一关了
