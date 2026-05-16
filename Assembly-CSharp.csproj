@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Ground\Sticky.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Tool\SetSFXVolume.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOverMenuUIFun.cs" />
     <Compile Include="Assets\Scripts\Trigger\Item.cs" />
     <Compile Include="Assets\Scripts\Tool\SliderValueAwakeSync.cs" />
     <Compile Include="Assets\Scripts\Ground\InvisibleWall.cs" />

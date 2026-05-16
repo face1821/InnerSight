@@ -23,7 +23,7 @@ public class email : MonoBehaviour
             {
                 SoundManager.Instance.Play(7, "MailBox");
                 SpriteRenderer.sprite = OpenSprite;
-                
+
                 StartCoroutine(nameof(OnGameOver));
 
                 return;
@@ -55,13 +55,18 @@ public class email : MonoBehaviour
 
         ChooseLevelUIFun.EnterTheLevel(GameManager.Instance.CurrentLevel + 1); //切换场景
     }
-    
+
     private IEnumerator OnGameOver()
     {
         yield return new WaitForSeconds(1f);
 
         SpriteRenderer.sprite = CloseSprite;
-        
+        GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeOut();
+
+        yield return new WaitForSeconds(1f);
+
+        GameObject.FindWithTag("SceneOverlay").transform.GetChild(0).gameObject.SetActive(false);
+
         SoundManager.Instance.Play(0, "BGM_1", true, true);
         SceneManager.LoadScene("GameOver");
     }

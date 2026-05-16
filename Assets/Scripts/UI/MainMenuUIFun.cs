@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 
 public class MainMenuUIFun : MonoBehaviour
 {
+    private void Awake() { GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn(); }
+
     //开始游戏函数
     public static void StartGame()
     {

@@ -119,9 +119,19 @@ public class GameManager : MonoBehaviour
                 SoundManager.Instance.SetLoop(0, 15f);
             }
 
-
             StartCoroutine(nameof(OnEnterLevel));
         }
+        else if (levelName == "GameOver")
+        {
+            StartCoroutine(nameof(OnEnterGameOver));
+        }
+    }
+
+    private IEnumerator OnEnterGameOver()
+    {
+        yield return new WaitForSeconds(2f);
+        
+        GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
     }
 
     public IEnumerator OnChangeTipContent(TextMeshProUGUI text, string content)
