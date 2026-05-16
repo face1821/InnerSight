@@ -1015,7 +1015,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.04, y: -2.54, z: -10}
+  m_LocalPosition: {x: 8.04, y: -2.55, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2222,6 +2222,7 @@ GameObject:
   - component: {fileID: 1035122240}
   - component: {fileID: 1035122239}
   - component: {fileID: 1035122238}
+  - component: {fileID: 1035122241}
   m_Layer: 5
   m_Name: Show
   m_TagString: Untagged
@@ -2343,6 +2344,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035122236}
   m_CullTransparentMesh: 1
+--- !u!114 &1035122241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035122236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d60c77e8e2b43d290138ba53b1db55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1039947004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12321,6 +12334,7 @@ MonoBehaviour:
     \u0301)\n\u2014\u2014\u7693\u5929"
   - "\u8EAB\u4F53\u8981\u4FDD\u91CD\uFF0C\u60C5\u611F\u4E0D\u8981\u865A\u8017\n\u2014\u2014Alice"
   - "\u6211\u4E0D\u5230\u554A\uFF0C\u5927\u4F19\u8BA9\u6211\u7559\u4E2A\u5F69\u86CB\u5728\u8FD9\u634F\n\u2014\u2014Maxy"
+  - "no game no life\uFF01\uFF01\uFF01\uFF01\r\n\u2014\u2014\u8096\u9A73"
 --- !u!61 &2031262615
 BoxCollider2D:
   m_ObjectHideFlags: 0
