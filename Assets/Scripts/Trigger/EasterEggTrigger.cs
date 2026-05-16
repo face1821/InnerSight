@@ -12,7 +12,7 @@ public class EasterEggTrigger : MonoBehaviour
     public List<string> Texts;
     private int _index;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("MainPlayer"))
         {
@@ -22,8 +22,5 @@ public class EasterEggTrigger : MonoBehaviour
         }
     }
 
-    public void ChangeText()
-    {
-        Text.text = Texts[_index++];
-    }
+    public void ChangeText() { Text.text = Texts[_index++]; }
 }
