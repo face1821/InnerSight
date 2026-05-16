@@ -117,8 +117,6 @@ public class SoundManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !audios[index].isPlaying);
 
-        Debug.LogWarning("播放结束，准备循环");
-
         yield return new WaitForSeconds(intervalTime);
 
         audios[index].Play();
