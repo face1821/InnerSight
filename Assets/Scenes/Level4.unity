@@ -970,7 +970,6 @@ GameObject:
   m_Component:
   - component: {fileID: 545830234}
   - component: {fileID: 545830231}
-  - component: {fileID: 545830233}
   - component: {fileID: 545830232}
   m_Layer: 0
   m_Name: OptionPanelCamera
@@ -1074,14 +1073,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &545830233
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 545830230}
-  m_Enabled: 1
 --- !u!4 &545830234
 Transform:
   m_ObjectHideFlags: 0

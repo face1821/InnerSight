@@ -12,8 +12,10 @@ public class MaskController : MonoBehaviour
     public void ShowMask()
     {
         settingPanel.SetActive(true);
-        objectwithShow.SetActive(true);
-        
+
+        if (objectwithShow != null)
+            objectwithShow.SetActive(true);
+
         foreach (var objectWithHide in objectsWithHide)
         {
             objectWithHide.SetActive(false);
@@ -24,8 +26,10 @@ public class MaskController : MonoBehaviour
     public void HideMask()
     {
         settingPanel.SetActive(false);
-        objectwithShow.SetActive(false);
-        
+
+        if (objectwithShow != null)
+            objectwithShow.SetActive(false);
+
         foreach (var objectWithHide in objectsWithHide)
         {
             objectWithHide.SetActive(true);

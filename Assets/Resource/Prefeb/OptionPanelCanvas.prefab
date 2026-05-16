@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ValueName: SFXVolume
-  DefaultValue: 5
+  DefaultValue: 1
 --- !u!114 &5911466251892248432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ValueName: MusicVolume
-  DefaultValue: 5
+  DefaultValue: 1
 --- !u!114 &3396476288174149226
 MonoBehaviour:
   m_ObjectHideFlags: 0
