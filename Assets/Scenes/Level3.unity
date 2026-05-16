@@ -11871,10 +11871,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 519420032}
     m_Modifications:
-    - target: {fileID: 1265785261017100955, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 62c0fc228bcb42143a98f389ab750d4e, type: 3}
     - target: {fileID: 7391664470008040472, guid: c7a16639fcaeb4e49ae09bb1ae896b5c, type: 3}
       propertyPath: m_Name
       value: backGroundB
