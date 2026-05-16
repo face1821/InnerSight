@@ -19,7 +19,7 @@ public class email : MonoBehaviour
             GameManager instance = GameManager.Instance; //拿到游戏管理器的实例
 
             //游戏结束的判断
-            if (instance.CurrentLevel >= instance.MaxLevel)
+            if (instance.CurrentLevel >= 5)
             {
                 SoundManager.Instance.Play(7, "MailBox");
                 SpriteRenderer.sprite = OpenSprite;
