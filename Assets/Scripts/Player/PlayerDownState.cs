@@ -18,6 +18,18 @@ public class PlayerDownState : PlayerState
     {
         base.Exit();
         player.transmitBallLockedUntilGrounded = false;
+
+        if (player.IsBGroundDetected())
+        {
+            if (Random.value < 0.5f)
+                SoundManager.Instance.Play(14, "Falling1_1", false, true);
+            else
+                SoundManager.Instance.Play(14, "Falling1_2", false, true);
+            }
+        else
+        {
+            SoundManager.Instance.Play(14, "Falling2", false, true);
+        }
     }
 
     public override void Update()

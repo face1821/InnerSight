@@ -16,6 +16,11 @@ public class PlayerJumpState : PlayerState
         rb.velocity = new Vector2(rb.velocity.x, player.jumpForce);
 
         player.IsAlreadyJumped = true;
+
+        if (Random.value < 0.5f)
+            SoundManager.Instance.Play(14, "Jumping2_1", false, true);
+        else
+            SoundManager.Instance.Play(14, "Jumping2_2", false, true);
     }
 
     public override void Exit()

@@ -35,6 +35,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip ButtonReturnClick; // 音轨12
     public AudioClip SiLe1; // 音轨13
     public AudioClip SiLe2; // 音轨13
+    public AudioClip Jumping2_1; // 音轨14
+    public AudioClip Jumping2_2; // 音轨14
+    public AudioClip Falling1_1; // 音轨14
+    public AudioClip Falling1_2; // 音轨14
+    public AudioClip Falling2; // 音轨14
 
 
     private int AudioSourceNum = 18;
