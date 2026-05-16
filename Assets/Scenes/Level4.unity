@@ -537,9 +537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 138892855}
-  _hideObjects:
-  - {fileID: 545830230}
-  - {fileID: 1330547489}
+  objectwithShow: {fileID: 545830230}
+  objectWithHide: {fileID: 1330547489}
 --- !u!1 &446535709
 GameObject:
   m_ObjectHideFlags: 0
