@@ -9,11 +9,12 @@ public class ChooseLevelUIFun : MonoBehaviour
 {
     public static OverlayFadeEffect SceneOverlay;
 
-
     [SerializeField] private Image blackOverlay;
     [SerializeField] private VideoPlayer vp;
     [SerializeField] private Button[] buttons;
     [SerializeField] private Sprite[] buttonFinishSprite;
+
+    private static bool _isLocked;
 
     void Awake()
     {
@@ -47,6 +48,8 @@ public class ChooseLevelUIFun : MonoBehaviour
     //进入关卡函数
     public static void EnterTheLevel(int levelNum) //参数是几就进入第几关
     {
+        if (_isLocked) return;
+
         GameManager gm = GameManager.Instance;
         if (levelNum > gm.MaxLevel)
         {
@@ -69,6 +72,8 @@ public class ChooseLevelUIFun : MonoBehaviour
                 gm.MaxtScore = 0;
             }
         }
+
+        _isLocked = true;
 
         SceneOverlay = GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>();
         SceneOverlay.PlayFadeOut();

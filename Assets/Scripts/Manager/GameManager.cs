@@ -130,11 +130,11 @@ public class GameManager : MonoBehaviour
     private IEnumerator OnEnterGameOver()
     {
         yield return new WaitForSeconds(3f);
-        
+
         GameObject.FindWithTag("SceneOverlay").GetComponent<OverlayFadeEffect>().PlayFadeIn();
     }
 
-    public IEnumerator OnChangeTipContent(TextMeshProUGUI text, string content)
+    public IEnumerator OnChangeTipContent(Image _imageToShowAWhile, TextMeshProUGUI text, string content)
     {
         DOTween.To(() => text.alpha,
             value => text.alpha = value,
@@ -147,6 +147,18 @@ public class GameManager : MonoBehaviour
         DOTween.To(() => text.alpha,
             value => text.alpha = value,
             1f, 1f);
+
+        if (_imageToShowAWhile != null)
+            DOTween.ToAlpha(() => _imageToShowAWhile.color,
+                value => _imageToShowAWhile.color = value,
+                0.5f, 2f);
+        
+        yield return new WaitForSeconds(2f);
+        
+        if (_imageToShowAWhile != null)
+            DOTween.ToAlpha(() => _imageToShowAWhile.color,
+                value => _imageToShowAWhile.color = value,
+                0f, 1f);
     }
 
     private IEnumerator OnEnterLevel()

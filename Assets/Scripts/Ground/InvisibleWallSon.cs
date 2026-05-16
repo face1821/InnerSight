@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InvisibleWallSon : MonoBehaviour
 {
     [SerializeField] private Player notMainPlayer;
+
+    [SerializeField] private Image _imageToShowAWhile;
 
     [SerializeField] private TextMeshProUGUI _tipTextToChange;
     [SerializeField, TextArea] private string _changeContent;
@@ -33,6 +36,6 @@ public class InvisibleWallSon : MonoBehaviour
         Destroy(gameObject);
 
         if (_tipTextToChange != null)
-            GameManager.Instance.StartCoroutine(GameManager.Instance.OnChangeTipContent(_tipTextToChange, _changeContent));
+            GameManager.Instance.StartCoroutine(GameManager.Instance.OnChangeTipContent(_imageToShowAWhile, _tipTextToChange, _changeContent));
     }
 }
