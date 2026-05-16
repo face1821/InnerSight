@@ -391,7 +391,7 @@ public class Player : Entity
             Destroy(activeTransmitBall.gameObject);
             activeTransmitBall = null;
             transmitBallLockedUntilGrounded = true;
-            stateMachine.ChangeState(downState);
+            //stateMachine.ChangeState(downState);
             if (ins.NowThrowState == 1)
                 SoundManager.Instance.Play(1, "Transfer_1", false);
             else if (ins.NowThrowState == 2)
