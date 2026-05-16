@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b592be44cb0e5340be2533861b5d541
+guid: f74fd3d56b8c721499f10d6bd40a1d0a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ ScriptedImporter:
       y: 1267
       width: 1007
       height: 221
-    spriteID: 1c7cd576fe4aaa54483bee0f86f93a7c
+    spriteID: fdc95958e559fc841b777ee96e492e36
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -115,27 +115,6 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: -1905, y: 1090}
     spritePosition: {x: 1909, y: 177}
-  - name: "\u56FE\u5C42 2"
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1203
-      y: 567
-      width: 544
-      height: 117
-    spriteID: 24413fe055b3c47418693dfc9e589177
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 1203, y: 567}
-    spritePosition: {x: 1989, y: 665}
   - name: StaffWriterVideo
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -144,10 +123,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 238
-      width: 1199
+      y: 4
+      width: 1450
       height: 321
-    spriteID: 46460b2c1f827c042b61f6384b651ceb
+    spriteID: 4d1ed7411c7b502408dea20292575982
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -155,7 +134,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: -1755, y: -223}
+    uvTransform: {x: 4, y: 4}
     spritePosition: {x: 1759, y: 461}
   - name: StaffSoundDesigner
     originalName: 
@@ -168,7 +147,7 @@ ScriptedImporter:
       y: 1041
       width: 1030
       height: 218
-    spriteID: a8d45ad9f55be664f85feb5e28daf536
+    spriteID: 90b50fd5b02974b49817c01531e38340
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -186,10 +165,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 333
       width: 1707
       height: 226
-    spriteID: 4006aac6725382a49a8756e2080af4e7
+    spriteID: 0a2416d7c829bd0429a53e769216c6a9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -197,7 +176,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 4, y: 333}
     spritePosition: {x: 1879, y: 1151}
   - name: StaffProgrammer
     originalName: 
@@ -210,7 +189,7 @@ ScriptedImporter:
       y: 804
       width: 1128
       height: 229
-    spriteID: 40da2b036f18c96458f5a58b565c8f68
+    spriteID: 985592baf16fd19439a45e9555bdca1b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -231,7 +210,7 @@ ScriptedImporter:
       y: 567
       width: 1191
       height: 229
-    spriteID: a208bd8e6efdb8a4d9b7d34be9a7536a
+    spriteID: 2986c09e2d8bf594c8bf76a368cb22b3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +231,7 @@ ScriptedImporter:
       y: 1496
       width: 580
       height: 370
-    spriteID: 9e1fe84da61eddd48ba637515d0efa47
+    spriteID: c872a933f944446408fde59bf8a5bdc2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -330,7 +309,7 @@ ScriptedImporter:
   characterMode: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
-  importHiddenLayers: 1
+  importHiddenLayers: 0
   layerMappingOption: 2
   generatePhysicsShape: 0
   paperDollMode: 0
@@ -350,7 +329,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 4712530abbae4e44fae98b2c7bde8550
+    spriteID: 23fcde5643cf2fd46a7cf0463ad3231c
     layerID: 11
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -360,19 +339,9 @@ ScriptedImporter:
     spriteName: StaffPM
     isGroup: 0
     parentIndex: 0
-    spriteID: 1c7cd576fe4aaa54483bee0f86f93a7c
+    spriteID: fdc95958e559fc841b777ee96e492e36
     layerID: 10
     mosaicPosition: {x: 4, y: 1267}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: "\u56FE\u5C42 2"
-    spriteName: "\u56FE\u5C42 2"
-    isGroup: 0
-    parentIndex: 0
-    spriteID: 24413fe055b3c47418693dfc9e589177
-    layerID: 15
-    mosaicPosition: {x: 1203, y: 567}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -380,9 +349,9 @@ ScriptedImporter:
     spriteName: StaffWriterVideo
     isGroup: 0
     parentIndex: 0
-    spriteID: 46460b2c1f827c042b61f6384b651ceb
+    spriteID: 4d1ed7411c7b502408dea20292575982
     layerID: 9
-    mosaicPosition: {x: 4, y: 238}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -390,7 +359,7 @@ ScriptedImporter:
     spriteName: StaffSoundDesigner
     isGroup: 0
     parentIndex: 0
-    spriteID: a8d45ad9f55be664f85feb5e28daf536
+    spriteID: 90b50fd5b02974b49817c01531e38340
     layerID: 8
     mosaicPosition: {x: 4, y: 1041}
     flatten: 0
@@ -400,9 +369,9 @@ ScriptedImporter:
     spriteName: StaffDesignerArtisit
     isGroup: 0
     parentIndex: 0
-    spriteID: 4006aac6725382a49a8756e2080af4e7
+    spriteID: 0a2416d7c829bd0429a53e769216c6a9
     layerID: 7
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 4, y: 333}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -410,7 +379,7 @@ ScriptedImporter:
     spriteName: StaffProgrammer
     isGroup: 0
     parentIndex: 0
-    spriteID: 40da2b036f18c96458f5a58b565c8f68
+    spriteID: 985592baf16fd19439a45e9555bdca1b
     layerID: 6
     mosaicPosition: {x: 4, y: 804}
     flatten: 0
@@ -420,7 +389,7 @@ ScriptedImporter:
     spriteName: StaffGameDesigner
     isGroup: 0
     parentIndex: 0
-    spriteID: a208bd8e6efdb8a4d9b7d34be9a7536a
+    spriteID: 2986c09e2d8bf594c8bf76a368cb22b3
     layerID: 5
     mosaicPosition: {x: 4, y: 567}
     flatten: 0
@@ -430,7 +399,7 @@ ScriptedImporter:
     spriteName: StaffTeamName
     isGroup: 0
     parentIndex: -1
-    spriteID: 9e1fe84da61eddd48ba637515d0efa47
+    spriteID: c872a933f944446408fde59bf8a5bdc2
     layerID: 3
     mosaicPosition: {x: 4, y: 1496}
     flatten: 0
@@ -439,9 +408,9 @@ ScriptedImporter:
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639143953383870771
+  platformSettingsDirtyTick: 639145226538347135
   spriteSizeExpandChanged: 0
-  generateGOHierarchy: 1
+  generateGOHierarchy: 0
   textureAssetName: 
   prefabAssetName: 
   spriteLibAssetName: 
