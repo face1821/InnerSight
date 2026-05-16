@@ -9744,6 +9744,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 982084000511510078, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1330547494}
+    - target: {fileID: 982084000511510078, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExittGame
+      objectReference: {fileID: 0}
     - target: {fileID: 2261608255479209052, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
       propertyPath: m_Name
       value: PausePanel
@@ -9751,6 +9759,34 @@ PrefabInstance:
     - target: {fileID: 2261608255479209052, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762228390732577500, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295084737}
+    - target: {fileID: 2762228390732577500, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762228390732577500, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MaskController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3538202638577227356, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295084735}
+    - target: {fileID: 3538202638577227356, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 7485191490794983428, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295084735}
+    - target: {fileID: 7485191490794983428, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartCurrentLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
