@@ -53,8 +53,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         GameManager.Instance.CantThrow = true;
     }
-
-
+    
     //重新开始逻辑
     public void RestartCurrentLevel()
     {

@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Tool\SetMusicVolume.cs" />
     <Compile Include="Assets\Scripts\Ground\WaypointFollower.cs" />
     <Compile Include="Assets\Scripts\Tool\CallButtonAduio.cs" />
+    <Compile Include="Assets\Scripts\TekuuNew\MaskController.cs" />
     <Compile Include="Assets\Scripts\Ground\Sticky.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Tool\SetSFXVolume.cs" />
@@ -79,7 +80,6 @@
     <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
     <Compile Include="Assets\Scripts\TekuuNew\UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStateMachine.cs" />
-    <Compile Include="Assets\Scripts\TekuuNew\maskController.cs" />
     <Compile Include="Assets\Scripts\UI\UIFun.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuUIFun.cs" />
     <Compile Include="Assets\Scripts\Trigger\Spike.cs" />

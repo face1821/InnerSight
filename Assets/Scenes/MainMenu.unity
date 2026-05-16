@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 1556181166}
+  _hideObjects: []
 --- !u!114 &79949178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -531,6 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 664798893}
+  _hideObjects: []
 --- !u!1 &156155447
 GameObject:
   m_ObjectHideFlags: 0
