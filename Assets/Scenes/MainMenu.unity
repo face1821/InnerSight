@@ -519,7 +519,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 1556181166}
-  _hideObjects: []
+  objectwithShow: {fileID: 0}
+  objectsWithHide: []
 --- !u!114 &79949178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 664798893}
-  _hideObjects: []
+  objectwithShow: {fileID: 0}
+  objectsWithHide: []
 --- !u!1 &156155447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1365,7 @@ GameObject:
   - component: {fileID: 504225372}
   - component: {fileID: 504225373}
   - component: {fileID: 504225374}
+  - component: {fileID: 504225375}
   m_Layer: 5
   m_Name: Slider(1)
   m_TagString: Untagged
@@ -1443,9 +1446,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1510880578}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: SetMusicVolume
+      - m_Target: {fileID: 504225375}
+        m_TargetAssemblyTypeName: SetMusicVolume, Assembly-CSharp
+        m_MethodName: SetVolume
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 504225373}
@@ -1469,6 +1472,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ValueName: MusicVolume
   DefaultValue: 1
+--- !u!114 &504225375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504225371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f856da7c61cd40259e820e6556b7b79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506592903
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,6 +2193,7 @@ GameObject:
   - component: {fileID: 784496536}
   - component: {fileID: 784496537}
   - component: {fileID: 784496538}
+  - component: {fileID: 784496539}
   m_Layer: 5
   m_Name: 'Slider(2) '
   m_TagString: Untagged
@@ -2258,9 +2274,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1510880578}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: SetSFXVolume
+      - m_Target: {fileID: 784496539}
+        m_TargetAssemblyTypeName: SetSFXVolume, Assembly-CSharp
+        m_MethodName: SetVolume
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 784496537}
@@ -2284,6 +2300,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ValueName: SFXVolume
   DefaultValue: 1
+--- !u!114 &784496539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784496535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d0c755018b46a49ab92a538e7369c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &786382353
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,17 +3613,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487790083}
   m_CullTransparentMesh: 1
---- !u!114 &1510880578 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3879064247240086990, guid: 0da93c2b160d5254da23803ab268e542, type: 3}
-  m_PrefabInstance: {fileID: 699975987699490758}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0a43bf014fa6684984961606f69c1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1556181166
 GameObject:
   m_ObjectHideFlags: 0

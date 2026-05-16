@@ -640,9 +640,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 1555748295}
-  _hideObjects:
+  objectwithShow: {fileID: 1857155762}
+  objectsWithHide:
+  - {fileID: 19997757}
   - {fileID: 1330547489}
-  - {fileID: 1857155762}
 --- !u!1001 &336091587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10481,6 +10482,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1857155763}
+    - target: {fileID: 5810290361968170247, guid: 56e760446586d7d44aeff3bf6ae5ad17, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810290361968170247, guid: 56e760446586d7d44aeff3bf6ae5ad17, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 295084737}
+    - target: {fileID: 5810290361968170247, guid: 56e760446586d7d44aeff3bf6ae5ad17, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideMask
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810290361968170247, guid: 56e760446586d7d44aeff3bf6ae5ad17, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MaskController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7733013293890148216, guid: 56e760446586d7d44aeff3bf6ae5ad17, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11438,7 +11455,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1857155766}
   - component: {fileID: 1857155763}
-  - component: {fileID: 1857155765}
   - component: {fileID: 1857155764}
   m_Layer: 0
   m_Name: OptionPanelCamera
@@ -11542,14 +11558,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &1857155765
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1857155762}
-  m_Enabled: 1
 --- !u!4 &1857155766
 Transform:
   m_ObjectHideFlags: 0

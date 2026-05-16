@@ -5,16 +5,20 @@ using UnityEngine;
 public class MaskController : MonoBehaviour
 {
     [SerializeField] private GameObject settingPanel; // 蒙版 Panel 对象
-    [SerializeField] private List<GameObject> _hideObjects;
+    [SerializeField] private GameObject objectwithShow;
+    [SerializeField] private List<GameObject> objectsWithHide;
 
     // 显示蒙版
     public void ShowMask()
     {
         settingPanel.SetActive(true);
 
-        foreach (GameObject obj in _hideObjects)
+        if (objectwithShow != null)
+            objectwithShow.SetActive(true);
+
+        foreach (var objectWithHide in objectsWithHide)
         {
-            obj.SetActive(false);
+            objectWithHide.SetActive(false);
         }
     }
 
@@ -23,9 +27,12 @@ public class MaskController : MonoBehaviour
     {
         settingPanel.SetActive(false);
 
-        foreach (GameObject obj in _hideObjects)
+        if (objectwithShow != null)
+            objectwithShow.SetActive(false);
+
+        foreach (var objectWithHide in objectsWithHide)
         {
-            obj.SetActive(true);
+            objectWithHide.SetActive(true);
         }
     }
 }
