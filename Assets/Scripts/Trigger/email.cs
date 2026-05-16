@@ -21,10 +21,10 @@ public class email : MonoBehaviour
             //游戏结束的判断
             if (instance.CurrentLevel >= instance.MaxLevel)
             {
-                StartCoroutine(nameof(OnClose));
-
-                SoundManager.Instance.Play(0, "BGM_0", true, true);
-                SceneManager.LoadScene("GameOver");
+                SoundManager.Instance.Play(7, "MailBox");
+                SpriteRenderer.sprite = OpenSprite;
+                
+                StartCoroutine(nameof(OnGameOver));
 
                 return;
             }
@@ -54,5 +54,15 @@ public class email : MonoBehaviour
         SpriteRenderer.sprite = CloseSprite;
 
         ChooseLevelUIFun.EnterTheLevel(GameManager.Instance.CurrentLevel + 1); //切换场景
+    }
+    
+    private IEnumerator OnGameOver()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SpriteRenderer.sprite = CloseSprite;
+        
+        SoundManager.Instance.Play(0, "BGM_1", true, true);
+        SceneManager.LoadScene("GameOver");
     }
 }
