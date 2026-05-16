@@ -8631,10 +8631,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8772891546128789, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -90.63185
-      objectReference: {fileID: 0}
     - target: {fileID: 730046159054191908, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -8715,10 +8711,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 982084000511510078, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1330547494}
     - target: {fileID: 2261608255479209052, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
       propertyPath: m_Name
       value: PausePanel
@@ -8726,54 +8718,6 @@ PrefabInstance:
     - target: {fileID: 2261608255479209052, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2762228390732577500, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 295084737}
-    - target: {fileID: 3538202638577227356, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 295084735}
-    - target: {fileID: 3538202638577227356, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3538202638577227356, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3538202638577227356, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4349361512464223948, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -6.9024
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495563391064288343, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 40.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302565529623977683, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 89.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6428484882922662356, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -49.042812
-      objectReference: {fileID: 0}
-    - target: {fileID: 7133429551636302414, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 23.6198
-      objectReference: {fileID: 0}
-    - target: {fileID: 7485191490794983428, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 295084735}
-    - target: {fileID: 9107969238507382746, guid: b2271a04bf99ba441857154df1991bd1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -14.9978
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
