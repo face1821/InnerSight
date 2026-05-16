@@ -110,12 +110,12 @@ public class GameManager : MonoBehaviour
             //播放BGM
             if (levelName.EndsWith("1") || levelName.EndsWith("2"))
             {
-                SoundManager.Instance.Play(0, "BGM_2", false, true);
+                SoundManager.Instance.Play(0, "BGM_3", false, true);
                 SoundManager.Instance.SetLoop(0, 15f);
             }
             else
             {
-                SoundManager.Instance.Play(0, "BGM_3", false, true);
+                SoundManager.Instance.Play(0, "BGM_2", false, true);
                 SoundManager.Instance.SetLoop(0, 15f);
             }
 
