@@ -714,7 +714,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 138892855}
   objectwithShow: {fileID: 1255578877}
-  objectWithHide: {fileID: 1330547489}
+  objectsWithHide:
+  - {fileID: 1512254558}
+  - {fileID: 1330547489}
 --- !u!1001 &429917719
 PrefabInstance:
   m_ObjectHideFlags: 0
