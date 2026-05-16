@@ -82,9 +82,9 @@ public class Entity : MonoBehaviour
     //检测地面
     public virtual bool IsGroundDetected()
     {
-        bool isA = Physics2D.Raycast(groundCheck.position, Vector2.down * 1.5f, groundCheckDistance, whatIsAGround);
-        bool isB = Physics2D.Raycast(groundCheck.position, Vector2.down * 1.5f, groundCheckDistance, whatIsBGround);
-        bool isC = Physics2D.Raycast(groundCheck.position, Vector2.down * 1.5f, groundCheckDistance, whatIsCGround);
+        bool isA = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsAGround);
+        bool isB = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsBGround);
+        bool isC = Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsCGround);
 
         return isA || isB || isC;
     }
