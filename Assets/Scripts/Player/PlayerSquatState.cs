@@ -37,10 +37,12 @@ public class PlayerSquatState : PlayerGroundedState
             {
                 //如果玩家是A玩家并且B玩家的WallDown检测到了墙壁
                 player.SetVelocity(0, rb.velocity.y);
+                player.mainPlayer.SetVelocity(0, player.mainPlayer.rb.velocity.y);
             }
             else
             {
                 player.SetVelocity(xInput * player.moveSpeed * 0.7f, rb.velocity.y);
+                player.mainPlayer.SetVelocity(xInput * player.mainPlayer.moveSpeed * 0.7f, rb.velocity.y);
                 if (!player.isPlaySilentWalk)
                 {
                     SoundManager.Instance.Play(2, "SilentWalk_Fast", true);

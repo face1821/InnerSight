@@ -6,11 +6,8 @@ public class PlayerMoveState : PlayerGroundedState
 {
     private const int MovingSoundChannel = 15;
     private string _currentMovingClipName;
-    
-    public PlayerMoveState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
-    {
 
-    }
+    public PlayerMoveState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName) { }
 
     public override void Enter()
     {
@@ -37,10 +34,10 @@ public class PlayerMoveState : PlayerGroundedState
     {
         base.Update();
         //设置速度，实现移动效果
-        player.SetVelocity(xInput * player.moveSpeed , rb.velocity.y);
+        player.SetVelocity(xInput * (player.mainPlayer.stateMachine.currentState == player.mainPlayer.downState ? 0.8f : 1f) * player.moveSpeed, rb.velocity.y);
         if (xInput == 0)
             stateMachine.ChangeState(player.idleState);
-        if(player.isMain == false && player.mainPlayer.IsWallDetected())
+        if (player.isMain == false && player.mainPlayer.IsWallDetected())
             player.SetVelocity(0, rb.velocity.y);
     }
 }
