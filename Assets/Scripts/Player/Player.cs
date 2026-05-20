@@ -219,13 +219,41 @@ public class Player : Entity
         if (aimArrowRenderers == null || aimArrowRenderers.Length < 4)
             return;
 
-        if (Input.GetMouseButtonUp(0))
+        TeleportAimDirection dir = TeleportAimDirection.None;
+
+        if ((Input.GetMouseButtonUp(0)
+             || Input.GetKeyUp(KeyCode.DownArrow)
+             || Input.GetKeyUp(KeyCode.UpArrow)
+             || Input.GetKeyUp(KeyCode.LeftArrow)
+             || Input.GetKeyUp(KeyCode.RightArrow))
+            && !(Input.GetKey(KeyCode.DownArrow)
+                 || Input.GetKey(KeyCode.UpArrow)
+                 || Input.GetKey(KeyCode.LeftArrow)
+                 || Input.GetKey(KeyCode.RightArrow)))
         {
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+                dir = TeleportAimDirection.Up;
+            else if (Input.GetKeyUp(KeyCode.DownArrow))
+                dir = TeleportAimDirection.Down;
+            else if (Input.GetKeyUp(KeyCode.LeftArrow))
+                dir = TeleportAimDirection.Left;
+            else if (Input.GetKeyUp(KeyCode.RightArrow))
+                dir = TeleportAimDirection.Right;
+
+            if (dir != TeleportAimDirection.None)
+                lastAimWhileHolding = dir;
+
+            mainPlayer.CurrentAimDirection = lastAimWhileHolding;
+
             TrySpawnTransmitBallOnMouseUp();
             lastAimWhileHolding = TeleportAimDirection.None;
         }
 
-        if (!Input.GetMouseButton(0))
+        if (!Input.GetMouseButton(0)
+            && !Input.GetKey(KeyCode.DownArrow)
+            && !Input.GetKey(KeyCode.UpArrow)
+            && !Input.GetKey(KeyCode.LeftArrow)
+            && !Input.GetKey(KeyCode.RightArrow))
         {
             SetTeleportAimArrowsVisible(false);
             CurrentAimDirection = TeleportAimDirection.None;
@@ -239,7 +267,12 @@ public class Player : Entity
         }
 
         // 上面 !GetMouseButton(0) 已 return 掉「没按住」的情况
-        if (Input.GetMouseButtonDown(0) && stateMachine.currentState == squatState && activeTransmitBall == null)
+        if ((Input.GetMouseButtonDown(0)
+             || Input.GetKeyDown(KeyCode.DownArrow)
+             || Input.GetKeyDown(KeyCode.UpArrow)
+             || Input.GetKeyDown(KeyCode.LeftArrow)
+             || Input.GetKeyDown(KeyCode.RightArrow))
+            && stateMachine.currentState == squatState && activeTransmitBall == null)
         {
             SoundManager.Instance.Play(1, "BuildUp", false);
         }
@@ -261,19 +294,36 @@ public class Player : Entity
         GameManager ins = GameManager.Instance;
         Vector2 xxx = ins.AllWorldCenter[ins.CurrentLevel - 1][ins.CurrentSamllLevel - 1];
         Vector2 delta = (Vector2)mouse - xxx;
-        Debug.Log("xxxbbb" + xxx);
         // Vector2 delta = (Vector2)mouse - ins.WorldCenter1[ins.currentSamllLevel - 1];
 
-        TeleportAimDirection dir;
-        float ax = Mathf.Abs(delta.x);
-        float ay = Mathf.Abs(delta.y);
-        if (ay >= ax)
-            dir = delta.y > 0f ? TeleportAimDirection.Up : TeleportAimDirection.Down;
-        else
-            dir = delta.x > 0f ? TeleportAimDirection.Right : TeleportAimDirection.Left;
+        if (Input.GetKey(KeyCode.UpArrow))
+            dir = TeleportAimDirection.Up;
+        else if (Input.GetKey(KeyCode.DownArrow))
+            dir = TeleportAimDirection.Down;
+        else if (Input.GetKey(KeyCode.LeftArrow))
+            dir = TeleportAimDirection.Left;
+        else if (Input.GetKey(KeyCode.RightArrow))
+            dir = TeleportAimDirection.Right;
 
-        CurrentAimDirection = dir;
-        lastAimWhileHolding = dir;
+        if (dir != TeleportAimDirection.None)
+        {
+            CurrentAimDirection = dir;
+            lastAimWhileHolding = dir;
+        }
+
+        if (dir == TeleportAimDirection.None)
+        {
+            float ax = Mathf.Abs(delta.x);
+            float ay = Mathf.Abs(delta.y);
+            if (ay >= ax)
+                dir = delta.y > 0f ? TeleportAimDirection.Up : TeleportAimDirection.Down;
+            else
+                dir = delta.x > 0f ? TeleportAimDirection.Right : TeleportAimDirection.Left;
+
+            CurrentAimDirection = dir;
+            lastAimWhileHolding = dir;
+        }
+
         SetTeleportAimArrowsVisible(true);
 
         for (int i = 0; i < 4; i++)
@@ -376,7 +426,11 @@ public class Player : Entity
         if (activeTransmitBall == null)
             return;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift)
+            || Input.GetKeyDown(KeyCode.UpArrow)
+            || Input.GetKeyDown(KeyCode.DownArrow)
+            || Input.GetKeyDown(KeyCode.LeftArrow)
+            || Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (isBallInGround)
                 return;
@@ -400,7 +454,9 @@ public class Player : Entity
             return;
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1)
+            || Input.GetKeyDown(KeyCode.R)
+            || Input.GetKeyDown(KeyCode.LeftControl))
         {
             Destroy(activeTransmitBall.gameObject);
             GameManager.Instance.NowThrowState = 0;

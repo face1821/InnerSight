@@ -30,7 +30,7 @@ public class PlayerGroundedState : PlayerState
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && player.isMain)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W)) && player.isMain)
         {
             //DebugInfo.text += $"{player.gameObject.name}: ";
 
