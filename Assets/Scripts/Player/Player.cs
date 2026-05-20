@@ -218,6 +218,8 @@ public class Player : Entity
             return;
         if (aimArrowRenderers == null || aimArrowRenderers.Length < 4)
             return;
+        if (mainPlayer.stateMachine.currentState == mainPlayer.jumpState || mainPlayer.stateMachine.currentState == mainPlayer.downState)
+            return;
 
         TeleportAimDirection dir = TeleportAimDirection.None;
 
