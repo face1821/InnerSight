@@ -51,7 +51,7 @@ public class PlayerGroundedState : PlayerState
             return;
         }
 
-        if (yInput < 0 && stateMachine.currentState != player.squatState)
+        if (yInput < 0 && stateMachine.currentState != player.squatState && player.mainPlayer.stateMachine.currentState != player.downState)
         {
             stateMachine.ChangeState(player.squatState);
         }
